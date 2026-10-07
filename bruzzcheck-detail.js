@@ -1544,7 +1544,9 @@
 
         root.style.setProperty("--pd-status-color", conf.color);
         root.style.setProperty("--pd-status-bg", conf.bg);
-        const onColor = onColorFor(conf.color);
+        /* white text on the teal "Gelukt" header; other statuses pick black or white by contrast */
+        const WHITE_TEXT_ON = ["GELUKT"];
+        const onColor = WHITE_TEXT_ON.includes(status) ? "#FFFFFF" : onColorFor(conf.color);
         root.style.setProperty("--pd-on-status", onColor);
 
         const promiseTitle = getField(promise, PROMISE_FIELDS.title);
