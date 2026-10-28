@@ -2494,7 +2494,7 @@
           if (POLL_SHOW_RESULTS && card) {
             card.outerHTML = pollMarkupFor(key, "fresh");
             const done = root.querySelector(".pd-poll-done");
-            if (done) loadPollResults(done, key, [2500, 6000, 12000]);   // the webhook needs a moment to count the new vote
+            if (done) loadPollResults(done, key, [1500, 2500, 4000, 6000, 8000, 10000, 15000]);   // the webhook needs a moment to count the new vote
           }
         }
       });
@@ -2525,7 +2525,7 @@
           }).join("");
           return `<div class="pd-pr-q"><p class="pd-pr-title">${escapeHtml(question.label)}</p>${rows}</div>`;
         }).join("");
-        return blocks ? `<div class="pd-pr">${blocks}<p class="pd-pr-note">${result.votes} stemmen · geen representatieve peiling</p></div>` : "";
+        return blocks ? `<div class="pd-pr">${blocks}<p class="pd-pr-note">${result.votes} ${result.votes === 1 ? "stem" : "stemmen"} (geen representatieve peiling)</p></div>` : "";
       }
 
       async function loadPollResults(card, key, delays) {
@@ -2668,7 +2668,7 @@
           if (POLL_TALLY_ID && POLL_SHOW_RESULTS) {
             const done = root.querySelector(".pd-poll-done");
             const doneKey = done && done.querySelector("[data-poll-reset]");
-            if (doneKey) loadPollResults(done, doneKey.getAttribute("data-poll-reset"), []);
+            if (doneKey) loadPollResults(done, doneKey.getAttribute("data-poll-reset"), [2500, 6000]);
           }
           syncBodyTypography();
           setupCarousel();
