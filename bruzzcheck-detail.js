@@ -2,7 +2,7 @@
   BRUZZ Check - detail page (one shared file for all promise pages)
   Per page you only need this:
     <div class="bruzz-promise-detail" data-slug="PROMISE-KEY" data-timeline="#test"></div>
-    <script src="https://YOUR-ADDRESS/bruzzcheck-detail.js"></script>
+    (script tag)
   data-slug      the "Promise key" of the promise in Baserow (or its row id)
   data-timeline  (optional) selector of the CMS article list that becomes the timeline
   data-overview  (optional) address of the overview page, for the back button
@@ -27,10 +27,30 @@
   MOUNT.id = "promise-detail-embed";
   var style = document.createElement("style");
   style.setAttribute("data-bruzzcheck", "");
-  style.textContent = "    /* =====================================================================\n       BRUZZ Check - detail page (Zacht)\n       Same look as the overview: soft pink page, white rounded cards,\n       status colours on the titles, thin red focus outlines.\n       ===================================================================== */\n\n    /* ---------- tokens + reset ---------- */\n    #promise-detail-embed {\n      --pd-red: #ff0033;\n      --pd-pink: #FA79D7;\n      --pd-ink: #17171c;\n      --pd-text: #17171c;\n      --pd-muted: #6b6b75;\n      --pd-bg: #fff9fb;\n      --pd-tint: #FFE9EE;\n      --pd-field: #FFF2F5;\n      --pd-line: #FFE0E6;\n      --pd-line-strong: #FFE0E6;\n      --pd-radius: 22px;\n      --pd-shadow: 0 1px 2px rgba(60, 10, 25, .035), 0 14px 30px -24px rgba(255, 0, 51, .16);\n      --pd-ease: cubic-bezier(.2, .8, .2, 1);\n      --pd-status-color: #80E4DF;\n      --pd-status-bg: #eaf7fc;\n      --pd-title-color: #ff0033;\n\n      position: relative;\n      width: 100%;\n      max-width: 100%;\n      overflow-x: clip;\n      color: var(--pd-ink);\n      font: inherit;\n      line-height: 1.45;\n      -webkit-text-size-adjust: 100%;\n    }\n\n    #promise-detail-embed *,\n    #promise-detail-embed *::before,\n    #promise-detail-embed *::after { box-sizing: border-box; }\n\n    #promise-detail-embed [hidden] { display: none !important; }\n\n    #promise-detail-embed h1,\n    #promise-detail-embed h2,\n    #promise-detail-embed h3,\n    #promise-detail-embed p { margin: 0; }\n\n    #promise-detail-embed a { color: inherit; text-decoration: none; }\n\n    #promise-detail-embed button,\n    #promise-detail-embed input,\n    #promise-detail-embed select {\n      font: inherit;\n      color: inherit;\n      letter-spacing: inherit;\n    }\n\n    #promise-detail-embed button {\n      appearance: none;\n      -webkit-appearance: none;\n      margin: 0;\n      cursor: pointer;\n      text-align: inherit;\n    }\n\n    #promise-detail-embed button:focus-visible,\n    #promise-detail-embed a:focus-visible {\n      outline: 1.5px solid var(--pd-red);\n      outline-offset: 3px;\n    }\n\n    #promise-detail-embed strong { color: var(--pd-ink); font-weight: 800; }\n\n    /* ---------- icons ---------- */\n    #promise-detail-embed .pd-icon {\n      display: inline-block;\n      flex: none;\n      width: 1.25em;\n      height: 1.25em;\n      font-size: 20px;\n    }\n\n    #promise-detail-embed .pd-sym {\n      position: relative;\n      display: inline-block;\n      flex: none;\n      width: var(--sym, 20px);\n      height: var(--sym, 20px);\n    }\n\n    #promise-detail-embed .pd-sym-fallback {\n      position: absolute;\n      inset: 0;\n      display: grid;\n      place-items: center;\n      border-radius: 50%;\n      background: var(--pd-sym-color, var(--pd-status-color));\n      color: #fff;\n      font-size: calc(var(--sym, 20px) * .56);\n      font-weight: 800;\n      line-height: 1;\n    }\n\n    #promise-detail-embed .pd-sym-img {\n      position: absolute;\n      inset: 0;\n      width: 100%;\n      height: 100%;\n      object-fit: contain;\n      display: block;\n    }\n\n    /* ---------- page ---------- */\n    #promise-detail-embed .pd-app {\n      width: 100%;\n      margin: 0;\n      /* the pink fills the whole embed; the content keeps a maximum width and stays centred */\n      padding: 26px max(clamp(20px, 4vw, 52px), calc((100% - 1146px) / 2)) 56px;\n      background: var(--pd-bg);\n    }\n\n    #promise-detail-embed .pd-back {\n      display: inline-flex;\n      align-items: center;\n      gap: 10px;\n      margin: 0 0 24px;\n      padding: 13px 24px 13px 16px;\n      border-radius: 999px;\n      background: var(--pd-red);\n      box-shadow: 0 12px 24px -14px rgba(255, 0, 51, .7);\n      color: #fff;\n      font-size: 16px;\n      font-weight: 800;\n      line-height: 1.1;\n      text-decoration: none;\n      transition: background-color .2s var(--pd-ease);\n    }\n\n    #promise-detail-embed .pd-back::before {\n      content: \"\";\n      width: 20px;\n      height: 20px;\n      background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16 10H4.5M9.5 4.5 4 10l5.5 5.5' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat;\n    }\n\n    #promise-detail-embed .pd-back:hover { background: #e6002f; }\n\n    #promise-detail-embed .pd-shell {\n      display: grid;\n      gap: 48px;\n      max-width: 100%;\n      min-width: 0;\n    }\n\n    /* ---------- hero ---------- */\n    #promise-detail-embed .pd-hero {\n      display: grid;\n      grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);\n      gap: 24px;\n      align-items: stretch;\n      min-width: 0;\n    }\n\n    #promise-detail-embed .pd-promise-panel,\n    #promise-detail-embed .pd-verdict-card {\n      min-width: 0;\n      border-radius: var(--pd-radius);\n      background: #fff;\n      box-shadow: var(--pd-shadow);\n    }\n\n    #promise-detail-embed .pd-promise-panel {\n      position: relative;\n      display: flex;\n      align-items: stretch;\n      min-height: 480px;\n      overflow: hidden;\n      isolation: isolate;\n      background: #07080c;\n      color: #fff;\n    }\n\n    /* the hero image fills the top of the card, like the cards in the overview */\n    #promise-detail-embed .pd-promise-panel::before {\n      content: \"\";\n      position: absolute;\n      inset: 0;\n      z-index: -2;\n      background-image:\n        linear-gradient(90deg, rgba(5, 6, 10, .95) 0%, rgba(5, 6, 10, .84) 32%, rgba(5, 6, 10, .48) 64%, rgba(5, 6, 10, .16) 100%),\n        var(--pd-hero-image, linear-gradient(90deg, #08090d, #24242a));\n      background-size: cover;\n      background-position: var(--pd-image-focus, center center);\n      filter: saturate(.96) contrast(1.04);\n    }\n\n    #promise-detail-embed .pd-promise-panel::after {\n      content: \"\";\n      position: absolute;\n      inset: 0;\n      z-index: -1;\n      pointer-events: none;\n      background:\n        radial-gradient(circle at 18% 26%, rgba(255, 255, 255, .08), transparent 26%),\n        linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .34));\n    }\n\n    #promise-detail-embed .pd-promise-panel::after {\n      content: \"\";\n      position: absolute;\n      inset: 0;\n      z-index: -1;\n      pointer-events: none;\n      background: linear-gradient(180deg, rgba(0, 0, 0, .05) 0%, rgba(0, 0, 0, .45) 100%);\n    }\n\n    #promise-detail-embed .pd-hero-emoji {\n      position: absolute;\n      top: 36px;\n      right: 8%;\n      font-size: 96px;\n      line-height: 1;\n      filter: drop-shadow(0 6px 20px rgba(0, 0, 0, .4));\n    }\n\n    #promise-detail-embed .pd-promise-content {\n      display: flex;\n      flex-direction: column;\n      gap: 14px;\n      width: 100%;\n      min-height: 100%;\n      padding: clamp(26px, 3.1vw, 38px);\n    }\n\n    #promise-detail-embed .pd-eyebrow,\n    #promise-detail-embed .pd-kicker {\n      display: inline-flex;\n      align-items: center;\n      align-self: flex-start;\n      gap: 6px;\n      margin: 0;\n      padding: 7px 11px 6px;\n      border: 1px solid rgba(255, 255, 255, .24);\n      border-radius: 999px;\n      background: var(--pd-red);\n      color: #fff;\n      font-size: 11px;\n      font-weight: 900;\n      line-height: 1;\n      letter-spacing: .055em;\n      text-transform: uppercase;\n      white-space: nowrap;\n    }\n\n    #promise-detail-embed .pd-eyebrow .pd-icon,\n    #promise-detail-embed .pd-kicker .pd-icon { color: #fff; font-size: 15px; }\n\n    #promise-detail-embed .pd-title {\n      max-width: 13.5ch;\n      margin: 12px 0 0;\n      color: #fff;\n      font-size: clamp(38px, 4.3vw, 60px);\n      line-height: .96;\n      font-weight: 950;\n      letter-spacing: -.055em;\n      text-wrap: balance;\n      text-shadow: 0 2px 18px rgba(0, 0, 0, .32);\n    }\n\n    #promise-detail-embed .pd-title.pd-title-long {\n      max-width: 15.5ch;\n      font-size: clamp(32px, 3.45vw, 51px);\n      line-height: 1;\n    }\n\n    #promise-detail-embed .pd-hero-details {\n      display: grid;\n      grid-template-columns: repeat(2, minmax(0, 1fr));\n      align-items: start;\n      gap: 18px;\n      max-width: 720px;\n      margin-top: auto;\n      padding-top: 22px;\n      border-top: 1px solid rgba(255, 255, 255, .22);\n    }\n\n    #promise-detail-embed .pd-hero-detail {\n      display: grid;\n      grid-template-columns: auto minmax(0, 1fr);\n      align-items: start;\n      gap: 12px;\n      min-width: 0;\n    }\n\n    #promise-detail-embed .pd-hero-detail .pd-icon {\n      display: block;\n      box-sizing: content-box;\n      width: 18px;\n      height: 18px;\n      padding: 7px;\n      border: 1px solid rgba(255, 255, 255, .44);\n      border-radius: 50%;\n      background: rgba(0, 0, 0, .12);\n      color: #fff;\n      font-size: 18px;\n    }\n\n    /* several ministers: a list, each with their own photo */\n    #promise-detail-embed .pd-hero-detail-list { grid-template-columns: minmax(0, 1fr); }\n    #promise-detail-embed .pd-hero-detail-list .pd-hero-detail-label { margin-bottom: 8px; }\n    #promise-detail-embed .pd-minister-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }\n    #promise-detail-embed .pd-minister-row { display: flex; align-items: center; gap: 12px; margin: 0; padding: 0; }\n\n    #promise-detail-embed .pd-hero-avatar {\n      display: block;\n      box-sizing: border-box;\n      width: 34px;\n      height: 34px;\n      border: 1px solid rgba(255, 255, 255, .44);\n      border-radius: 50%;\n      object-fit: cover;\n      background: #000;\n      filter: grayscale(100%) contrast(1.04);\n    }\n\n\n    #promise-detail-embed .pd-hero-detail-label {\n      display: block;\n      margin-bottom: 3px;\n      color: rgba(255, 255, 255, .68);\n      font-size: 11px;\n      line-height: 1.15;\n      font-weight: 900;\n      letter-spacing: .06em;\n      text-transform: uppercase;\n    }\n\n    #promise-detail-embed .pd-hero-detail-value {\n      color: #fff;\n      font-size: 12px;\n      line-height: 1.35;\n      font-weight: 800;\n    }\n\n    #promise-detail-embed .pd-hero-detail-value a {\n      color: #fff;\n      font-weight: 850;\n      text-decoration: underline;\n      text-decoration-color: rgba(255, 255, 255, .58);\n      text-decoration-thickness: 1px;\n      text-underline-offset: 3px;\n    }\n\n    #promise-detail-embed .pd-hero-detail-value a:hover { color: #fff; text-decoration-color: #fff; }\n\n    /* ---------- verdict ---------- */\n    #promise-detail-embed .pd-verdict-card {\n      display: grid;\n      grid-template-rows: auto 1fr;\n      overflow: hidden;\n      background: #fff;\n    }\n\n    #promise-detail-embed .pd-verdict-card strong { color: inherit; }\n\n    #promise-detail-embed .pd-verdict-head {\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      gap: 16px;\n      padding: 20px 26px;\n      background: var(--pd-status-color);\n      color: var(--pd-on-status, var(--pd-ink));\n    }\n\n    #promise-detail-embed .pd-verdict-title {\n      margin: 0;\n      color: inherit;\n      font-size: 22px;\n      line-height: 1.1;\n      font-weight: 800;\n      letter-spacing: -.02em;\n    }\n\n    #promise-detail-embed .pd-status-pill,\n    #promise-detail-embed .pd-update-status-pill {\n      --sym: 20px;\n      display: inline-flex;\n      align-items: center;\n      flex: 0 0 auto;\n      gap: 7px;\n      padding: 5px 13px 5px 6px;\n      border-radius: 999px;\n      background: #fff;\n      box-shadow: 0 1px 6px rgba(0, 0, 0, .08);\n      color: var(--pd-ink);\n      font-size: 13px;\n      font-weight: 700;\n      line-height: 1.2;\n      white-space: nowrap;\n    }\n\n    #promise-detail-embed .pd-verdict-body {\n      display: grid;\n      align-content: start;\n      gap: 16px;\n      padding: 22px 26px 24px;\n    }\n\n    #promise-detail-embed .pd-verdict-lead {\n      margin: 0;\n      color: var(--pd-ink);\n      font-size: 15px;\n      line-height: 1.5;\n    }\n\n    /* the size is set on the paragraphs themselves, so the site's own paragraph size cannot override it */\n    #promise-detail-embed .pd-verdict-lead p,\n    #promise-detail-embed .pd-verdict-lead li { font-size: 15px; line-height: 1.5; }\n\n    #promise-detail-embed .pd-verdict-evidence {\n      display: grid;\n      gap: 9px;\n      padding: 16px 18px;\n      border-radius: 16px;\n      background: var(--pd-field);\n    }\n\n    #promise-detail-embed .pd-verdict-evidence-title {\n      margin: 0;\n      color: var(--pd-ink);\n      font-size: 14px;\n      line-height: 1.3;\n      font-weight: 800;\n    }\n\n    #promise-detail-embed .pd-verdict-evidence-list {\n      margin: 0;\n      padding-left: 18px;\n      color: #3a3a42;\n      font-size: 14px;\n      line-height: 1.5;\n    }\n\n    #promise-detail-embed .pd-verdict-evidence-list li + li { margin-top: 4px; }\n\n    #promise-detail-embed .pd-verdict-meta {\n      display: grid;\n      gap: 9px;\n      margin-top: auto;\n      padding-top: 16px;\n      border-top: 1px solid var(--pd-line);\n      color: var(--pd-muted);\n      font-size: 12.5px;\n      line-height: 1.35;\n    }\n\n    #promise-detail-embed .pd-verdict-meta-row {\n      display: grid;\n      grid-template-columns: 22px minmax(0, 1fr);\n      align-items: start;\n      gap: 8px;\n    }\n\n    #promise-detail-embed .pd-verdict-meta .pd-icon { color: var(--pd-red); font-size: 18px; }\n    #promise-detail-embed .pd-verdict-meta strong { color: var(--pd-ink); font-weight: 800; }\n\n    /* ---------- sections ---------- */\n    #promise-detail-embed .pd-section { max-width: 100%; min-width: 0; }\n    #promise-detail-embed .pd-section-head { margin-bottom: 18px; }\n\n    #promise-detail-embed .pd-section-title {\n      margin: 0;\n      color: var(--pd-ink);\n      font-size: 26px;\n      line-height: 1.1;\n      font-weight: 600;\n      letter-spacing: -.01em;\n    }\n\n    #promise-detail-embed .pd-copy,\n    #promise-detail-embed .pd-method-copy,\n    #promise-detail-embed .pd-update-body,\n    #promise-detail-embed .pd-fact-copy { color: var(--pd-ink); }\n\n    #promise-detail-embed .pd-verdict-lead p,\n    #promise-detail-embed .pd-copy p,\n    #promise-detail-embed .pd-method-copy p,\n    #promise-detail-embed .pd-update-body p,\n    #promise-detail-embed .pd-quote-text p,\n    #promise-detail-embed .pd-fact-copy p { margin: 0 0 10px; }\n\n    #promise-detail-embed .pd-verdict-lead p:last-child,\n    #promise-detail-embed .pd-copy p:last-child,\n    #promise-detail-embed .pd-method-copy p:last-child,\n    #promise-detail-embed .pd-update-body p:last-child,\n    #promise-detail-embed .pd-quote-text p:last-child,\n    #promise-detail-embed .pd-fact-copy p:last-child { margin-bottom: 0; }\n\n    #promise-detail-embed .pd-copy,\n    #promise-detail-embed .pd-method-copy,\n    #promise-detail-embed .pd-update-body,\n    #promise-detail-embed .pd-quote-text,\n    #promise-detail-embed .pd-fact-copy {\n      white-space: normal;\n      overflow-wrap: normal;\n      word-break: normal;\n      hyphens: none;\n    }\n\n    /* ---------- promise facts ---------- */\n    #promise-detail-embed .pd-promise-overview-box {\n      border-radius: var(--pd-radius);\n      background: #fff;\n      box-shadow: var(--pd-shadow);\n      overflow: hidden;\n    }\n\n    #promise-detail-embed .pd-overview-grid { display: grid; grid-template-columns: 1fr; }\n\n    #promise-detail-embed .pd-overview-item {\n      display: grid;\n      grid-template-columns: 128px minmax(0, 1fr);\n      gap: 14px;\n      padding: 18px 26px;\n      border-top: 1px solid var(--pd-line);\n    }\n\n    #promise-detail-embed .pd-overview-item:first-child { border-top: 0; }\n\n    #promise-detail-embed .pd-overview-label {\n      color: var(--pd-red);\n      font-size: 15px;\n      line-height: 1.4;\n      font-weight: 800;\n    }\n\n    #promise-detail-embed .pd-fact-copy { max-width: none; font-size: 17px; line-height: 1.55; }\n    #promise-detail-embed .pd-overview-item .pd-fact-copy p,\n    #promise-detail-embed .pd-overview-item .pd-fact-copy ul,\n    #promise-detail-embed .pd-overview-item .pd-fact-copy li { font-size: inherit; line-height: inherit; }\n\n    #promise-detail-embed .pd-fact-copy ul,\n    #promise-detail-embed .pd-copy ul,\n    #promise-detail-embed .pd-method-copy ul,\n    #promise-detail-embed .pd-verdict-lead ul,\n    #promise-detail-embed .pd-update-body ul {\n      margin: 0;\n      padding-left: 1.15em;\n      list-style: disc;\n    }\n\n    #promise-detail-embed .pd-fact-copy li,\n    #promise-detail-embed .pd-copy li,\n    #promise-detail-embed .pd-method-copy li,\n    #promise-detail-embed .pd-verdict-lead li,\n    #promise-detail-embed .pd-update-body li { margin: 0 0 7px; padding-left: .12em; }\n    #promise-detail-embed .pd-fact-copy li:last-child,\n    #promise-detail-embed .pd-copy li:last-child,\n    #promise-detail-embed .pd-method-copy li:last-child,\n    #promise-detail-embed .pd-verdict-lead li:last-child,\n    #promise-detail-embed .pd-update-body li:last-child { margin-bottom: 0; }\n\n    #promise-detail-embed .pd-terms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }\n\n    #promise-detail-embed .pd-term { padding: 14px 18px; border-radius: 16px; background: #fff; box-shadow: var(--pd-shadow); }\n    #promise-detail-embed .pd-term-title { display: block; margin-bottom: 4px; color: var(--pd-red); font-size: 14px; line-height: 1.25; font-weight: 800; }\n    #promise-detail-embed .pd-term-text { margin: 0; color: #3a3a42; font-size: 14px; line-height: 1.5; }\n\n    /* ---------- timeline (updates from the database) ---------- */\n    #promise-detail-embed .pd-timeline-wrap {\n      padding: 26px;\n      border-radius: var(--pd-radius);\n      background: #fff;\n      box-shadow: var(--pd-shadow);\n    }\n\n    #promise-detail-embed .pd-timeline-shell { position: relative; margin: 2px 6px 26px; }\n\n    #promise-detail-embed .pd-timeline-track {\n      position: relative;\n      height: 8px;\n      border-radius: 999px;\n      background: rgba(23, 23, 28, .09);\n    }\n\n    #promise-detail-embed .pd-timeline-dot,\n    #promise-detail-embed .pd-event-dot {\n      position: absolute;\n      top: 50%;\n      border-radius: 50%;\n      transform: translate(-50%, -50%);\n      z-index: 3;\n    }\n\n    #promise-detail-embed .pd-timeline-dot {\n      left: var(--pd-today-pos, 0%);\n      width: 12px; height: 12px;\n      background: #fff;\n      box-shadow: 0 0 0 1px rgba(23, 23, 28, .06), 0 1px 3px rgba(23, 23, 28, .25);\n    }\n\n    #promise-detail-embed .pd-event-dot {\n      left: var(--event-pos, 0%);\n      width: 12px; height: 12px;\n      padding: 0;\n      background: #fff;\n      border: 0;\n      box-shadow: 0 0 0 1px rgba(23, 23, 28, .06), 0 1px 3px rgba(23, 23, 28, .25);\n      cursor: pointer;\n      appearance: none;\n    }\n\n    #promise-detail-embed .pd-event-dot { transition: transform .2s var(--pd-ease), box-shadow .2s var(--pd-ease); }\n    #promise-detail-embed .pd-event-dot:hover { transform: translate(-50%, -50%) scale(1.3); box-shadow: 0 0 0 4px rgba(255, 0, 51, .16), 0 1px 3px rgba(23, 23, 28, .25); }\n    #promise-detail-embed .pd-event-dot:focus-visible { outline: 1.5px solid var(--pd-red); outline-offset: 3px; }\n\n    #promise-detail-embed .pd-timeline-label-row {\n      position: relative;\n      display: flex;\n      justify-content: space-between;\n      gap: 16px;\n      margin-top: 14px;\n      color: var(--pd-muted);\n      font-size: 12.5px;\n      line-height: 1.2;\n    }\n\n    #promise-detail-embed .pd-update-list { display: grid; gap: 12px; }\n\n    #promise-detail-embed .pd-update-card {\n      position: relative;\n      display: grid;\n      grid-template-columns: 124px minmax(0, 1fr) auto;\n      align-items: center;\n      gap: 14px 20px;\n      padding: 18px 20px 18px 30px;\n      border-radius: 12px;\n      background: var(--pd-bg);\n      transition: background-color .2s var(--pd-ease), box-shadow .2s var(--pd-ease);\n    }\n\n    /* coloured edge: the status colour of the update */\n    #promise-detail-embed .pd-update-card::before {\n      content: \"\";\n      position: absolute;\n      left: 12px; top: 16px; bottom: 16px;\n      width: 4px;\n      border-radius: 999px;\n      background: var(--update-color, #e2e2e6);\n    }\n\n    #promise-detail-embed .pd-update-card.pd-update-status { background: color-mix(in srgb, var(--update-bg, #fff) 40%, #ffffff); }\n\n    #promise-detail-embed .pd-update-card[data-has-body=\"true\"] { cursor: pointer; }\n\n    #promise-detail-embed .pd-update-card[data-has-body=\"true\"]:hover,\n    #promise-detail-embed .pd-update-card.pd-update-expanded {\n      background: #fff;\n      box-shadow: var(--pd-shadow), 0 0 0 1.5px var(--pd-line);\n    }\n\n    #promise-detail-embed .pd-update-card[data-has-body=\"true\"]:focus-visible { outline: 1.5px solid var(--pd-red); outline-offset: 0; }\n\n    #promise-detail-embed .pd-update-meta {\n      display: grid;\n      gap: 7px;\n      align-content: center;\n      align-self: stretch;\n      justify-items: start;\n      min-width: 0;\n      text-align: left;\n    }\n\n    #promise-detail-embed .pd-type-badge {\n      display: inline-flex;\n      align-items: center;\n      justify-self: start;\n      padding: 4px 11px;\n      border-radius: 999px;\n      background: #fff;\n      box-shadow: 0 1px 4px rgba(0, 0, 0, .08);\n      color: var(--pd-ink);\n      font-family: var(--pd-body-font, inherit);\n      font-size: 12.5px;\n      line-height: 1.3;\n      font-weight: 700;\n      white-space: nowrap;\n    }\n\n    #promise-detail-embed .pd-update-status-pill { justify-self: start; }\n    #promise-detail-embed .pd-update-status-pill.pd-update-status-main { font-size: 14px; }\n\n    #promise-detail-embed .pd-update-date {\n      color: var(--pd-muted);\n      font-family: var(--pd-body-font, inherit);\n      font-size: 13px;\n      line-height: 1.25;\n      text-align: left;\n    }\n\n    #promise-detail-embed .pd-update-main { display: grid; gap: 7px; min-width: 0; }\n\n    #promise-detail-embed .pd-update-title {\n      margin: 0;\n      color: var(--pd-ink);\n      font-family: var(--pd-heading-font, inherit);\n      font-size: clamp(17px, 1.3vw, 20px);\n      line-height: 1.2;\n      font-weight: 700;\n      letter-spacing: -.01em;\n    }\n\n    #promise-detail-embed .pd-update-body {\n      grid-column: 2 / -1;\n      max-width: none;\n      margin-top: -2px;\n      color: #3a3a42;\n      font-size: 16px;\n      line-height: 1.55;\n      text-align: left;\n    }\n\n    #promise-detail-embed .pd-update-body .pd-update-link { display: inline-flex; margin-top: 10px; }\n    #promise-detail-embed .pd-update-main .pd-update-link { display: inline-flex; justify-self: start; margin-top: 6px; }\n\n    #promise-detail-embed .pd-update-actions { display: inline-flex; align-items: center; justify-content: flex-end; gap: 10px; min-width: 0; }\n\n    #promise-detail-embed .pd-update-chevron {\n      display: grid;\n      place-items: center;\n      width: 34px; height: 34px;\n      border-radius: 50%;\n      background: var(--pd-field);\n      color: var(--pd-ink);\n      transition: transform .25s var(--pd-ease), background-color .2s var(--pd-ease), color .2s var(--pd-ease);\n    }\n\n    #promise-detail-embed .pd-update-chevron .pd-icon { width: 16px; height: 16px; font-size: 16px; }\n\n    #promise-detail-embed .pd-update-card[data-has-body=\"true\"]:hover .pd-update-chevron { background: var(--pd-red); color: #fff; }\n    #promise-detail-embed .pd-update-card.pd-update-expanded .pd-update-chevron { transform: rotate(180deg); background: var(--pd-red); color: #fff; }\n\n    #promise-detail-embed .pd-update-link {\n      color: var(--pd-red);\n      font-size: 14px;\n      line-height: 1.2;\n      font-weight: 700;\n      text-decoration: underline;\n      text-underline-offset: 3px;\n      white-space: nowrap;\n    }\n\n    #promise-detail-embed .pd-show-more-row { display: flex; justify-content: center; margin-top: 18px; }\n\n    #promise-detail-embed .pd-show-more-button {\n      padding: 10px 18px;\n      border: 1.5px solid var(--pd-line);\n      border-radius: 999px;\n      background: #fff;\n      color: var(--pd-ink);\n      font-size: 14px;\n      line-height: 1.2;\n      font-weight: 700;\n      transition: border-color .2s var(--pd-ease);\n    }\n\n    #promise-detail-embed .pd-show-more-button:hover { border-color: var(--pd-ink); }\n\n    #promise-detail-embed .pd-update-highlight { box-shadow: 0 0 0 1.5px var(--pd-red); }\n\n    /* ---------- quotes (copied from the CMS blocks) ---------- */\n    #promise-detail-embed .pd-quotes-grid {\n      display: grid;\n      grid-template-columns: repeat(2, minmax(0, 1fr));\n      column-gap: 24px;\n      align-items: start;\n    }\n\n    #promise-detail-embed .pd-quotes-column { display: grid; gap: 24px; align-content: start; min-width: 0; }\n\n    #promise-detail-embed .pd-quote-card {\n      position: relative;\n      overflow: hidden;\n      min-width: 0;\n      padding: clamp(26px, 2.8vw, 34px);\n      border-radius: var(--pd-radius);\n      background: var(--pd-tint);\n      isolation: isolate;\n    }\n\n    #promise-detail-embed .pd-quote-content {\n      position: relative;\n      z-index: 2;\n      display: grid;\n      grid-template-columns: 30px minmax(0, 1fr);\n      column-gap: 10px;\n      row-gap: 12px;\n      min-width: 0;\n    }\n\n    #promise-detail-embed .pd-quote-card.pd-has-image {\n      --pd-quote-image-width: clamp(122px, 25%, 165px);\n      min-height: 190px;\n      padding-right: calc(var(--pd-quote-image-width) + clamp(22px, 2.2vw, 30px));\n    }\n\n    #promise-detail-embed .pd-quote-card.pd-has-image .pd-quote-content { align-items: start; }\n\n    #promise-detail-embed .pd-quote-mark {\n      grid-column: 1;\n      grid-row: 1 / span 3;\n      color: var(--pd-red);\n      font-size: 40px;\n      line-height: .72;\n      font-weight: 800;\n      letter-spacing: -.08em;\n      transform: translateY(1px);\n      user-select: none;\n    }\n\n    #promise-detail-embed .pd-quote-text {\n      grid-column: 2;\n      max-width: 62ch;\n      margin: 0;\n      color: var(--pd-ink);\n      font-family: var(--pd-body-font, inherit);\n      font-size: 18px;\n      line-height: 1.52;\n      font-weight: var(--pd-body-weight, 400);\n      font-style: normal;\n      letter-spacing: var(--pd-body-letter-spacing, normal);\n      text-wrap: pretty;\n    }\n\n    #promise-detail-embed .pd-quote-footer { grid-column: 2; display: block; min-width: 0; margin-top: 4px; }\n    #promise-detail-embed .pd-quote-person-block { display: grid; align-content: end; gap: 2px; min-width: 0; }\n\n    #promise-detail-embed .pd-quote-source-name,\n    #promise-detail-embed .pd-quote-role {\n      min-width: 0;\n      color: var(--pd-ink);\n      font-family: var(--pd-body-font, inherit);\n      font-size: 14px;\n      line-height: 1.35;\n      font-weight: 400;\n    }\n\n    #promise-detail-embed .pd-quote-source-name { font-weight: 700; }\n\n    #promise-detail-embed .pd-quote-source-name a,\n    #promise-detail-embed .pd-quote-role a {\n      color: var(--pd-red);\n      font-weight: 400;\n      text-decoration: underline;\n      text-decoration-thickness: 1px;\n      text-underline-offset: 2px;\n    }\n\n    #promise-detail-embed .pd-quote-link-icon {\n      display: inline-block;\n      width: 14px; height: 14px;\n      margin-right: 5px;\n      vertical-align: -2px;\n      background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='3.5' y='3.5' width='13' height='13' rx='2.5' fill='none' stroke='%23ff0033' stroke-width='1.8'/%3E%3Cpath d='M7 7.5h6M7 10.5h6M7 13.5h3.5' stroke='%23ff0033' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E\") center / contain no-repeat;\n    }\n\n    #promise-detail-embed .pd-quote-image-wrap {\n      position: absolute;\n      top: 0; right: 0; bottom: 0;\n      z-index: 1;\n      width: var(--pd-quote-image-width, 150px);\n      overflow: hidden;\n      background: #f2dce2;\n    }\n\n    #promise-detail-embed .pd-quote-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }\n\n    /* ---------- evidence ---------- */\n    #promise-detail-embed .pd-evidence-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 16px; margin-bottom: 16px; }\n\n    #promise-detail-embed .pd-evidence-card,\n    #promise-detail-embed .pd-metric-panel,\n    #promise-detail-embed .pd-method-card {\n      border-radius: var(--pd-radius);\n      background: #fff;\n      box-shadow: var(--pd-shadow);\n    }\n\n    #promise-detail-embed .pd-evidence-card,\n    #promise-detail-embed .pd-method-card { padding: 22px 24px; }\n    #promise-detail-embed .pd-metric-panel { padding: 22px; }\n\n    #promise-detail-embed .pd-evidence-title,\n    #promise-detail-embed .pd-metric-panel-title { margin: 0 0 12px; color: var(--pd-ink); font-size: 17px; line-height: 1.2; font-weight: 800; }\n\n    #promise-detail-embed .pd-metric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }\n\n    #promise-detail-embed .pd-metric-card { display: grid; align-content: start; gap: 5px; min-height: 96px; padding: 14px 16px; border-radius: 16px; background: var(--pd-field); }\n    #promise-detail-embed .pd-metric-value { color: var(--pd-ink); font-size: clamp(25px, 3vw, 36px); line-height: .98; font-weight: 800; letter-spacing: -.04em; }\n    #promise-detail-embed .pd-metric-label { color: var(--pd-muted); font-size: 14px; line-height: 1.4; }\n\n    #promise-detail-embed .pd-method-copy { font-size: 16px; line-height: 1.6; }\n    #promise-detail-embed .pd-evidence-card .pd-fact-copy,\n    #promise-detail-embed .pd-evidence-card .pd-fact-copy p,\n    #promise-detail-embed .pd-evidence-card .pd-fact-copy li { font-size: 16px; line-height: 1.6; }\n\n    #promise-detail-embed .pd-empty,\n    #promise-detail-embed .pd-loading,\n    #promise-detail-embed .pd-error {\n      padding: 22px 24px;\n      border-radius: var(--pd-radius);\n      background: #fff;\n      box-shadow: var(--pd-shadow);\n      color: var(--pd-muted);\n    }\n\n    #promise-detail-embed .pd-error strong { color: var(--pd-red); }\n\n    #promise-detail-embed #pdTimelineMount:empty { display: none; }\n\n    /* ---------- responsive ---------- */\n    @media (max-width: 920px) {\n      #promise-detail-embed .pd-hero,\n    #promise-detail-embed .pd-evidence-grid,\n    #promise-detail-embed .pd-hero-details { grid-template-columns: 1fr; }\n      #promise-detail-embed .pd-quotes-grid,\n    #promise-detail-embed .pd-terms { grid-template-columns: 1fr; }\n    }\n\n    @media (max-width: 640px) {\n      #promise-detail-embed .pd-app { padding: 20px 16px 38px; }\n      #promise-detail-embed .pd-shell { gap: 40px; }\n      #promise-detail-embed .pd-promise-panel { min-height: 420px; }\n      #promise-detail-embed .pd-promise-content,\n    #promise-detail-embed .pd-verdict-head,\n    #promise-detail-embed .pd-verdict-body,\n    #promise-detail-embed .pd-timeline-wrap { padding-left: 18px; padding-right: 18px; }\n      #promise-detail-embed .pd-verdict-head { display: grid; justify-content: stretch; }\n      #promise-detail-embed .pd-overview-item { grid-template-columns: 1fr; gap: 4px; padding: 16px 18px; }\n      #promise-detail-embed .pd-metric-grid { grid-template-columns: 1fr; }\n      #promise-detail-embed .pd-update-card { grid-template-columns: 1fr; padding-left: 28px; }\n      #promise-detail-embed .pd-update-body { grid-column: 1 / -1; margin-top: 0; }\n      #promise-detail-embed .pd-update-actions { justify-content: flex-start; }\n      #promise-detail-embed .pd-quote-card { padding: 22px 20px; }\n      #promise-detail-embed .pd-quote-card.pd-has-image { --pd-quote-image-width: clamp(92px, 27vw, 112px); min-height: 170px; padding-right: calc(var(--pd-quote-image-width) + 18px); }\n      #promise-detail-embed .pd-quote-mark { font-size: 36px; }\n      #promise-detail-embed .pd-quote-source-name,\n    #promise-detail-embed .pd-quote-role { font-size: 13.5px; }\n    }\n\n    @media (prefers-reduced-motion: reduce) {\n      #promise-detail-embed *,\n    #promise-detail-embed *::before,\n    #promise-detail-embed *::after { animation: none !important; transition: none !important; }\n    }\n\n    /* ---------- thin white outline on the cards ---------- */\n    #promise-detail-embed .pd-promise-panel,\n    #promise-detail-embed .pd-verdict-card,\n    #promise-detail-embed .pd-promise-overview-box,\n    #promise-detail-embed .pd-term,\n    #promise-detail-embed .pd-timeline-wrap,\n    #promise-detail-embed .pd-evidence-card,\n    #promise-detail-embed .pd-metric-panel,\n    #promise-detail-embed .pd-method-card,\n    #promise-detail-embed .pd-empty,\n    #promise-detail-embed .pd-loading,\n    #promise-detail-embed .pd-error { border: 1px solid rgba(255, 255, 255, .9); }\n\n    #promise-detail-embed .pd-quote-card { border: 1px solid rgba(255, 255, 255, .85); }\n\n    /* ---------- woordenboek (dictionary) ---------- */\n    #promise-detail-embed .pd-gloss {\n      text-decoration: underline dotted;\n      text-decoration-color: var(--pd-red);\n      text-decoration-thickness: 2px;\n      text-underline-offset: 3px;\n      border-radius: 3px;\n      cursor: help;\n      transition: background-color .15s var(--pd-ease);\n    }\n\n    #promise-detail-embed .pd-gloss:hover,\n    #promise-detail-embed .pd-gloss[aria-expanded=\"true\"] { background: var(--pd-tint); }\n    #promise-detail-embed .pd-gloss:focus-visible { outline: 1.5px solid var(--pd-red); outline-offset: 2px; }\n\n    #promise-detail-embed .pd-gloss-pop {\n      position: absolute;\n      z-index: 50;\n      width: max-content;\n      max-width: min(280px, calc(100% - 16px));\n      padding: 11px 14px 12px;\n      border-radius: 12px;\n      background: #fff;\n      color: var(--pd-ink);\n      box-shadow: 0 18px 40px -14px rgba(23, 23, 28, .38), 0 0 0 1px rgba(23, 23, 28, .06);\n      font-size: 13px;\n      line-height: 1.4;\n      text-align: left;\n    }\n\n    #promise-detail-embed .pd-gloss-pop::after {\n      content: \"\";\n      position: absolute;\n      left: var(--pd-arrow-x, 24px);\n      width: 12px;\n      height: 12px;\n      margin-left: -6px;\n      background: #fff;\n      transform: rotate(45deg);\n    }\n\n    #promise-detail-embed .pd-gloss-pop[data-side=\"above\"]::after { bottom: -6px; box-shadow: 2px 2px 3px -1px rgba(23, 23, 28, .12); }\n    #promise-detail-embed .pd-gloss-pop[data-side=\"below\"]::after { top: -6px; box-shadow: -2px -2px 3px -1px rgba(23, 23, 28, .1); }\n\n    #promise-detail-embed .pd-gloss-pop-word { margin-bottom: 4px; color: var(--pd-ink); font-size: 14px; font-weight: 800; line-height: 1.2; }\n    #promise-detail-embed .pd-gloss-pop-text p,\n    #promise-detail-embed .pd-gloss-pop-text li { margin: 0 0 5px; font-size: 13px; line-height: 1.4; }\n    #promise-detail-embed .pd-gloss-pop-text p:last-child { margin-bottom: 0; }\n\n  /* The CMS's own quote blocks and article lists live outside the embed; they are hidden once copied in. */\n  .pd-cms-quote-source-hidden,\n  .bm-timeline-source-hidden {\n    display: none !important;\n  }\n\n  .bm-master-timeline.bm-timeline-ready {\n    --bm-red: var(--pd-red, #ff0033);\n    --bm-ink: var(--pd-ink, #17171c);\n    --bm-muted: var(--pd-muted, #6b6b75);\n    --bm-tint: var(--pd-tint, #FFE9EE);\n    --bm-field: var(--pd-field, #FFF2F5);\n    --bm-line: var(--pd-line, #FFE0E6);\n    --bm-done: #00b2a9;\n    --bm-done-soft: #ebfff1;\n    --bm-shadow: 0 1px 2px rgba(60, 10, 25, .035), 0 14px 30px -24px rgba(255, 0, 51, .16);\n\n    width: 100%;\n    max-width: none;\n    margin: 0;\n    padding: 0;\n    background: transparent !important;\n    box-sizing: border-box;\n  }\n\n  .bm-master-timeline.bm-timeline-ready * {\n    box-sizing: border-box;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section,\n  .bm-master-timeline.bm-timeline-ready .teaser-section__inner {\n    width: 100%;\n    max-width: none;\n    margin-inline: 0;\n    padding-inline: 0;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .section-title {\n    margin: 0 0 18px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .section-title__top {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 18px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .section-title__title-wrapper svg,\n  .bm-master-timeline.bm-timeline-ready .section-title__subtitle {\n    display: none;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .section-title__title {\n    margin: 0;\n    color: var(--bm-ink);\n    font-size: 26px;\n    line-height: 1.1;\n    font-weight: 600;\n    letter-spacing: -.01em;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-heading-tools {\n    display: inline-flex;\n    align-items: center;\n    justify-content: flex-end;\n    gap: 12px;\n    flex: 0 0 auto;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-control-icon {\n    flex: 0 0 auto;\n    width: 18px;\n    height: 18px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-count {\n    color: var(--bm-muted);\n    font-size: 14px;\n    line-height: 1;\n    white-space: nowrap;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-order-toggle {\n    appearance: none !important;\n    display: inline-flex !important;\n    align-items: center !important;\n    justify-content: center !important;\n    gap: 7px !important;\n    min-width: 0 !important;\n    min-height: 0 !important;\n    height: auto !important;\n    padding: 9px 16px 9px 13px !important;\n    border: 1.5px solid var(--bm-line) !important;\n    border-radius: 999px !important;\n    background: #fff !important;\n    color: var(--bm-ink) !important;\n    box-shadow: none !important;\n    font-family: inherit !important;\n    font-size: 14px !important;\n    line-height: 1.2 !important;\n    font-weight: 700 !important;\n    white-space: nowrap !important;\n    cursor: pointer;\n    transform: none !important;\n    transition: border-color 200ms ease;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-order-toggle > span:not(.bm-timeline-control-icon) {\n    font-family: inherit !important;\n    font-size: 14px !important;\n    line-height: 1.2 !important;\n    font-weight: 700 !important;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-order-toggle:hover {\n    border-color: var(--bm-ink) !important;\n    background: #fff !important;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-order-toggle:focus-visible {\n    outline: 1.5px solid var(--bm-red);\n    outline-offset: 3px;\n  }\n\n  /* dot navigation */\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav {\n    width: 100%;\n    max-width: 100%;\n    border: 0;\n    padding: 10px 8px 14px 0;\n    margin: 0 0 14px;\n    background: transparent;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__row {\n    display: grid;\n    grid-template-columns: max-content minmax(0, 1fr) max-content;\n    align-items: center;\n    gap: 14px;\n    width: 100%;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__edge-label {\n    color: var(--bm-muted);\n    font-size: 12.5px;\n    line-height: 1;\n    font-weight: 400;\n    white-space: nowrap;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__track {\n    position: relative;\n    width: 100%;\n    height: 8px;\n    border-radius: 999px;\n    background: rgba(23, 23, 28, .09);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__dot {\n    appearance: none;\n    position: absolute;\n    top: 50%;\n    width: 12px;\n    height: 12px;\n    padding: 0;\n    border-radius: 999px;\n    background: #fff;\n    border: 0;\n    box-shadow: 0 0 0 1px rgba(23, 23, 28, .06), 0 1px 3px rgba(23, 23, 28, .25);\n    opacity: 1;\n    z-index: 1;\n    transform: translate(-50%, -50%);\n    cursor: pointer;\n    transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;\n  }\n\n  /* a little lift and a soft red halo when you point at a dot */\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__dot:hover {\n    transform: translate(-50%, -50%) scale(1.3);\n    box-shadow: 0 0 0 4px rgba(255, 0, 51, .16), 0 1px 3px rgba(23, 23, 28, .25);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__dot.bm-timeline-nav__dot--active {\n    z-index: 10;\n    background: var(--bm-red);\n    transform: translate(-50%, -50%) scale(1.2);\n    box-shadow: 0 1px 4px rgba(23, 23, 28, .3);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__dot:focus-visible {\n    outline: 1.5px solid var(--bm-red);\n    outline-offset: 3px;\n  }\n\n  /* list of CMS articles */\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items {\n    display: block !important;\n    width: 100%;\n    max-width: none;\n    list-style: none;\n    margin: 0 0 0 -6px;\n    width: calc(100% + 6px);\n    padding: 6px 10px 6px 6px;\n    max-height: 520px;\n    overflow-y: scroll;\n    scrollbar-gutter: stable;\n    scrollbar-width: thin;\n    scrollbar-color: #ffb3c1 transparent;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items::-webkit-scrollbar {\n    width: 8px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items::-webkit-scrollbar-track {\n    background: transparent;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items::-webkit-scrollbar-thumb {\n    background: #ffb3c1;\n    border-radius: 999px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items::-webkit-scrollbar-thumb:hover {\n    background: var(--bm-red);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items > li {\n    list-style: none;\n    margin: 0 0 12px;\n    padding: 0;\n    scroll-margin-top: 100px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items > li::marker {\n    content: \"\";\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-wrapper {\n    width: 100%;\n    max-width: none;\n    margin: 0;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser {\n    display: block;\n    width: 100%;\n    max-width: none;\n    position: relative;\n    overflow: hidden;\n    color: var(--bm-ink);\n    text-decoration: none;\n    border: 1px solid rgba(255, 255, 255, .9);\n    border-radius: 12px;\n    background: #fff;\n    box-shadow: var(--bm-shadow);\n    transition: background-color 200ms ease, box-shadow 200ms ease;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser:hover {\n    background: #fff;\n    box-shadow: var(--bm-shadow), 0 0 0 1.5px var(--bm-line);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser:focus-visible {\n    outline: 1.5px solid var(--bm-red);\n    outline-offset: 0;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-active .teaser,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-active .teaser:hover {\n    background: var(--bm-tint);\n    box-shadow: var(--bm-shadow);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser__content {\n    position: relative;\n    display: grid;\n    grid-template-columns: 112px minmax(0, 1fr);\n    align-items: stretch;\n    gap: 0;\n    min-height: 80px;\n    padding: 0;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-no-image .teaser__content {\n    grid-template-columns: minmax(0, 1fr);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-type-milestone .teaser {\n    background: var(--bm-field);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-type-vonnis .teaser,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-realized .teaser {\n    background: var(--bm-done-soft);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-media {\n    width: 112px;\n    height: 100%;\n    min-height: 80px;\n    overflow: hidden;\n    background: var(--bm-field);\n    align-self: stretch;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-media img {\n    display: block;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-no-image .bm-timeline-media {\n    display: none;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-main {\n    min-width: 0;\n    align-self: center;\n    padding: 14px 20px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser__title {\n    margin: 0;\n    color: var(--bm-ink);\n    font-size: clamp(16px, 1.4vw, 18px);\n    line-height: 1.22;\n    font-weight: 700;\n    letter-spacing: -.01em;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-title-hidden {\n    display: none;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-type-vonnis .teaser__title,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-realized .teaser__title {\n    color: var(--bm-done);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-meta-line {\n    margin-top: 5px;\n    color: var(--bm-muted);\n    font-size: 12.5px;\n    line-height: 1.3;\n    font-weight: 400;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-status {\n    display: inline-flex;\n    align-items: center;\n    width: fit-content;\n    margin-bottom: 6px;\n    padding: 4px 12px 4px 5px;\n    border-radius: 999px;\n    background: var(--bm-done);\n    color: #fff;\n    font-size: 13px;\n    font-weight: 700;\n    line-height: 1.2;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-status::before {\n    content: \"\u2713\";\n    display: inline-grid;\n    place-items: center;\n    width: 16px;\n    height: 16px;\n    margin-right: 7px;\n    border-radius: 999px;\n    background: #fff;\n    color: var(--bm-done);\n    font-size: 10px;\n    font-weight: 800;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-no-link .teaser {\n    cursor: default;\n  }\n\n  @media (max-width: 640px) {\n    .bm-master-timeline.bm-timeline-ready .section-title__top {\n      align-items: flex-start;\n      flex-direction: column;\n      gap: 10px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-heading-tools {\n      justify-content: flex-start;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__row {\n      gap: 9px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__edge-label {\n      font-size: 11px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .teaser__content {\n      grid-template-columns: 90px minmax(0, 1fr);\n      min-height: 74px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-media {\n      width: 90px;\n      min-height: 74px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-main {\n      padding: 11px 14px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .teaser__title {\n      font-size: 16px;\n    }\n  }\n";
+  style.textContent = "    /* =====================================================================\n       BRUZZ Check - detail page (Zacht)\n       Same look as the overview: soft pink page, white rounded cards,\n       status colours on the titles, thin red focus outlines.\n       ===================================================================== */\n\n    /* ---------- tokens + reset ---------- */\n    #promise-detail-embed {\n      --pd-red: #ff0033;\n      --pd-pink: #FA79D7;\n      --pd-ink: #17171c;\n      --pd-text: #17171c;\n      --pd-muted: #6b6b75;\n      --pd-bg: #fff9fb;\n      --pd-tint: #FFE9EE;\n      --pd-field: #FFF2F5;\n      --pd-line: #FFE0E6;\n      --pd-line-strong: #FFE0E6;\n      --pd-radius: 22px;\n      --pd-shadow: 0 0 0 1px rgba(23, 23, 28, .025), 0 1px 2px rgba(23, 23, 28, .03), 0 6px 18px -10px rgba(23, 23, 28, .06);\n      --pd-ease: cubic-bezier(.2, .8, .2, 1);\n      --pd-status-color: #80E4DF;\n      --pd-status-bg: #eaf7fc;\n      --pd-title-color: #ff0033;\n\n      position: relative;\n      width: 100%;\n      max-width: 100%;\n      overflow-x: clip;\n      color: var(--pd-ink);\n      font: inherit;\n      line-height: 1.45;\n      -webkit-text-size-adjust: 100%;\n    }\n\n    #promise-detail-embed *,\n    #promise-detail-embed *::before,\n    #promise-detail-embed *::after { box-sizing: border-box; }\n\n    #promise-detail-embed [hidden] { display: none !important; }\n\n    #promise-detail-embed h1,\n    #promise-detail-embed h2,\n    #promise-detail-embed h3,\n    #promise-detail-embed p { margin: 0; }\n\n    #promise-detail-embed a { color: inherit; text-decoration: none; }\n\n    #promise-detail-embed button,\n    #promise-detail-embed input,\n    #promise-detail-embed select {\n      font: inherit;\n      color: inherit;\n      letter-spacing: inherit;\n    }\n\n    #promise-detail-embed button {\n      appearance: none;\n      -webkit-appearance: none;\n      margin: 0;\n      cursor: pointer;\n      text-align: inherit;\n    }\n\n    #promise-detail-embed button:focus-visible,\n    #promise-detail-embed a:focus-visible {\n      outline: 1.5px solid var(--pd-red);\n      outline-offset: 3px;\n    }\n\n    #promise-detail-embed strong { color: var(--pd-ink); font-weight: 800; }\n\n    /* ---------- icons ---------- */\n    #promise-detail-embed .pd-icon {\n      display: inline-block;\n      flex: none;\n      width: 1.25em;\n      height: 1.25em;\n      font-size: 20px;\n    }\n\n    #promise-detail-embed .pd-sym {\n      position: relative;\n      display: inline-block;\n      flex: none;\n      width: var(--sym, 20px);\n      height: var(--sym, 20px);\n    }\n\n    #promise-detail-embed .pd-sym-fallback {\n      position: absolute;\n      inset: 0;\n      display: grid;\n      place-items: center;\n      border-radius: 50%;\n      background: var(--pd-sym-color, var(--pd-status-color));\n      color: #fff;\n      font-size: calc(var(--sym, 20px) * .56);\n      font-weight: 800;\n      line-height: 1;\n    }\n\n    #promise-detail-embed .pd-sym-img {\n      position: absolute;\n      inset: 0;\n      width: 100%;\n      height: 100%;\n      object-fit: contain;\n      display: block;\n    }\n\n    /* ---------- page ---------- */\n    #promise-detail-embed .pd-app {\n      width: 100%;\n      margin: 0;\n      /* the pink fills the whole embed; the content keeps a maximum width and stays centred */\n      padding: 26px max(clamp(20px, 4vw, 52px), calc((100% - 1146px) / 2)) 56px;\n      background: var(--pd-bg);\n    }\n\n    #promise-detail-embed .pd-back {\n      display: inline-flex;\n      align-items: center;\n      gap: 10px;\n      margin: 0 0 24px;\n      padding: 13px 24px 13px 16px;\n      border-radius: 999px;\n      background: var(--pd-red);\n      box-shadow: 0 1px 2px rgba(255, 0, 51, .25), 0 8px 18px -8px rgba(255, 0, 51, .45);\n      color: #fff;\n      font-size: 16px;\n      font-weight: 800;\n      line-height: 1.1;\n      text-decoration: none;\n      transition: background-color .2s var(--pd-ease);\n    }\n\n    #promise-detail-embed .pd-back::before {\n      content: \"\";\n      width: 20px;\n      height: 20px;\n      background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16 10H4.5M9.5 4.5 4 10l5.5 5.5' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat;\n    }\n\n    #promise-detail-embed .pd-back:hover { background: #e6002f; }\n\n    #promise-detail-embed .pd-shell {\n      display: grid;\n      gap: 48px;\n      max-width: 100%;\n      min-width: 0;\n    }\n\n    /* ---------- hero ---------- */\n    #promise-detail-embed .pd-hero {\n      display: grid;\n      grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);\n      gap: 24px;\n      align-items: stretch;\n      min-width: 0;\n    }\n\n    #promise-detail-embed .pd-promise-panel,\n    #promise-detail-embed .pd-verdict-card {\n      min-width: 0;\n      border-radius: var(--pd-radius);\n      background: #fff;\n      box-shadow: var(--pd-shadow);\n    }\n\n    #promise-detail-embed .pd-promise-panel {\n      position: relative;\n      display: flex;\n      align-items: stretch;\n      min-height: 480px;\n      overflow: hidden;\n      isolation: isolate;\n      background: #07080c;\n      color: #fff;\n    }\n\n    /* the hero image fills the top of the card, like the cards in the overview */\n    #promise-detail-embed .pd-promise-panel::before {\n      content: \"\";\n      position: absolute;\n      inset: 0;\n      z-index: -2;\n      background-image:\n        linear-gradient(90deg, rgba(5, 6, 10, .95) 0%, rgba(5, 6, 10, .84) 32%, rgba(5, 6, 10, .48) 64%, rgba(5, 6, 10, .16) 100%),\n        var(--pd-hero-image, linear-gradient(90deg, #08090d, #24242a));\n      background-size: cover;\n      background-position: var(--pd-image-focus, center center);\n      filter: saturate(.96) contrast(1.04);\n    }\n\n    #promise-detail-embed .pd-promise-panel::after {\n      content: \"\";\n      position: absolute;\n      inset: 0;\n      z-index: -1;\n      pointer-events: none;\n      background:\n        radial-gradient(circle at 18% 26%, rgba(255, 255, 255, .08), transparent 26%),\n        linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .34));\n    }\n\n    #promise-detail-embed .pd-promise-panel::after {\n      content: \"\";\n      position: absolute;\n      inset: 0;\n      z-index: -1;\n      pointer-events: none;\n      background: linear-gradient(180deg, rgba(0, 0, 0, .05) 0%, rgba(0, 0, 0, .45) 100%);\n    }\n\n    #promise-detail-embed .pd-hero-emoji {\n      position: absolute;\n      top: 36px;\n      right: 8%;\n      font-size: 96px;\n      line-height: 1;\n      filter: drop-shadow(0 6px 20px rgba(0, 0, 0, .4));\n    }\n\n    #promise-detail-embed .pd-promise-content {\n      display: flex;\n      flex-direction: column;\n      gap: 14px;\n      width: 100%;\n      min-height: 100%;\n      padding: clamp(26px, 3.1vw, 38px);\n    }\n\n    #promise-detail-embed .pd-eyebrow,\n    #promise-detail-embed .pd-kicker {\n      display: inline-flex;\n      align-items: center;\n      align-self: flex-start;\n      gap: 6px;\n      margin: 0;\n      padding: 7px 11px 6px;\n      border: 1px solid rgba(255, 255, 255, .24);\n      border-radius: 999px;\n      background: var(--pd-red);\n      color: #fff;\n      font-size: 11px;\n      font-weight: 900;\n      line-height: 1;\n      letter-spacing: .055em;\n      text-transform: uppercase;\n      white-space: nowrap;\n    }\n\n    #promise-detail-embed .pd-eyebrow .pd-icon,\n    #promise-detail-embed .pd-kicker .pd-icon { color: #fff; font-size: 15px; }\n\n    #promise-detail-embed .pd-title {\n      max-width: 13.5ch;\n      margin: 12px 0 0;\n      color: #fff;\n      font-size: clamp(38px, 4.3vw, 60px);\n      line-height: .96;\n      font-weight: 950;\n      letter-spacing: -.055em;\n      text-wrap: balance;\n      text-shadow: 0 2px 18px rgba(0, 0, 0, .32);\n    }\n\n    #promise-detail-embed .pd-title.pd-title-long {\n      max-width: 15.5ch;\n      font-size: clamp(32px, 3.45vw, 51px);\n      line-height: 1;\n    }\n\n    #promise-detail-embed .pd-hero-details {\n      display: grid;\n      grid-template-columns: repeat(2, minmax(0, 1fr));\n      align-items: start;\n      gap: 18px;\n      max-width: 720px;\n      margin-top: auto;\n      padding-top: 22px;\n      border-top: 1px solid rgba(255, 255, 255, .22);\n    }\n\n    #promise-detail-embed .pd-hero-detail {\n      display: grid;\n      grid-template-columns: auto minmax(0, 1fr);\n      align-items: start;\n      gap: 12px;\n      min-width: 0;\n    }\n\n    #promise-detail-embed .pd-hero-detail .pd-icon {\n      display: block;\n      box-sizing: content-box;\n      width: 18px;\n      height: 18px;\n      padding: 7px;\n      border: 1px solid rgba(255, 255, 255, .44);\n      border-radius: 50%;\n      background: rgba(0, 0, 0, .12);\n      color: #fff;\n      font-size: 18px;\n    }\n\n    /* several ministers: a list, each with their own photo */\n    #promise-detail-embed .pd-hero-detail-list { grid-template-columns: minmax(0, 1fr); }\n    #promise-detail-embed .pd-hero-detail-list .pd-hero-detail-label { margin-bottom: 8px; }\n    #promise-detail-embed .pd-minister-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }\n    #promise-detail-embed .pd-minister-row { display: flex; align-items: center; gap: 12px; margin: 0; padding: 0; }\n\n    #promise-detail-embed .pd-hero-avatar {\n      display: block;\n      box-sizing: border-box;\n      width: 34px;\n      height: 34px;\n      border: 1px solid rgba(255, 255, 255, .44);\n      border-radius: 50%;\n      object-fit: cover;\n      background: #000;\n      filter: grayscale(100%) contrast(1.04);\n    }\n\n\n    #promise-detail-embed .pd-hero-detail-label {\n      display: block;\n      margin-bottom: 3px;\n      color: rgba(255, 255, 255, .68);\n      font-size: 11px;\n      line-height: 1.15;\n      font-weight: 900;\n      letter-spacing: .06em;\n      text-transform: uppercase;\n    }\n\n    #promise-detail-embed .pd-hero-detail-value {\n      color: #fff;\n      font-size: 12px;\n      line-height: 1.35;\n      font-weight: 800;\n    }\n\n    #promise-detail-embed .pd-hero-detail-value a {\n      color: #fff;\n      font-weight: 850;\n      text-decoration: underline;\n      text-decoration-color: rgba(255, 255, 255, .58);\n      text-decoration-thickness: 1px;\n      text-underline-offset: 3px;\n    }\n\n    #promise-detail-embed .pd-hero-detail-value a:hover { color: #fff; text-decoration-color: #fff; }\n\n    /* ---------- verdict ---------- */\n    #promise-detail-embed .pd-verdict-card {\n      display: grid;\n      grid-template-rows: auto 1fr;\n      overflow: hidden;\n      background: #fff;\n    }\n\n    #promise-detail-embed .pd-verdict-card strong { color: inherit; }\n\n    #promise-detail-embed .pd-verdict-head {\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      gap: 16px;\n      padding: 20px 26px;\n      background: var(--pd-status-color);\n      color: var(--pd-on-status, var(--pd-ink));\n    }\n\n    #promise-detail-embed .pd-verdict-title {\n      margin: 0;\n      color: inherit;\n      font-size: 22px;\n      line-height: 1.1;\n      font-weight: 800;\n      letter-spacing: -.02em;\n    }\n\n    #promise-detail-embed .pd-status-pill,\n    #promise-detail-embed .pd-update-status-pill {\n      --sym: 20px;\n      display: inline-flex;\n      align-items: center;\n      flex: 0 0 auto;\n      gap: 7px;\n      padding: 5px 13px 5px 6px;\n      border-radius: 999px;\n      background: #fff;\n      box-shadow: 0 0 0 1px rgba(23, 23, 28, .035), 0 1px 2px rgba(23, 23, 28, .05);\n      color: var(--pd-ink);\n      font-size: 13px;\n      font-weight: 700;\n      line-height: 1.2;\n      white-space: nowrap;\n    }\n\n    #promise-detail-embed .pd-verdict-body {\n      display: grid;\n      align-content: start;\n      gap: 16px;\n      padding: 22px 26px 24px;\n    }\n\n    #promise-detail-embed .pd-verdict-lead {\n      margin: 0;\n      color: var(--pd-ink);\n      font-size: 15px;\n      line-height: 1.5;\n    }\n\n    /* the size is set on the paragraphs themselves, so the site's own paragraph size cannot override it */\n    #promise-detail-embed .pd-verdict-lead p,\n    #promise-detail-embed .pd-verdict-lead li { font-size: 15px; line-height: 1.5; }\n\n    #promise-detail-embed .pd-verdict-evidence {\n      display: grid;\n      gap: 9px;\n      padding: 16px 18px;\n      border-radius: 16px;\n      background: var(--pd-field);\n    }\n\n    #promise-detail-embed .pd-verdict-evidence-title {\n      margin: 0;\n      color: var(--pd-ink);\n      font-size: 14px;\n      line-height: 1.3;\n      font-weight: 800;\n    }\n\n    #promise-detail-embed .pd-verdict-evidence-list {\n      margin: 0;\n      padding-left: 18px;\n      color: #3a3a42;\n      font-size: 14px;\n      line-height: 1.5;\n    }\n\n    #promise-detail-embed .pd-verdict-evidence-list li + li { margin-top: 4px; }\n\n    #promise-detail-embed .pd-verdict-meta {\n      display: grid;\n      gap: 9px;\n      margin-top: auto;\n      padding-top: 16px;\n      border-top: 1px solid var(--pd-line);\n      color: var(--pd-muted);\n      font-size: 12.5px;\n      line-height: 1.35;\n    }\n\n    #promise-detail-embed .pd-verdict-meta-row {\n      display: grid;\n      grid-template-columns: 22px minmax(0, 1fr);\n      align-items: start;\n      gap: 8px;\n    }\n\n    #promise-detail-embed .pd-verdict-meta .pd-icon { color: var(--pd-red); font-size: 18px; }\n    #promise-detail-embed .pd-verdict-meta strong { color: var(--pd-ink); font-weight: 800; }\n\n    /* ---------- sections ---------- */\n    #promise-detail-embed .pd-section { max-width: 100%; min-width: 0; }\n    #promise-detail-embed .pd-section-head { margin-bottom: 18px; }\n\n    #promise-detail-embed .pd-section-title {\n      margin: 0;\n      color: var(--pd-ink);\n      font-size: 26px;\n      line-height: 1.1;\n      font-weight: 600;\n      letter-spacing: -.01em;\n    }\n\n    #promise-detail-embed .pd-copy,\n    #promise-detail-embed .pd-method-copy,\n    #promise-detail-embed .pd-update-body,\n    #promise-detail-embed .pd-fact-copy { color: var(--pd-ink); }\n\n    #promise-detail-embed .pd-verdict-lead p,\n    #promise-detail-embed .pd-copy p,\n    #promise-detail-embed .pd-method-copy p,\n    #promise-detail-embed .pd-update-body p,\n    #promise-detail-embed .pd-quote-text p,\n    #promise-detail-embed .pd-fact-copy p { margin: 0 0 10px; }\n\n    #promise-detail-embed .pd-verdict-lead p:last-child,\n    #promise-detail-embed .pd-copy p:last-child,\n    #promise-detail-embed .pd-method-copy p:last-child,\n    #promise-detail-embed .pd-update-body p:last-child,\n    #promise-detail-embed .pd-quote-text p:last-child,\n    #promise-detail-embed .pd-fact-copy p:last-child { margin-bottom: 0; }\n\n    #promise-detail-embed .pd-copy,\n    #promise-detail-embed .pd-method-copy,\n    #promise-detail-embed .pd-update-body,\n    #promise-detail-embed .pd-quote-text,\n    #promise-detail-embed .pd-fact-copy {\n      white-space: normal;\n      overflow-wrap: normal;\n      word-break: normal;\n      hyphens: none;\n    }\n\n    /* ---------- promise facts ---------- */\n    #promise-detail-embed .pd-promise-overview-box {\n      border-radius: var(--pd-radius);\n      background: #fff;\n      box-shadow: var(--pd-shadow);\n      overflow: hidden;\n    }\n\n    #promise-detail-embed .pd-overview-grid { display: grid; grid-template-columns: 1fr; }\n\n    #promise-detail-embed .pd-overview-item {\n      display: grid;\n      grid-template-columns: 128px minmax(0, 1fr);\n      gap: 14px;\n      padding: 18px 26px;\n      border-top: 1px solid var(--pd-line);\n    }\n\n    #promise-detail-embed .pd-overview-item:first-child { border-top: 0; }\n\n    #promise-detail-embed .pd-overview-label {\n      color: var(--pd-red);\n      font-size: 15px;\n      line-height: 1.4;\n      font-weight: 800;\n    }\n\n    #promise-detail-embed .pd-fact-copy { max-width: none; font-size: 17px; line-height: 1.55; }\n    #promise-detail-embed .pd-overview-item .pd-fact-copy p,\n    #promise-detail-embed .pd-overview-item .pd-fact-copy ul,\n    #promise-detail-embed .pd-overview-item .pd-fact-copy li { font-size: inherit; line-height: inherit; }\n\n    #promise-detail-embed .pd-fact-copy ul,\n    #promise-detail-embed .pd-copy ul,\n    #promise-detail-embed .pd-method-copy ul,\n    #promise-detail-embed .pd-verdict-lead ul,\n    #promise-detail-embed .pd-update-body ul {\n      margin: 0;\n      padding-left: 1.15em;\n      list-style: disc;\n    }\n\n    #promise-detail-embed .pd-fact-copy li,\n    #promise-detail-embed .pd-copy li,\n    #promise-detail-embed .pd-method-copy li,\n    #promise-detail-embed .pd-verdict-lead li,\n    #promise-detail-embed .pd-update-body li { margin: 0 0 7px; padding-left: .12em; }\n    #promise-detail-embed .pd-fact-copy li:last-child,\n    #promise-detail-embed .pd-copy li:last-child,\n    #promise-detail-embed .pd-method-copy li:last-child,\n    #promise-detail-embed .pd-verdict-lead li:last-child,\n    #promise-detail-embed .pd-update-body li:last-child { margin-bottom: 0; }\n\n    #promise-detail-embed .pd-terms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }\n\n    #promise-detail-embed .pd-term { padding: 14px 18px; border-radius: 16px; background: #fff; box-shadow: var(--pd-shadow); }\n    #promise-detail-embed .pd-term-title { display: block; margin-bottom: 4px; color: var(--pd-red); font-size: 14px; line-height: 1.25; font-weight: 800; }\n    #promise-detail-embed .pd-term-text { margin: 0; color: #3a3a42; font-size: 14px; line-height: 1.5; }\n\n    /* ---------- timeline (updates from the database) ---------- */\n    #promise-detail-embed .pd-timeline-wrap {\n      padding: 26px;\n      border-radius: var(--pd-radius);\n      background: #fff;\n      box-shadow: var(--pd-shadow);\n    }\n\n    #promise-detail-embed .pd-timeline-shell { position: relative; margin: 2px 6px 26px; }\n\n    #promise-detail-embed .pd-timeline-track {\n      position: relative;\n      height: 8px;\n      border-radius: 999px;\n      background: rgba(23, 23, 28, .09);\n    }\n\n    #promise-detail-embed .pd-timeline-dot,\n    #promise-detail-embed .pd-event-dot {\n      position: absolute;\n      top: 50%;\n      border-radius: 50%;\n      transform: translate(-50%, -50%);\n      z-index: 3;\n    }\n\n    #promise-detail-embed .pd-timeline-dot {\n      left: var(--pd-today-pos, 0%);\n      width: 12px; height: 12px;\n      background: #fff;\n      box-shadow: 0 0 0 1px rgba(23, 23, 28, .05), 0 1px 3px rgba(23, 23, 28, .12);\n    }\n\n    #promise-detail-embed .pd-event-dot {\n      left: var(--event-pos, 0%);\n      width: 12px; height: 12px;\n      padding: 0;\n      background: #fff;\n      border: 0;\n      box-shadow: 0 0 0 1px rgba(23, 23, 28, .05), 0 1px 3px rgba(23, 23, 28, .12);\n      cursor: pointer;\n      appearance: none;\n    }\n\n    #promise-detail-embed .pd-event-dot { transition: transform .2s var(--pd-ease), box-shadow .2s var(--pd-ease); }\n    #promise-detail-embed .pd-event-dot:hover { transform: translate(-50%, -50%) scale(1.3); box-shadow: 0 0 0 4px rgba(23, 23, 28, .05), 0 1px 3px rgba(23, 23, 28, .12); }\n    #promise-detail-embed .pd-event-dot:focus-visible { outline: 1.5px solid var(--pd-red); outline-offset: 3px; }\n\n    #promise-detail-embed .pd-timeline-label-row {\n      position: relative;\n      display: flex;\n      justify-content: space-between;\n      gap: 16px;\n      margin-top: 14px;\n      color: var(--pd-muted);\n      font-size: 12.5px;\n      line-height: 1.2;\n    }\n\n    #promise-detail-embed .pd-update-list { display: grid; gap: 12px; }\n\n    #promise-detail-embed .pd-update-card {\n      position: relative;\n      display: grid;\n      grid-template-columns: 124px minmax(0, 1fr) auto;\n      align-items: center;\n      gap: 14px 20px;\n      padding: 18px 20px 18px 30px;\n      border-radius: 12px;\n      background: var(--pd-bg);\n      transition: background-color .2s var(--pd-ease), box-shadow .2s var(--pd-ease);\n    }\n\n    /* coloured edge: the status colour of the update */\n    #promise-detail-embed .pd-update-card::before {\n      content: \"\";\n      position: absolute;\n      left: 12px; top: 16px; bottom: 16px;\n      width: 4px;\n      border-radius: 999px;\n      background: var(--update-color, #e2e2e6);\n    }\n\n    #promise-detail-embed .pd-update-card.pd-update-status { background: color-mix(in srgb, var(--update-bg, #fff) 40%, #ffffff); }\n\n    #promise-detail-embed .pd-update-card[data-has-body=\"true\"] { cursor: pointer; }\n\n    #promise-detail-embed .pd-update-card[data-has-body=\"true\"]:hover,\n    #promise-detail-embed .pd-update-card.pd-update-expanded {\n      background: #fff;\n      box-shadow: 0 0 0 1px rgba(23, 23, 28, .04), 0 2px 4px rgba(23, 23, 28, .035), 0 12px 26px -12px rgba(23, 23, 28, .10);\n    }\n\n    #promise-detail-embed .pd-update-card[data-has-body=\"true\"]:focus-visible { outline: 1.5px solid var(--pd-red); outline-offset: 0; }\n\n    #promise-detail-embed .pd-update-meta {\n      display: grid;\n      gap: 7px;\n      align-content: center;\n      align-self: stretch;\n      justify-items: start;\n      min-width: 0;\n      text-align: left;\n    }\n\n    #promise-detail-embed .pd-type-badge {\n      display: inline-flex;\n      align-items: center;\n      justify-self: start;\n      padding: 4px 11px;\n      border-radius: 999px;\n      background: #fff;\n      box-shadow: 0 0 0 1px rgba(23, 23, 28, .035), 0 1px 2px rgba(23, 23, 28, .05);\n      color: var(--pd-ink);\n      font-family: var(--pd-body-font, inherit);\n      font-size: 12.5px;\n      line-height: 1.3;\n      font-weight: 700;\n      white-space: nowrap;\n    }\n\n    #promise-detail-embed .pd-update-status-pill { justify-self: start; }\n    #promise-detail-embed .pd-update-status-pill.pd-update-status-main { font-size: 14px; }\n\n    #promise-detail-embed .pd-update-date {\n      color: var(--pd-muted);\n      font-family: var(--pd-body-font, inherit);\n      font-size: 13px;\n      line-height: 1.25;\n      text-align: left;\n    }\n\n    #promise-detail-embed .pd-update-main { display: grid; gap: 7px; min-width: 0; }\n\n    #promise-detail-embed .pd-update-title {\n      margin: 0;\n      color: var(--pd-ink);\n      font-family: var(--pd-heading-font, inherit);\n      font-size: clamp(17px, 1.3vw, 20px);\n      line-height: 1.2;\n      font-weight: 700;\n      letter-spacing: -.01em;\n    }\n\n    #promise-detail-embed .pd-update-body {\n      grid-column: 2 / -1;\n      max-width: none;\n      margin-top: -2px;\n      color: #3a3a42;\n      font-size: 16px;\n      line-height: 1.55;\n      text-align: left;\n    }\n\n    #promise-detail-embed .pd-update-body .pd-update-link { display: inline-flex; margin-top: 10px; }\n    #promise-detail-embed .pd-update-main .pd-update-link { display: inline-flex; justify-self: start; margin-top: 6px; }\n\n    #promise-detail-embed .pd-update-actions { display: inline-flex; align-items: center; justify-content: flex-end; gap: 10px; min-width: 0; }\n\n    #promise-detail-embed .pd-update-chevron {\n      display: grid;\n      place-items: center;\n      width: 34px; height: 34px;\n      border-radius: 50%;\n      background: var(--pd-field);\n      color: var(--pd-ink);\n      transition: transform .25s var(--pd-ease), background-color .2s var(--pd-ease), color .2s var(--pd-ease);\n    }\n\n    #promise-detail-embed .pd-update-chevron .pd-icon { width: 16px; height: 16px; font-size: 16px; }\n\n    #promise-detail-embed .pd-update-card[data-has-body=\"true\"]:hover .pd-update-chevron { background: var(--pd-red); color: #fff; }\n    #promise-detail-embed .pd-update-card.pd-update-expanded .pd-update-chevron { transform: rotate(180deg); background: var(--pd-red); color: #fff; }\n\n    #promise-detail-embed .pd-update-link {\n      color: var(--pd-red);\n      font-size: 14px;\n      line-height: 1.2;\n      font-weight: 700;\n      text-decoration: underline;\n      text-underline-offset: 3px;\n      white-space: nowrap;\n    }\n\n    #promise-detail-embed .pd-show-more-row { display: flex; justify-content: center; margin-top: 18px; }\n\n    #promise-detail-embed .pd-show-more-button {\n      padding: 10px 18px;\n      border: 1.5px solid var(--pd-line);\n      border-radius: 999px;\n      background: #fff;\n      color: var(--pd-ink);\n      font-size: 14px;\n      line-height: 1.2;\n      font-weight: 700;\n      transition: border-color .2s var(--pd-ease);\n    }\n\n    #promise-detail-embed .pd-show-more-button:hover { border-color: var(--pd-ink); }\n\n    #promise-detail-embed .pd-update-highlight { box-shadow: 0 0 0 1.5px var(--pd-red); }\n\n    /* ---------- quotes (copied from the CMS blocks) ---------- */\n    #promise-detail-embed .pd-quotes-grid {\n      display: grid;\n      grid-template-columns: repeat(2, minmax(0, 1fr));\n      column-gap: 24px;\n      align-items: start;\n    }\n\n    #promise-detail-embed .pd-quotes-column { display: grid; gap: 24px; align-content: start; min-width: 0; }\n\n    #promise-detail-embed .pd-quote-card {\n      position: relative;\n      overflow: hidden;\n      min-width: 0;\n      padding: clamp(26px, 2.8vw, 34px);\n      border-radius: var(--pd-radius);\n      background: var(--pd-tint);\n      isolation: isolate;\n    }\n\n    #promise-detail-embed .pd-quote-content {\n      position: relative;\n      z-index: 2;\n      display: grid;\n      grid-template-columns: 30px minmax(0, 1fr);\n      column-gap: 10px;\n      row-gap: 12px;\n      min-width: 0;\n    }\n\n    #promise-detail-embed .pd-quote-card.pd-has-image {\n      --pd-quote-image-width: clamp(122px, 25%, 165px);\n      min-height: 190px;\n      padding-right: calc(var(--pd-quote-image-width) + clamp(22px, 2.2vw, 30px));\n    }\n\n    #promise-detail-embed .pd-quote-card.pd-has-image .pd-quote-content { align-items: start; }\n\n    #promise-detail-embed .pd-quote-mark {\n      grid-column: 1;\n      grid-row: 1 / span 3;\n      color: var(--pd-red);\n      font-size: 40px;\n      line-height: .72;\n      font-weight: 800;\n      letter-spacing: -.08em;\n      transform: translateY(1px);\n      user-select: none;\n    }\n\n    #promise-detail-embed .pd-quote-text {\n      grid-column: 2;\n      max-width: 62ch;\n      margin: 0;\n      color: var(--pd-ink);\n      font-family: var(--pd-body-font, inherit);\n      font-size: 18px;\n      line-height: 1.52;\n      font-weight: var(--pd-body-weight, 400);\n      font-style: normal;\n      letter-spacing: var(--pd-body-letter-spacing, normal);\n      text-wrap: pretty;\n    }\n\n    #promise-detail-embed .pd-quote-footer { grid-column: 2; display: block; min-width: 0; margin-top: 4px; }\n    #promise-detail-embed .pd-quote-person-block { display: grid; align-content: end; gap: 2px; min-width: 0; }\n\n    #promise-detail-embed .pd-quote-source-name,\n    #promise-detail-embed .pd-quote-role {\n      min-width: 0;\n      color: var(--pd-ink);\n      font-family: var(--pd-body-font, inherit);\n      font-size: 14px;\n      line-height: 1.35;\n      font-weight: 400;\n    }\n\n    #promise-detail-embed .pd-quote-source-name { font-weight: 700; }\n\n    #promise-detail-embed .pd-quote-source-name a,\n    #promise-detail-embed .pd-quote-role a {\n      color: var(--pd-red);\n      font-weight: 400;\n      text-decoration: underline;\n      text-decoration-thickness: 1px;\n      text-underline-offset: 2px;\n    }\n\n    #promise-detail-embed .pd-quote-link-icon {\n      display: inline-block;\n      width: 14px; height: 14px;\n      margin-right: 5px;\n      vertical-align: -2px;\n      background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='3.5' y='3.5' width='13' height='13' rx='2.5' fill='none' stroke='%23ff0033' stroke-width='1.8'/%3E%3Cpath d='M7 7.5h6M7 10.5h6M7 13.5h3.5' stroke='%23ff0033' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E\") center / contain no-repeat;\n    }\n\n    #promise-detail-embed .pd-quote-image-wrap {\n      position: absolute;\n      top: 0; right: 0; bottom: 0;\n      z-index: 1;\n      width: var(--pd-quote-image-width, 150px);\n      overflow: hidden;\n      background: #f2dce2;\n    }\n\n    #promise-detail-embed .pd-quote-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }\n\n    /* ---------- evidence ---------- */\n    #promise-detail-embed .pd-evidence-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 16px; margin-bottom: 16px; }\n\n    #promise-detail-embed .pd-evidence-card,\n    #promise-detail-embed .pd-metric-panel,\n    #promise-detail-embed .pd-method-card {\n      border-radius: var(--pd-radius);\n      background: #fff;\n      box-shadow: var(--pd-shadow);\n    }\n\n    #promise-detail-embed .pd-evidence-card,\n    #promise-detail-embed .pd-method-card { padding: 22px 24px; }\n    #promise-detail-embed .pd-metric-panel { padding: 22px; }\n\n    #promise-detail-embed .pd-evidence-title,\n    #promise-detail-embed .pd-metric-panel-title { margin: 0 0 12px; color: var(--pd-ink); font-size: 17px; line-height: 1.2; font-weight: 800; }\n\n    #promise-detail-embed .pd-metric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }\n\n    #promise-detail-embed .pd-metric-card { display: grid; align-content: start; gap: 5px; min-height: 96px; padding: 14px 16px; border-radius: 16px; background: var(--pd-field); }\n    #promise-detail-embed .pd-metric-value { color: var(--pd-ink); font-size: clamp(25px, 3vw, 36px); line-height: .98; font-weight: 800; letter-spacing: -.04em; }\n    #promise-detail-embed .pd-metric-label { color: var(--pd-muted); font-size: 14px; line-height: 1.4; }\n\n    #promise-detail-embed .pd-method-copy { font-size: 16px; line-height: 1.6; }\n    #promise-detail-embed .pd-evidence-card .pd-fact-copy,\n    #promise-detail-embed .pd-evidence-card .pd-fact-copy p,\n    #promise-detail-embed .pd-evidence-card .pd-fact-copy li { font-size: 16px; line-height: 1.6; }\n\n    #promise-detail-embed .pd-empty,\n    #promise-detail-embed .pd-loading,\n    #promise-detail-embed .pd-error {\n      padding: 22px 24px;\n      border-radius: var(--pd-radius);\n      background: #fff;\n      box-shadow: var(--pd-shadow);\n      color: var(--pd-muted);\n    }\n\n    #promise-detail-embed .pd-error strong { color: var(--pd-red); }\n\n    #promise-detail-embed #pdTimelineMount:empty { display: none; }\n\n    /* ---------- responsive ---------- */\n    @media (max-width: 920px) {\n      #promise-detail-embed .pd-hero,\n    #promise-detail-embed .pd-evidence-grid,\n    #promise-detail-embed .pd-hero-details { grid-template-columns: 1fr; }\n      #promise-detail-embed .pd-quotes-grid,\n    #promise-detail-embed .pd-terms { grid-template-columns: 1fr; }\n    }\n\n    @media (max-width: 640px) {\n      #promise-detail-embed .pd-app { padding: 20px 16px 38px; }\n      #promise-detail-embed .pd-shell { gap: 40px; }\n      #promise-detail-embed .pd-promise-panel { min-height: 420px; }\n      #promise-detail-embed .pd-promise-content,\n    #promise-detail-embed .pd-verdict-head,\n    #promise-detail-embed .pd-verdict-body,\n    #promise-detail-embed .pd-timeline-wrap { padding-left: 18px; padding-right: 18px; }\n      #promise-detail-embed .pd-verdict-head { display: grid; justify-content: stretch; }\n      #promise-detail-embed .pd-overview-item { grid-template-columns: 1fr; gap: 4px; padding: 16px 18px; }\n      #promise-detail-embed .pd-metric-grid { grid-template-columns: 1fr; }\n      #promise-detail-embed .pd-update-card { grid-template-columns: 1fr; padding-left: 28px; }\n      #promise-detail-embed .pd-update-body { grid-column: 1 / -1; margin-top: 0; }\n      #promise-detail-embed .pd-update-actions { justify-content: flex-start; }\n      #promise-detail-embed .pd-quote-card { padding: 22px 20px; }\n      #promise-detail-embed .pd-quote-card.pd-has-image { --pd-quote-image-width: clamp(92px, 27vw, 112px); min-height: 170px; padding-right: calc(var(--pd-quote-image-width) + 18px); }\n      #promise-detail-embed .pd-quote-mark { font-size: 36px; }\n      #promise-detail-embed .pd-quote-source-name,\n    #promise-detail-embed .pd-quote-role { font-size: 13.5px; }\n    }\n\n    @media (prefers-reduced-motion: reduce) {\n      #promise-detail-embed *,\n    #promise-detail-embed *::before,\n    #promise-detail-embed *::after { animation: none !important; transition: none !important; }\n    }\n\n    /* ---------- thin white outline on the cards ---------- */\n    #promise-detail-embed .pd-promise-panel,\n    #promise-detail-embed .pd-verdict-card,\n    #promise-detail-embed .pd-promise-overview-box,\n    #promise-detail-embed .pd-term,\n    #promise-detail-embed .pd-timeline-wrap,\n    #promise-detail-embed .pd-evidence-card,\n    #promise-detail-embed .pd-metric-panel,\n    #promise-detail-embed .pd-method-card,\n    #promise-detail-embed .pd-empty,\n    #promise-detail-embed .pd-loading,\n    #promise-detail-embed .pd-error { border: 1px solid rgba(255, 255, 255, .9); }\n\n    #promise-detail-embed .pd-quote-card { border: 1px solid rgba(255, 255, 255, .85); }\n\n    /* ---------- woordenboek (dictionary) ---------- */\n    #promise-detail-embed .pd-gloss {\n      text-decoration: underline dotted;\n      text-decoration-color: var(--pd-red);\n      text-decoration-thickness: 2px;\n      text-underline-offset: 3px;\n      border-radius: 3px;\n      cursor: help;\n      transition: background-color .15s var(--pd-ease);\n    }\n\n    #promise-detail-embed .pd-gloss:hover,\n    #promise-detail-embed .pd-gloss[aria-expanded=\"true\"] { background: var(--pd-tint); }\n    #promise-detail-embed .pd-gloss:focus-visible { outline: 1.5px solid var(--pd-red); outline-offset: 2px; }\n\n    #promise-detail-embed .pd-gloss-pop {\n      position: absolute;\n      z-index: 50;\n      width: max-content;\n      max-width: min(280px, calc(100% - 16px));\n      padding: 11px 14px 12px;\n      border-radius: 12px;\n      background: #fff;\n      color: var(--pd-ink);\n      box-shadow: 0 0 0 1px rgba(23, 23, 28, .045), 0 2px 4px rgba(23, 23, 28, .045), 0 12px 28px -10px rgba(23, 23, 28, .16);\n      font-size: 13px;\n      line-height: 1.4;\n      text-align: left;\n    }\n\n    #promise-detail-embed .pd-gloss-pop::after {\n      content: \"\";\n      position: absolute;\n      left: var(--pd-arrow-x, 24px);\n      width: 12px;\n      height: 12px;\n      margin-left: -6px;\n      background: #fff;\n      transform: rotate(45deg);\n    }\n\n    #promise-detail-embed .pd-gloss-pop[data-side=\"above\"]::after { bottom: -6px; box-shadow: 2px 2px 3px -1px rgba(23, 23, 28, .12); }\n    #promise-detail-embed .pd-gloss-pop[data-side=\"below\"]::after { top: -6px; box-shadow: -2px -2px 3px -1px rgba(23, 23, 28, .1); }\n\n    #promise-detail-embed .pd-gloss-pop-word { margin-bottom: 4px; color: var(--pd-ink); font-size: 14px; font-weight: 800; line-height: 1.2; }\n    #promise-detail-embed .pd-gloss-pop-text p,\n    #promise-detail-embed .pd-gloss-pop-text li { margin: 0 0 5px; font-size: 13px; line-height: 1.4; }\n    #promise-detail-embed .pd-gloss-pop-text p:last-child { margin-bottom: 0; }\n\n  /* The CMS's own quote blocks and article lists live outside the embed; they are hidden once copied in. */\n  .pd-cms-quote-source-hidden,\n  .bm-timeline-source-hidden {\n    display: none !important;\n  }\n\n  .bm-master-timeline.bm-timeline-ready {\n    --bm-red: var(--pd-red, #ff0033);\n    --bm-ink: var(--pd-ink, #17171c);\n    --bm-muted: var(--pd-muted, #6b6b75);\n    --bm-tint: var(--pd-tint, #FFE9EE);\n    --bm-field: var(--pd-field, #FFF2F5);\n    --bm-line: var(--pd-line, #FFE0E6);\n    --bm-done: #00b2a9;\n    --bm-done-soft: #ebfff1;\n    --bm-shadow: 0 0 0 1px rgba(23, 23, 28, .025), 0 1px 2px rgba(23, 23, 28, .03), 0 6px 18px -10px rgba(23, 23, 28, .06);\n\n    width: 100%;\n    max-width: none;\n    margin: 0;\n    padding: 0;\n    background: transparent !important;\n    box-sizing: border-box;\n  }\n\n  .bm-master-timeline.bm-timeline-ready * {\n    box-sizing: border-box;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section,\n  .bm-master-timeline.bm-timeline-ready .teaser-section__inner {\n    width: 100%;\n    max-width: none;\n    margin-inline: 0;\n    padding-inline: 0;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .section-title {\n    margin: 0 0 18px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .section-title__top {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 18px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .section-title__title-wrapper svg,\n  .bm-master-timeline.bm-timeline-ready .section-title__subtitle {\n    display: none;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .section-title__title {\n    margin: 0;\n    color: var(--bm-ink);\n    font-size: 26px;\n    line-height: 1.1;\n    font-weight: 600;\n    letter-spacing: -.01em;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-heading-tools {\n    display: inline-flex;\n    align-items: center;\n    justify-content: flex-end;\n    gap: 12px;\n    flex: 0 0 auto;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-control-icon {\n    flex: 0 0 auto;\n    width: 18px;\n    height: 18px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-count {\n    color: var(--bm-muted);\n    font-size: 14px;\n    line-height: 1;\n    white-space: nowrap;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-order-toggle {\n    appearance: none !important;\n    display: inline-flex !important;\n    align-items: center !important;\n    justify-content: center !important;\n    gap: 7px !important;\n    min-width: 0 !important;\n    min-height: 0 !important;\n    height: auto !important;\n    padding: 9px 16px 9px 13px !important;\n    border: 1.5px solid var(--bm-line) !important;\n    border-radius: 999px !important;\n    background: #fff !important;\n    color: var(--bm-ink) !important;\n    box-shadow: none !important;\n    font-family: inherit !important;\n    font-size: 14px !important;\n    line-height: 1.2 !important;\n    font-weight: 700 !important;\n    white-space: nowrap !important;\n    cursor: pointer;\n    transform: none !important;\n    transition: border-color 200ms ease;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-order-toggle > span:not(.bm-timeline-control-icon) {\n    font-family: inherit !important;\n    font-size: 14px !important;\n    line-height: 1.2 !important;\n    font-weight: 700 !important;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-order-toggle:hover {\n    border-color: var(--bm-ink) !important;\n    background: #fff !important;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-order-toggle:focus-visible {\n    outline: 1.5px solid var(--bm-red);\n    outline-offset: 3px;\n  }\n\n  /* dot navigation */\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav {\n    width: 100%;\n    max-width: 100%;\n    border: 0;\n    padding: 10px 8px 14px 0;\n    margin: 0 0 14px;\n    background: transparent;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__row {\n    display: grid;\n    grid-template-columns: max-content minmax(0, 1fr) max-content;\n    align-items: center;\n    gap: 14px;\n    width: 100%;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__edge-label {\n    color: var(--bm-muted);\n    font-size: 12.5px;\n    line-height: 1;\n    font-weight: 400;\n    white-space: nowrap;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__track {\n    position: relative;\n    width: 100%;\n    height: 8px;\n    border-radius: 999px;\n    background: rgba(23, 23, 28, .09);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__dot {\n    appearance: none;\n    position: absolute;\n    top: 50%;\n    width: 14px;\n    height: 14px;\n    padding: 0;\n    border-radius: 999px;\n    background: #fff;\n    border: 0;\n    box-shadow: 0 0 0 1px rgba(23, 23, 28, .05), 0 1px 3px rgba(23, 23, 28, .12);\n    opacity: 1;\n    z-index: 1;\n    transform: translate(-50%, -50%);\n    cursor: pointer;\n    transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;\n  }\n\n  /* a little lift and a soft red halo when you point at a dot */\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__dot:hover {\n    transform: translate(-50%, -50%) scale(1.3);\n    box-shadow: 0 0 0 4px rgba(23, 23, 28, .05), 0 1px 3px rgba(23, 23, 28, .12);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__dot.bm-timeline-nav__dot--active {\n    z-index: 10;\n    background: var(--bm-red);\n    transform: translate(-50%, -50%) scale(1.2);\n    box-shadow: 0 0 0 1px rgba(23, 23, 28, .05), 0 1px 3px rgba(23, 23, 28, .12);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__dot:focus-visible {\n    outline: 1.5px solid var(--bm-red);\n    outline-offset: 3px;\n  }\n\n  /* list of CMS articles */\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items {\n    display: block !important;\n    width: 100%;\n    max-width: none;\n    list-style: none;\n    margin: 0 0 0 -6px;\n    width: calc(100% + 6px);\n    padding: 6px 10px 6px 6px;\n    max-height: 520px;\n    overflow-y: scroll;\n    scrollbar-gutter: stable;\n    scrollbar-width: thin;\n    scrollbar-color: #ffb3c1 transparent;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items::-webkit-scrollbar {\n    width: 8px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items::-webkit-scrollbar-track {\n    background: transparent;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items::-webkit-scrollbar-thumb {\n    background: #ffb3c1;\n    border-radius: 999px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items::-webkit-scrollbar-thumb:hover {\n    background: var(--bm-red);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items > li {\n    list-style: none;\n    margin: 0 0 12px;\n    padding: 0;\n    scroll-margin-top: 100px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-section__items > li::marker {\n    content: \"\";\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser-wrapper {\n    width: 100%;\n    max-width: none;\n    margin: 0;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser {\n    display: block;\n    width: 100%;\n    max-width: none;\n    position: relative;\n    overflow: hidden;\n    color: var(--bm-ink);\n    text-decoration: none;\n    border: 1px solid rgba(255, 255, 255, .9);\n    border-radius: 12px;\n    background: #fff;\n    box-shadow: var(--bm-shadow);\n    transition: background-color 200ms ease, box-shadow 200ms ease;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser:hover {\n    background: #fff;\n    box-shadow: 0 0 0 1px rgba(23, 23, 28, .04), 0 2px 4px rgba(23, 23, 28, .035), 0 12px 26px -12px rgba(23, 23, 28, .10);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser:focus-visible {\n    outline: 1.5px solid var(--bm-red);\n    outline-offset: 0;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-active .teaser,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-active .teaser:hover {\n    background: var(--bm-tint);\n    box-shadow: var(--bm-shadow);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser__content {\n    position: relative;\n    display: grid;\n    grid-template-columns: 112px minmax(0, 1fr);\n    align-items: stretch;\n    gap: 0;\n    min-height: 80px;\n    padding: 0;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-no-image .teaser__content {\n    grid-template-columns: minmax(0, 1fr);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-type-milestone .teaser {\n    background: var(--bm-field);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-type-vonnis .teaser,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-realized .teaser {\n    background: var(--bm-done-soft);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-media {\n    width: 112px;\n    height: 100%;\n    min-height: 80px;\n    overflow: hidden;\n    background: var(--bm-field);\n    align-self: stretch;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-media img {\n    display: block;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-no-image .bm-timeline-media {\n    display: none;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-main {\n    min-width: 0;\n    align-self: center;\n    padding: 14px 20px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .teaser__title {\n    margin: 0;\n    color: var(--bm-ink);\n    font-size: clamp(16px, 1.4vw, 18px);\n    line-height: 1.22;\n    font-weight: 700;\n    letter-spacing: -.01em;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-title-hidden {\n    display: none;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-type-vonnis .teaser__title,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-realized .teaser__title {\n    color: var(--bm-done);\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-meta-line {\n    margin-top: 5px;\n    color: var(--bm-muted);\n    font-size: 12.5px;\n    line-height: 1.3;\n    font-weight: 400;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-status {\n    display: inline-flex;\n    align-items: center;\n    width: fit-content;\n    margin-bottom: 6px;\n    padding: 4px 12px 4px 5px;\n    border-radius: 999px;\n    background: var(--bm-done);\n    color: #fff;\n    font-size: 13px;\n    font-weight: 700;\n    line-height: 1.2;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-status::before {\n    content: \"\u2713\";\n    display: inline-grid;\n    place-items: center;\n    width: 16px;\n    height: 16px;\n    margin-right: 7px;\n    border-radius: 999px;\n    background: #fff;\n    color: var(--bm-done);\n    font-size: 10px;\n    font-weight: 800;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-no-link .teaser {\n    cursor: default;\n  }\n\n  @media (max-width: 640px) {\n    .bm-master-timeline.bm-timeline-ready .section-title__top {\n      align-items: flex-start;\n      flex-direction: column;\n      gap: 10px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-heading-tools {\n      justify-content: flex-start;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__row {\n      gap: 9px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__edge-label {\n      font-size: 11px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .teaser__content {\n      grid-template-columns: 90px minmax(0, 1fr);\n      min-height: 74px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-media {\n      width: 90px;\n      min-height: 74px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-main {\n      padding: 11px 14px;\n    }\n\n    .bm-master-timeline.bm-timeline-ready .teaser__title {\n      font-size: 16px;\n    }\n  }\n";
   style.textContent += "\n#promise-detail-embed .pd-verdict-evidence-text { color: #3a3a42; font-size: 14px; line-height: 1.5; }\n#promise-detail-embed .pd-verdict-evidence-text p, #promise-detail-embed .pd-verdict-evidence-text li { margin: 0 0 6px; font-size: 14px; line-height: 1.5; }\n#promise-detail-embed .pd-verdict-evidence-text p:last-child { margin-bottom: 0; }\n#promise-detail-embed .pd-verdict-evidence-text ul { margin: 0; padding: 0 0 0 1.15em; list-style: disc; }\n#promise-detail-embed .pd-verdict-evidence-text li { margin: 0 0 6px; padding-left: .12em; }\n#promise-detail-embed .pd-verdict-evidence-text li:last-child { margin-bottom: 0; }\n";
+  style.textContent += "\n#promise-detail-embed .pd-hero-bottom { display: flex; flex-direction: column; align-items: stretch; gap: 20px; margin-top: auto; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, .22); }\n#promise-detail-embed .pd-hero-bottom .pd-hero-details { max-width: none; margin-top: 0; padding-top: 0; border-top: 0; }\n#promise-detail-embed .pd-poll { flex: 0 0 auto; width: 100%; min-width: 0; padding: 4px 14px 0; overflow: hidden; border-radius: 14px; background: var(--pd-poll-bg, #000); border: var(--pd-poll-border, 0); box-shadow: none; color: #fff; }\n#promise-detail-embed .pd-poll-label { margin: 0 0 4px; color: #ff0033; font-size: 11px; font-weight: 900; line-height: 1.2; letter-spacing: .06em; text-transform: uppercase; }\n#promise-detail-embed .pd-poll iframe { display: block; width: 100%; border: 0; zoom: var(--pd-poll-zoom, .8); color-scheme: dark; margin: calc(-1 * var(--pd-poll-trim-top, 0px)) 0 calc(-1 * var(--pd-poll-trim-bottom, 0px)); }\n#promise-detail-embed .pd-poll { position: relative; }\n#promise-detail-embed .pd-poll-close { position: absolute; top: 6px; right: 8px; width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; background: transparent; color: rgba(255, 255, 255, .6); font-size: 20px; line-height: 1; cursor: pointer; }\n#promise-detail-embed .pd-poll-close:hover { background: rgba(255, 255, 255, .14); color: #fff; }\n#promise-detail-embed .pd-poll-done .pd-poll-thanks { padding: 6px 26px 12px 0; margin: 0; }\n#promise-detail-embed .pd-promise-panel.pd-has-poll::after { background: radial-gradient(130% 95% at 0% 100%, rgba(0, 0, 0, var(--pd-overlay, .9)) 0%, rgba(0, 0, 0, calc(var(--pd-overlay, .9) * .72)) 38%, rgba(0, 0, 0, 0) 80%), linear-gradient(0deg, rgba(0, 0, 0, calc(var(--pd-overlay, .9) * .55)) 0%, rgba(0, 0, 0, 0) 48%), linear-gradient(180deg, rgba(0, 0, 0, .05) 0%, rgba(0, 0, 0, .15) 100%); }\n#promise-detail-embed .pd-poll-thanks { margin: 0 0 10px; color: #fff; font-size: 13px; line-height: 1.4; font-weight: 600; }\n@media (max-width: 640px) { #promise-detail-embed .pd-hero-bottom { flex-direction: column; align-items: stretch; } #promise-detail-embed .pd-poll { flex: 0 0 auto; width: 100%; } }\n";
+  style.textContent += "\n#promise-detail-embed .pd-pr { display: grid; gap: 12px; color: #fff; font-size: 13px; line-height: 1.3; }\n#promise-detail-embed .pd-pr-q { display: grid; gap: 5px; }\n#promise-detail-embed .pd-pr-title { margin: 0 0 2px; font-size: 13px; font-weight: 800; color: #fff; }\n#promise-detail-embed .pd-pr-row { display: grid; grid-template-columns: minmax(70px, 34%) 1fr 38px; gap: 8px; align-items: center; }\n#promise-detail-embed .pd-pr-name { font-size: 12.5px; color: rgba(255,255,255,.88); }\n#promise-detail-embed .pd-pr-bar { display: block; height: 8px; border-radius: 99px; background: rgba(255,255,255,.18); overflow: hidden; }\n#promise-detail-embed .pd-pr-bar i { display: block; height: 100%; border-radius: 99px; background: #ff0033; }\n#promise-detail-embed .pd-pr-pct { font-size: 12px; font-weight: 800; text-align: right; color: #fff; }\n#promise-detail-embed .pd-pr-note { margin: 2px 0 0; font-size: 11px; color: rgba(255,255,255,.6); }";
+  style.textContent += "\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-media {\n    display: grid;\n    place-items: center;\n    width: 112px;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-media img {\n    width: 58px;\n    height: 58px;\n    object-fit: contain;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-stub-symbol {\n    font-size: 40px;\n    line-height: 1;\n    font-weight: 700;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-stub-eyebrow {\n    margin-bottom: 2px;\n    color: var(--bm-muted);\n    font-size: 12px;\n    font-weight: 700;\n    line-height: 1.2;\n    letter-spacing: .05em;\n    text-transform: uppercase;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-main .teaser__title {\n    font-size: 30px;\n    line-height: 1.08;\n  }\n\n  @media (max-width: 640px) {\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-media { width: 90px; }\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-media img { width: 48px; height: 48px; }\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-main .teaser__title { font-size: 24px; }\n  }\n";
+  style.textContent += "\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .teaser,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .teaser:hover {\n    cursor: default;\n    box-shadow: var(--bm-shadow);\n  }\n";
+  style.textContent += "\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__dot.bm-timeline-nav__dot--status,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__dot.bm-timeline-nav__dot--status.bm-timeline-nav__dot--active {\n    background: var(--bm-dot-color);\n    box-shadow: 0 0 0 1px rgba(23, 23, 28, .05), 0 1px 3px rgba(23, 23, 28, .12);\n  }\n";
+  style.textContent += "\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-stub-eyebrow {\n    color: inherit;\n    opacity: .9;\n    font-size: 12.5px;\n    font-weight: 600;\n    letter-spacing: 0;\n    text-transform: none;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-stub-eyebrow-lead {\n    font-weight: 800;\n    letter-spacing: .05em;\n    text-transform: uppercase;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-main .teaser__title {\n    color: inherit;\n  }\n";
+  style.textContent += "\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-stub-text {\n    margin-top: 10px;\n    font-size: 14.5px;\n    line-height: 1.5;\n    font-weight: 400;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-stub-text p { margin: 0 0 .6em; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-stub-text p:last-child { margin-bottom: 0; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-stub-text ul,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-stub-text ol { margin: 0 0 .6em; padding-left: 1.25em; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-stub .bm-timeline-stub-text a { color: inherit; text-decoration: underline; }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-filter-toggle[aria-pressed=\"true\"] {\n    background: #17171c;\n    border-color: #17171c;\n    color: #fff;\n  }\n\n  .bm-master-timeline.bm-only-status .teaser-section__items > li:not(.bm-timeline-status-card) { display: none !important; }\n  .bm-master-timeline.bm-only-status .bm-timeline-nav__dot:not(.bm-timeline-nav__dot--status) { display: none; }\n\n  #promise-detail-embed ol { margin: 0 0 .6em; padding-left: 1.25em; }\n";
+  style.textContent += "\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .teaser {\n    --bm-verdict-color: #17171c;\n    --bm-verdict-on: #fff;\n    cursor: default;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .teaser__content {\n    display: block;\n    min-height: 0;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-heading {\n    margin: 0;\n    font: inherit;\n    letter-spacing: 0;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-head {\n    appearance: none;\n    -webkit-appearance: none;\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    width: 100%;\n    margin: 0;\n    padding: 11px 16px;\n    border: 0;\n    background: var(--bm-verdict-color);\n    color: var(--bm-verdict-on);\n    font: inherit;\n    text-align: left;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict button.bm-verdict-head { cursor: pointer; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict button.bm-verdict-head:hover { filter: brightness(.96); }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict button.bm-verdict-head:focus-visible { outline: 2px solid #17171c; outline-offset: -4px; }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-icon {\n    display: grid;\n    place-items: center;\n    flex: none;\n    width: 28px;\n    height: 28px;\n    font-size: 20px;\n    font-weight: 800;\n    line-height: 1;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-icon img { display: block; width: 28px; height: 28px; object-fit: contain; }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-title {\n    font-size: clamp(18px, 1.6vw, 21px);\n    line-height: 1.1;\n    font-weight: 800;\n    letter-spacing: -.01em;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-when {\n    margin-left: auto;\n    font-size: 12.5px;\n    font-weight: 700;\n    line-height: 1.2;\n    text-align: right;\n    opacity: .92;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-lead { text-transform: uppercase; letter-spacing: .05em; font-weight: 800; }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-chevron {\n    display: grid;\n    place-items: center;\n    flex: none;\n    transition: transform 220ms ease;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict.bm-timeline-status-card .teaser.bm-verdict-open .bm-verdict-chevron,\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-open .bm-verdict-chevron { transform: rotate(180deg); }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-body {\n    display: grid;\n    grid-template-rows: 0fr;\n    transition: grid-template-rows 240ms ease;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-open .bm-verdict-body { grid-template-rows: 1fr; }\n\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text {\n    min-height: 0;\n    overflow: hidden;\n    padding: 0 18px;\n    color: var(--bm-ink);\n    font-size: 14.5px;\n    line-height: 1.5;\n    font-weight: 400;\n  }\n\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-open .bm-verdict-text { padding: 14px 18px 16px; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text p { margin: 0 0 .6em; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text > :last-child { margin-bottom: 0; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text ul,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text ol { margin: 0 0 .6em; padding-left: 1.25em; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text a { color: inherit; text-decoration: underline; }\n\n  @media (max-width: 560px) {\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-lead { display: none; }\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-head { gap: 10px; padding: 10px 12px; }\n  }\n";
+  style.textContent += "\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .teaser:hover { box-shadow: var(--bm-shadow); }\n  @media (max-width: 720px) {\n    .bm-master-timeline.bm-timeline-ready .section-title__top { flex-wrap: wrap; gap: 10px 16px; }\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-heading-tools { flex-wrap: wrap; row-gap: 8px; }\n  }\n";
+  style.textContent += "\n  /* evidence (\"Bewijs\" + key figures) inside an opened verdict */\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-evidence { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--bm-line, rgba(0,0,0,.1)); }\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-evidence:first-child { margin-top: 0; padding-top: 0; border-top: 0; }\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-evidence-title { margin: 0 0 8px; font-size: 15px; line-height: 1.2; font-weight: 800; color: var(--bm-ink); letter-spacing: -.01em; }\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-evidence-text,\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-evidence-text p,\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-evidence-text li {\n    font-family: var(--pd-body-font, inherit); font-size: var(--pd-body-size, 15px); line-height: var(--pd-body-line-height, 1.5); font-weight: var(--pd-body-weight, 400); color: var(--bm-ink);\n  }\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-evidence-text p { margin: 0 0 10px; }\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-evidence-text > :last-child { margin-bottom: 0; }\n  .bm-master-timeline.bm-timeline-ready .bm-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 14px; }\n  .bm-master-timeline.bm-timeline-ready .bm-metric { display: grid; gap: 4px; align-content: start; padding: 12px 14px; border-radius: 10px; background: var(--bm-tint, #fff4f6); }\n  .bm-master-timeline.bm-timeline-ready .bm-metric-value { font-size: 24px; line-height: 1; font-weight: 800; letter-spacing: -.02em; color: var(--bm-verdict-ink, var(--bm-ink)); }\n  .bm-master-timeline.bm-timeline-ready .bm-metric-label { font-size: 12.5px; line-height: 1.3; color: var(--bm-muted, #5c5c66); }\n";
+  style.textContent += "\n  /* verdict bar: article font, same shadow as the articles, and a soft gradient instead of a flat colour */\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .teaser,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .teaser:hover { box-shadow: var(--bm-shadow); }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-head {\n    background: var(--bm-verdict-color);\n    background-image: linear-gradient(105deg, color-mix(in srgb, var(--bm-verdict-color) 78%, #fff) 0%, var(--bm-verdict-color) 48%, color-mix(in srgb, var(--bm-verdict-color) 90%, #000) 100%);\n  }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-title {\n    font-family: var(--bm-art-font, inherit);\n    font-weight: var(--bm-art-weight, 700);\n    font-style: var(--bm-art-style, normal);\n    letter-spacing: var(--bm-art-spacing, -.01em);\n  }\n";
+  style.textContent += "\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-lead { text-transform: none; letter-spacing: 0; font-weight: 700; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-caps { text-transform: uppercase; letter-spacing: .05em; font-weight: 800; }\n\n  /* the text under a verdict: exactly the size and font of the text in the verdict card at the top of the page */\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text p,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text li {\n    font-family: var(--pd-body-font, inherit);\n    font-size: var(--pd-body-size, 15px);\n    line-height: var(--pd-body-line-height, 1.5);\n    font-weight: var(--pd-body-weight, 400);\n    letter-spacing: var(--pd-body-letter-spacing, normal);\n    color: var(--bm-ink);\n  }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text p { margin: 0 0 10px; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text p:last-child { margin-bottom: 0; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text li { margin: 0 0 4px; }\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-text strong { font-weight: 700; }\n";
+  style.textContent += "\n  /* ---- verdict bar, round 3 ---- */\n  /* the text and icon colour always follow the bar colour (a theme can not turn the text black while the icon stays white) */\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-head,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict button.bm-verdict-head,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-head .bm-verdict-title,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-head .bm-verdict-when,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-head .bm-verdict-icon,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-head .bm-verdict-chevron { color: var(--bm-verdict-on) !important; }\n\n  /* gradient: lighter at the left, the main colour from about two thirds; plus a thin light edge on top */\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-head {\n    background-image: linear-gradient(100deg, color-mix(in srgb, var(--bm-verdict-color) 90%, #000) 0%, var(--bm-verdict-color) 50%, color-mix(in srgb, var(--bm-verdict-color) 82%, #fff) 100%);\n    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4);\n  }\n\n  /* \"Oordeel van BRUZZ\" always starts at the same spot (wide screens) */\n  @media (min-width: 641px) {\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-title { flex: 1 1 auto; min-width: 0; }\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-when { flex: 0 0 auto; box-sizing: border-box; width: 250px; margin-left: auto; text-align: left; white-space: nowrap; }\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-when:last-child { margin-right: 28px; }\n    .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-chevron { margin-left: 0; }\n  }\n\n  /* lighter caption above the evidence */\n  .bm-master-timeline.bm-timeline-ready .bm-verdict-evidence-title { font-weight: 600; }\n";
+  style.textContent += "\n  /* ---- BRUZZ Check beoordelingen: the round timeline at the bottom of the Vooruitgang card ---- */\n  #promise-detail-embed .pd-verdict-card { display: flex; flex-direction: column; }\n  #promise-detail-embed .pd-verdict-body { flex: 1; display: flex; flex-direction: column; }\n  #promise-detail-embed .pd-rounds { margin-top: 0; padding-top: 16px; border-top: 1px solid var(--pd-line); }\n  #promise-detail-embed .pd-rounds-title { margin: 0 0 16px; color: var(--pd-ink); font-size: 15px; line-height: 1.2; font-weight: 600; letter-spacing: -.01em; }\n  #promise-detail-embed .pd-rounds-shell { position: relative; margin: 0 8px; }\n  #promise-detail-embed .pd-rounds-track { position: relative; height: 8px; border-radius: 999px; background: rgba(23, 23, 28, .09); }\n  #promise-detail-embed .pd-rounds-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; background: #ffd9e2; }\n  #promise-detail-embed .pd-round { position: absolute; top: 50%; left: var(--pos); width: 14px; height: 14px; box-sizing: border-box; border: 0; border-radius: 50%; transform: translate(-50%, -50%); background: #fff; box-shadow: 0 0 0 1px rgba(23, 23, 28, .05), 0 1px 3px rgba(23, 23, 28, .12); }\n  #promise-detail-embed .pd-round::after { content: \"\"; position: absolute; inset: -8px; border-radius: 50%; }\n  #promise-detail-embed .pd-round--next { background: #fff; }\n  #promise-detail-embed .pd-round--done { background: var(--c, #ff0033); }\n  #promise-detail-embed .pd-rounds-labels { position: relative; height: 32px; margin-top: 14px; }\n  #promise-detail-embed .pd-round-label { position: absolute; top: 0; left: var(--pos); transform: translateX(-50%); color: var(--pd-muted); font-size: 12px; line-height: 1.2; white-space: nowrap; text-align: center; }\n";
+  style.textContent += "\n  #promise-detail-embed button.pd-round { appearance: none; -webkit-appearance: none; margin: 0; padding: 0; cursor: pointer; transition: transform 160ms ease; }\n  #promise-detail-embed button.pd-round:hover { transform: translate(-50%, -50%) scale(1.3); }\n  #promise-detail-embed button.pd-round:focus-visible { outline: 2px solid #17171c; outline-offset: 2px; }\n  ";
+  style.textContent += "\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-nav__fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; background: #ffd9e2; pointer-events: none; }\n";
+  style.textContent += "\n  /* the back button with a white \"BRUZZ CHECK\" extension on the left */\n  #promise-detail-embed .pd-back { gap: 0; padding: 0; background: transparent; overflow: hidden; box-shadow: 0 0 0 1px rgba(23, 23, 28, .025), 0 1px 2px rgba(23, 23, 28, .03), 0 6px 18px -10px rgba(23, 23, 28, .06); }\n  #promise-detail-embed .pd-back::before { content: none; }\n  #promise-detail-embed .pd-back:hover { background: transparent; }\n  #promise-detail-embed .pd-back-brand { order: 2; display: inline-flex; align-items: center; padding: 13px 24px 13px 18px; background: #fff; color: var(--pd-red); font-family: var(--pd-brand-font, inherit); font-weight: 700; font-size: 17px; -webkit-text-stroke: .15px currentColor; line-height: 1.1; letter-spacing: .01em; text-transform: uppercase; white-space: nowrap; }\n  #promise-detail-embed .pd-back-text { order: 1; display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px 13px 16px; background: var(--pd-red); color: #fff; transition: background-color .2s var(--pd-ease); }\n  #promise-detail-embed .pd-back-text::before { content: \"\"; width: 20px; height: 20px; flex: none; background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16 10H4.5M9.5 4.5 4 10l5.5 5.5' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; }\n  #promise-detail-embed .pd-back:hover .pd-back-text { background: #e6002f; }\n  @media (max-width: 520px) {\n    #promise-detail-embed .pd-back { flex-wrap: wrap; border-radius: 22px; }\n    #promise-detail-embed .pd-back-brand { padding: 4px 20px 11px 24px; width: 100%; }\n    #promise-detail-embed .pd-back-text { width: 100%; }\n  }\n";
+  style.textContent += "\n  /* ---- minister at the top of the hero card, \"Laatste beoordeling\" pill, timeline at the bottom of the card ---- */\n  #promise-detail-embed .pd-hero-top { display: block; margin: 0 0 4px; }\n  #promise-detail-embed .pd-hero-top .pd-hero-detail { display: inline-grid; }\n  #promise-detail-embed .pd-rounds { margin-top: auto; }\n  #promise-detail-embed .pd-rounds-shell { margin-top: 0; }\n  #promise-detail-embed .pd-rounds-tag { position: absolute; left: var(--pos); bottom: 100%; margin-bottom: 14px; transform: translateX(-50%); padding: 5px 11px; border-radius: 999px; background: #17171c; color: #fff; font-size: 12px; line-height: 1; font-weight: 800; letter-spacing: .01em; white-space: nowrap; pointer-events: none; }\n  #promise-detail-embed .pd-rounds-tag--end { transform: translateX(calc(-100% + 18px)); }\n";
+  style.textContent += "\n  /* ---- back button: a bit more compact, with tighter spacing above and below ---- */\n  #promise-detail-embed .pd-app { padding-top: 30px; }\n  #promise-detail-embed .pd-back { margin: 0 0 32px; font-size: 16px; }\n  #promise-detail-embed .pd-back-text { padding: 13px 24px 13px 18px; gap: 10px; }\n  #promise-detail-embed .pd-back-text::before { width: 20px; height: 20px; }\n  #promise-detail-embed .pd-back-brand { padding: 13px 26px 13px 20px; font-size: 16px; }\n  @media (max-width: 520px) {\n    #promise-detail-embed .pd-back { margin-bottom: 24px; }\n    #promise-detail-embed .pd-back-brand { padding: 4px 18px 9px 22px; }\n  }\n";
+  style.textContent += "\n  /* ---- carousel with other promises ---- */\n  #promise-detail-embed .pd-car-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }\n  #promise-detail-embed .pd-car-arrows { display: flex; align-items: center; gap: 12px; }\n  #promise-detail-embed .pd-car-arrow { appearance: none; -webkit-appearance: none; display: grid; place-items: center; width: 44px; height: 44px; min-width: 44px; padding: 0; border-radius: 50%; border: 1.5px solid var(--pd-line); background: #fff; color: var(--pd-ink); line-height: 1; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; transition: border-color .2s, opacity .2s; }\n  #promise-detail-embed .pd-car-arrow svg { width: 16px; height: 16px; }\n  #promise-detail-embed .pd-car-prev svg { transform: scaleX(-1); }\n  #promise-detail-embed .pd-car-arrow:hover:not(:disabled) { border-color: var(--pd-ink); }\n  #promise-detail-embed .pd-car-arrow:disabled { opacity: .35; cursor: default; }\n  #promise-detail-embed .pd-car-track { display: flex; gap: 14px; margin: 0 -4px; padding: 6px 4px 20px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; -webkit-overflow-scrolling: touch; }\n  #promise-detail-embed .pd-car-track::-webkit-scrollbar { display: none; }\n  #promise-detail-embed .pd-car-card { position: relative; flex: 0 0 clamp(180px, 19vw, 215px); display: flex; flex-direction: column; gap: 12px; padding: 8px 8px 16px; border-radius: 20px; background: #fff; color: var(--pd-ink); text-decoration: none; box-shadow: var(--pd-shadow); scroll-snap-align: start; transition: transform .25s var(--pd-ease), box-shadow .25s var(--pd-ease); }\n  #promise-detail-embed a.pd-car-card:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(23, 23, 28, .04), 0 2px 4px rgba(23, 23, 28, .035), 0 12px 26px -12px rgba(23, 23, 28, .10); }\n  #promise-detail-embed .pd-car-media { display: block; height: 124px; overflow: hidden; border-radius: 13px; background: var(--pd-tint); }\n  #promise-detail-embed .pd-car-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--pd-ease); }\n  #promise-detail-embed a.pd-car-card:hover .pd-car-media img { transform: scale(1.05); }\n  #promise-detail-embed .pd-car-media--empty { display: grid; place-items: center; font-size: 38px; }\n  #promise-detail-embed .pd-car-badge { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 255, 255, .94); box-shadow: 0 0 0 1px rgba(23, 23, 28, .035), 0 1px 2px rgba(23, 23, 28, .05); }\n  #promise-detail-embed .pd-car-badge .pd-sym { --sym: 20px; }\n  #promise-detail-embed .pd-car-title { padding: 0 8px; font-family: var(--pd-brand-font, inherit); font-size: 16px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }\n";
   document.head.appendChild(style);
-  MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\">Zie het overzicht met alle beloftes</a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
+  MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\"><span class=\"pd-back-brand\">BRUZZ CHECK</span><span class=\"pd-back-text\">Zie het overzicht met alle beloftes</span></a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
 
   /* ---- page + data ---- */
   (function () {
@@ -65,8 +85,55 @@
       /* Hero image can sit above or below the promise title inside the left promise card. */
       const HERO_IMAGE_PLACEMENT = "above-title"; // "above-title" or "below-title"
 
+      /*
+        POLL (Tally) - shown at the bottom right of the hero card.
+        - POLL_TALLY_ID: the id of your Tally form (the part after /embed/ or /r/). Leave empty to hide the poll.
+        - In Tally, add a hidden field called "promise": this page fills it with the Promise key, so you can
+          tell the answers per promise apart in your Tally results.
+      */
+      const POLL_TALLY_ID = "4aa7A5";
+      const POLL_ZOOM = 0.8;   // size of the form: 1 = normal, 0.8 = 20% smaller, 0.7 = smaller still
+      const POLL_TRIM_TOP = 20;      // pulls the form up (px): removes the empty space Tally leaves above the questions
+      const POLL_TRIM_BOTTOM = 10;   // same for the space below the button
+      const POLL_BORDER = "0";       // "0" = no border; or e.g. "1px solid rgba(255,255,255,.18)" for a thin light line
+      const POLL_BG = "transparent"; // background of the poll card; e.g. "transparent", "rgba(0,0,0,.35)" or "#000"
+      const POLL_OVERLAY = 0.92;     // darkness of the black shade over the picture, from the bottom left corner (0 = none, 1 = solid black)
+      const POLL_LABEL = "";
+      /* Results after voting. "label" must be the question exactly as it is written in Tally; "options" are the answers
+         in the order they should be shown. The Worker only hands out results once a promise has enough votes
+         (20 by default, set in the Worker). */
+      const POLL_QUESTIONS = [
+        { label: "Hier staat een vraag?", options: ["Antwoord 1", "Antwoord 2", "Antwoord 3"] }
+      ];
+      const POLL_SHOW_RESULTS = true;
+
+      /*
+        CAROUSEL with other promises, at the bottom of the page.
+        - CAROUSEL_COUNT: how many promises to show (a high number shows all of them, 0 = no carousel).
+        - CAROUSEL_TITLE: the heading above it.
+        The promises come from the same data as the page itself (the Promises table), so there is no extra request.
+        Promises of the same minister come first, then the others. Each card links to the "Detail URL" of that promise.
+      */
+      const CAROUSEL_COUNT = 100;   // 100 = all of them
+      const CAROUSEL_TITLE = "Andere beloftes";   // small red title above the form; leave empty for none
+
       const PROMISES_API = `https://api.baserow.io/api/database/rows/table/${PROMISES_TABLE_ID}/?user_field_names=true&size=200`;
       const UPDATES_API = `https://api.baserow.io/api/database/rows/table/${UPDATES_TABLE_ID}/?user_field_names=true&size=200`;
+
+      /*
+        BEOORDELINGEN (the verdicts per round) - the status, the "Toelichting" and the "Bewijs" of a promise
+        now come from the LATEST PUBLISHED row in the Beoordelingen table, not from the Promises table.
+        - BEOORDELINGEN_TABLE_ID / RONDES_TABLE_ID: the table numbers in Baserow (the number after /table/ in the
+          address bar). Only needed without a proxy. With a proxy (API_BASE_URL) the Worker needs the routes
+          /beoordelingen and /rondes.
+        - As long as the tables can not be read, the page keeps using the old columns of the Promises table.
+        - EVIDENCE_TITLE: the heading above the "Bewijs" text.
+      */
+      const BEOORDELINGEN_TABLE_ID = "1285538".trim();
+      const RONDES_TABLE_ID = "1285539".trim();
+      const BEOORDELINGEN_API = `https://api.baserow.io/api/database/rows/table/${BEOORDELINGEN_TABLE_ID}/?user_field_names=true&size=200`;
+      const RONDES_API = `https://api.baserow.io/api/database/rows/table/${RONDES_TABLE_ID}/?user_field_names=true&size=200`;
+      const EVIDENCE_TITLE = "Bewijs";
 
       /*
         START RIGHT UNDER THE HEADER BARS
@@ -108,8 +175,9 @@
       const GLOSSARY_API = `https://api.baserow.io/api/database/rows/table/${GLOSSARY_TABLE_ID}/?user_field_names=true&size=200`;
 
       const STATUS_CONFIG = {
-            "NIET GESTART": { color: "#ff0033", bg: "#fde5ea", symbol: "✕", iconUrl: "https://app.razuna.eu/file/remote?i=6ac35e4df1c29aca7da8d503&f=t&dl=t&c=621b99d3b2893607c7ceb5be21589b81&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNWU0ZGYxYzI5YWNhN2RhOGQ1MDMmZj10JmRsPXQmYz02MjFiOTlkM2IyODkzNjA3YzdjZWI1YmUyMTU4OWI4MSIsInR5cGUiOiJkaXJlY3QifQ.D8poPnoPxffh6BGG6dqsO4yCQcyzd3mE5RTRojHmf3A" },
-            "GESTART": { color: "#80E4DF", bg: "#eaf7fc", symbol: "…", iconUrl: "https://app.razuna.eu/file/remote?i=6ac367788fc71aef8abe8323&f=t&dl=t&c=194c6c8cb7b9389ef02bb1b139cd2f91&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNjc3ODhmYzcxYWVmOGFiZTgzMjMmZj10JmRsPXQmYz0xOTRjNmM4Y2I3YjkzODllZjAyYmIxYjEzOWNkMmY5MSIsInR5cGUiOiJkaXJlY3QifQ.ZUasZvCE-VVupF1O0Rww6xVUSxsiTmPSQFcQZiXuegs" },
+            "GEDWARSBOOMD": { color: "#FF8A1F", bg: "#fff1e0", symbol: "\u21AF", iconUrl: "" },
+            "NIET GESTART": { color: "#2e2e2e", bg: "#ececec", symbol: "✕", iconUrl: "https://app.razuna.eu/file/remote?i=6ac35e4df1c29aca7da8d503&f=t&dl=t&c=621b99d3b2893607c7ceb5be21589b81&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNWU0ZGYxYzI5YWNhN2RhOGQ1MDMmZj10JmRsPXQmYz02MjFiOTlkM2IyODkzNjA3YzdjZWI1YmUyMTU4OWI4MSIsInR5cGUiOiJkaXJlY3QifQ.D8poPnoPxffh6BGG6dqsO4yCQcyzd3mE5RTRojHmf3A" },
+            "GESTART": { color: "#bfbfbf", bg: "#f0f0f0", symbol: "…", iconUrl: "https://app.razuna.eu/file/remote?i=6ac367788fc71aef8abe8323&f=t&dl=t&c=194c6c8cb7b9389ef02bb1b139cd2f91&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNjc3ODhmYzcxYWVmOGFiZTgzMjMmZj10JmRsPXQmYz0xOTRjNmM4Y2I3YjkzODllZjAyYmIxYjEzOWNkMmY5MSIsInR5cGUiOiJkaXJlY3QifQ.ZUasZvCE-VVupF1O0Rww6xVUSxsiTmPSQFcQZiXuegs" },
             "OP SCHEMA": { color: "#80E4DF", bg: "#fbfddf", symbol: "→", iconUrl: "https://app.razuna.eu/file/remote?i=6ac367795d26d4fa58efb1ff&f=t&dl=t&c=820bfcf63a4b7e75c1827f2f93f5f3c1&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNjc3OTVkMjZkNGZhNThlZmIxZmYmZj10JmRsPXQmYz04MjBiZmNmNjNhNGI3ZTc1YzE4MjdmMmY5M2Y1ZjNjMSIsInR5cGUiOiJkaXJlY3QifQ.C5fRSpQXEym86Z5OoXEun99F_PZ5CB5dLw8boagJlJc" },
             "NIET OP SCHEMA": { color: "#FA79D7", bg: "#ffe8ef", symbol: "⏸", iconUrl: "https://app.razuna.eu/file/remote?i=6ac35e4f8fc71aef8abe7f40&f=t&dl=t&c=0ae03ce2e22325e7d9c0ef235b098d8b&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNWU0ZjhmYzcxYWVmOGFiZTdmNDAmZj10JmRsPXQmYz0wYWUwM2NlMmUyMjMyNWU3ZDljMGVmMjM1YjA5OGQ4YiIsInR5cGUiOiJkaXJlY3QifQ.HBt_lf4CEZdVlfBwS1coO11Dubv2kMneVMudHFphnp4" },
             "MISLUKT": { color: "#ff0033", bg: "#fce8ed", symbol: "✕", iconUrl: "https://app.razuna.eu/file/remote?i=6ac35e50e7c79cb82176880e&f=t&dl=t&c=f2198c5be089c0704dfbbabc06fbce82&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNWU1MGU3Yzc5Y2I4MjE3Njg4MGUmZj10JmRsPXQmYz1mMjE5OGM1YmUwODljMDcwNGRmYmJhYmMwNmZiY2U4MiIsInR5cGUiOiJkaXJlY3QifQ.-lTM_9If3bIs4Chs7KOXQbGL1eLqBzo99ma4jbAe8Sw" },
@@ -132,6 +200,26 @@
         "NIET NAGEKOMEN": "NIET GESTART",
         "NIET INGELOST": "NIET GESTART",
         "NIET GEREALISEERD": "MISLUKT"
+      };
+
+      /* shared with the timeline script below, so "stub" cards use the same icons */
+      window.BRUZZ_STATUS = {
+        config: STATUS_CONFIG,
+        legacy: LEGACY_STATUS_MAP,
+        renderRichText: function (value) { return renderRichText(value); },
+        /* the evidence of a verdict for the timeline card: the "Bewijs" text plus the key figures found in it */
+        renderEvidence: function (value) {
+          if (!isMeaningfulText(value)) return "";
+          const tiles = "";
+          return `<div class="bm-verdict-evidence"><h4 class="bm-verdict-evidence-title">${escapeHtml(EVIDENCE_TITLE)}</h4><div class="bm-verdict-evidence-text">${renderRichText(value)}</div>${tiles}</div>`;
+        },
+        /* text colour on top of a status colour: the same choice as the white/black header of the page */
+        onColor: function (key) {
+          const conf = STATUS_CONFIG[key];
+          if (!conf) return "#17171c";
+          if (key === "GELUKT") return "#FFFFFF";
+          return typeof onColorFor === "function" ? onColorFor(conf.color) : "#17171c";
+        }
       };
 
       const MINISTERS = [
@@ -299,8 +387,32 @@
       }
 
       /* Status icon: the same round icon images as the overview, with a simple fallback symbol. */
+      /* Status symbols drawn in code, so their colours always follow the status colours (no image files needed). */
+      const SYM_SHAPES = {
+        "GELUKT": '<polygon points="12.00,1.20 14.38,3.11 17.40,2.65 18.51,5.49 21.35,6.60 20.89,9.62 22.80,12.00 20.89,14.38 21.35,17.40 18.51,18.51 17.40,21.35 14.38,20.89 12.00,22.80 9.62,20.89 6.60,21.35 5.49,18.51 2.65,17.40 3.11,14.38 1.20,12.00 3.11,9.62 2.65,6.60 5.49,5.49 6.60,2.65 9.62,3.11"/><path d="M8.2 12.4l2.7 2.7 5-5.6"/>',
+        "OP SCHEMA": '<circle cx="12" cy="12" r="10"/><path d="M12 6.8V12l3.6 2.3"/>',
+        "GESTART": '<circle cx="12" cy="12" r="10"/><path d="M10 8.2v7.6l6-3.8z" fill="currentColor"/>',
+        "NIET OP SCHEMA": '<circle cx="12" cy="12" r="10" stroke-dasharray="2.2 2.6"/><path d="M12 6.8V12l3.6 2.3"/>',
+        "NIET GESTART": '<circle cx="12" cy="12" r="10"/><rect x="8.2" y="8.2" width="7.6" height="7.6" rx="1.2" fill="currentColor"/>',
+        "MISLUKT": '<circle cx="12" cy="12" r="10"/><path d="M8.6 8.6l6.8 6.8M15.4 8.6l-6.8 6.8"/>'
+      };
+      // GESTART's own colour is very pale, so its symbol is drawn a bit darker to stay visible on white
+      const SYM_COLORS = { "OP SCHEMA": "#5ECFC9" };
+      function symKeyFor(conf) {
+        const keys = Object.keys(STATUS_CONFIG);
+        return keys.find(k => STATUS_CONFIG[k] === conf) || keys.find(k => STATUS_CONFIG[k] && STATUS_CONFIG[k].color === conf.color && STATUS_CONFIG[k].symbol === conf.symbol) || "";
+      }
+      function builtinSym(conf, cls) {
+        const key = symKeyFor(conf);
+        if (!SYM_SHAPES[key]) return "";
+        const color = SYM_COLORS[key] || conf.color;
+        return `<span class="CLS" style="--CLS-color:${escapeHtml(conf.color)};"><svg class="CLS-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:${color}" aria-hidden="true">${SYM_SHAPES[key]}</svg></span>`.replace(/CLS/g, cls);
+      }
+
       function renderSym(conf) {
         if (!conf || !conf.symbol) return "";
+        const built = builtinSym(conf, "pd-sym");
+        if (built) return built;
         const url = String(conf.iconUrl || "").trim();
         const fallback = `<span class="pd-sym-fallback">${escapeHtml(conf.symbol)}</span>`;
         const img = /^https?:\/\//i.test(url)
@@ -344,6 +456,8 @@
 
       function applyInlineFormatting(value) {
         return escapeHtml(value)
+          .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+          .replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>")
           .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
           .replace(/\*(.+?)\*/g, "<em>$1</em>");
       }
@@ -374,6 +488,7 @@
         return `<ul>${items.map(item => `<li>${applyInlineFormatting(item)}</li>`).join("")}</ul>`;
       }
 
+      /* Baserow "rich text" fields come as markdown: paragraphs, **bold**, *italic*, [links](https://...), lists, headings. */
       function renderRichText(value) {
         const raw = String(value ?? "")
           .replace(/\r\n?/g, "\n")
@@ -381,28 +496,53 @@
           .trim();
         if (!raw) return "";
 
-        const blocks = raw.split(/\n\s*\n+/).map(block => block.trim()).filter(Boolean);
+        const out = [];
+        let para = [];
+        let list = null;
 
-        return blocks.map(block => {
-          const lines = block.split(/\n+/).map(line => line.trim()).filter(Boolean);
-          const bulletLines = lines.filter(line => /^[-*•]\s+/.test(line));
+        const flushPara = () => {
+          if (!para.length) return;
+          out.push(`<p>${applyInlineFormatting(para.join(" ").replace(/\s{2,}/g, " ").trim())}</p>`);
+          para = [];
+        };
+        const flushList = () => {
+          if (!list) return;
+          out.push(`<${list.type}>${list.items.map(item => `<li>${applyInlineFormatting(item)}</li>`).join("")}</${list.type}>`);
+          list = null;
+        };
 
-          if (lines.length > 1 && bulletLines.length === lines.length) {
-            return renderBulletList(lines.map(cleanBulletText).filter(Boolean));
+        raw.split("\n").forEach(rawLine => {
+          const line = rawLine.trim();
+          if (!line) { flushPara(); flushList(); return; }
+
+          const heading = line.match(/^#{1,6}\s+(.*)$/);
+          if (heading) {
+            flushPara(); flushList();
+            out.push(`<p><strong>${applyInlineFormatting(heading[1])}</strong></p>`);
+            return;
           }
 
-          const inlineDashItems = splitInlineDashBullets(block);
-          if (inlineDashItems.length > 1) {
-            return renderBulletList(inlineDashItems);
+          const bullet = line.match(/^[-*\u2022]\s+(.*)$/);
+          const numbered = line.match(/^\d+[.)]\s+(.*)$/);
+
+          if (bullet || numbered) {
+            flushPara();
+            const type = numbered ? "ol" : "ul";
+            if (list && list.type !== type) flushList();
+            if (!list) list = { type, items: [] };
+            const inline = bullet ? splitInlineDashBullets(line) : [];
+            if (inline.length > 1) list.items.push(...inline);
+            else list.items.push((bullet || numbered)[1]);
+            return;
           }
 
-          const paragraph = lines
-            .join(" ")
-            .replace(/\s{2,}/g, " ")
-            .trim();
+          flushList();
+          para.push(line);
+        });
 
-          return paragraph ? `<p>${applyInlineFormatting(paragraph)}</p>` : "";
-        }).join("");
+        flushPara();
+        flushList();
+        return out.join("");
       }
 
       function stripWrappingQuotes(value) {
@@ -819,6 +959,130 @@
           .sort((a, b) => getDateTime(b["Update date"]) - getDateTime(a["Update date"]))[0] || null;
       }
 
+      /* =====================================================================
+         BEOORDELINGEN: latest published verdict per promise + all published verdicts for the timeline
+         ===================================================================== */
+      function bKey(name) { return String(name).toLowerCase().replace(/[^a-z0-9]/g, ""); }
+
+      function bRaw(row, names) {
+        const wanted = names.map(bKey);
+        for (const key of Object.keys(row)) {
+          if (!wanted.includes(bKey(key))) continue;
+          const value = row[key];
+          if (value == null || value === "" || (Array.isArray(value) && !value.length)) continue;
+          return value;
+        }
+        return null;
+      }
+
+      function bScalars(value) {
+        if (value == null) return [];
+        if (Array.isArray(value)) return value.flatMap(bScalars);
+        if (typeof value === "object") {
+          if ("value" in value) return bScalars(value.value);
+          if ("name" in value) return bScalars(value.name);
+          return [];
+        }
+        return [value];
+      }
+
+      function bText(value) {
+        const list = bScalars(value);
+        return list.length ? String(list[0]) : "";
+      }
+
+      function bIsTrue(value) {
+        return bScalars(value).some(item => item === true || String(item).toLowerCase() === "true");
+      }
+
+      function bTime(value) {
+        const text = bText(value).trim();
+        if (!text) return 0;
+        const iso = text.match(/^(\d{4})-(\d{2})-(\d{2})/);
+        if (iso) return new Date(Number(iso[1]), Number(iso[2]) - 1, Number(iso[3]), 12, 0).getTime();
+        const nl = text.match(/(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})/);
+        if (nl) return new Date(Number(nl[3]), Number(nl[2]) - 1, Number(nl[1]), 12, 0).getTime();
+        const parsed = Date.parse(text);
+        return Number.isFinite(parsed) ? parsed : 0;
+      }
+
+      function bIso(time) {
+        const d = new Date(time);
+        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+      }
+
+      async function fetchOptionalTable(url, label, proxyPath, tableId) {
+        if (!API_BASE_URL && !tableId) return null;
+        try {
+          return await fetchTable(url, label, proxyPath);
+        } catch (err) {
+          console.warn(`${label} niet geladen, de oude kolommen van Promises worden gebruikt:`, err.message);
+          return null;
+        }
+      }
+
+      /* Puts the latest published Beoordeling on top of each Promise row (Status, Verdict, Uitkomst, Laatsteverdict,
+         Volgendebeoordeling), so the rest of the page works as before. Returns the new promises and, per promise
+         row id, all published verdicts (newest first) for the timeline. */
+      function applyBeoordelingen(promises, beoordelingen, rondes) {
+        const byPromise = new Map();
+
+        (beoordelingen || []).forEach(row => {
+          if (!bIsTrue(bRaw(row, ["Gepubliceerd", "Published"]))) return;
+          const status = bText(bRaw(row, ["Status"])).trim();
+          if (!status) return;
+          const time = bTime(bRaw(row, ["Datum", "Date", "Ronde datum"]));
+          if (!time) return;
+
+          const link = bRaw(row, ["Promise", "Belofte"]);
+          const ids = (Array.isArray(link) ? link : [link]).map(item => item && item.id).filter(id => id != null);
+          const keyText = bText(bRaw(row, ["Promise key", "Key"])).trim();
+          const key = statusKey(status);
+
+          const entry = {
+            id: row.id,
+            time,
+            iso: bIso(time),
+            statusText: status,
+            key,
+            label: statusLabel(key),
+            toelichting: bText(bRaw(row, ["Toelichting", "Verdict"])),
+            bewijs: bText(bRaw(row, ["Bewijs", "Cijfers", "Uitkomst"])),
+            keyText
+          };
+
+          ids.forEach(id => {
+            if (!byPromise.has(id)) byPromise.set(id, []);
+            byPromise.get(id).push(entry);
+          });
+        });
+
+        byPromise.forEach(list => list.sort((a, b) => (b.time - a.time) || (b.id - a.id)));
+
+        const rounds = (rondes || []).map(row => ({
+          time: bTime(bRaw(row, ["Datum", "Date"])),
+          published: bIsTrue(bRaw(row, ["Gepubliceerd", "Published"]))
+        })).filter(round => round.time).sort((a, b) => a.time - b.time);
+        rounds.forEach(round => { round.iso = bIso(round.time); });
+
+        const merged = (promises || []).map(promise => {
+          const list = byPromise.get(promise.id);
+          if (!list || !list.length) return promise;
+          const latest = list[0];
+          const copy = Object.assign({}, promise);
+          copy["Status"] = latest.statusText;
+          copy["Verdict"] = latest.toelichting;
+          copy["Uitkomst"] = latest.bewijs;
+          copy["Cijfers"] = "";
+          copy["Laatsteverdict"] = latest.iso;
+          const next = rounds.find(round => !round.published && round.time > latest.time);
+          if (next) copy["Volgendebeoordeling"] = bIso(next.time);
+          return copy;
+        });
+
+        return { promises: merged, rounds, updatesFor: promise => (promise && byPromise.get(promise.id)) || [] };
+      }
+
       async function fetchTable(url, label, proxyPath) {
         const useProxy = Boolean(API_BASE_URL);
         const requestUrl = useProxy ? `${API_BASE_URL.replace(/\/$/, "")}/${proxyPath}` : url;
@@ -829,6 +1093,35 @@
         if (!res.ok) throw new Error(`${label} failed (${res.status}): ${text}`);
         const data = JSON.parse(text);
         return Array.isArray(data) ? data : (data.results || []);
+      }
+
+      /* ONE request for all lists: the Worker route /all returns promises, beoordelingen, rondes (and glossary)
+         together. If that route is not available (old Worker) each list is asked for separately, and without a
+         proxy the lists are read straight from Baserow. The Updates table is no longer used. */
+      async function loadAll(withGlossary) {
+        const wanted = ["promises", "beoordelingen", "rondes"].concat(withGlossary ? ["glossary"] : []);
+
+        if (API_BASE_URL) {
+          try {
+            const res = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/all?include=${wanted.join(",")}`);
+            const text = await res.text();
+            if (!res.ok) throw new Error(`all failed (${res.status}): ${text}`);
+            const data = JSON.parse(text);
+            if (!data || !Array.isArray(data.promises)) throw new Error("promises ontbreken in het antwoord");
+            const list = part => (Array.isArray(data[part]) ? data[part] : null);
+            return { promises: data.promises, beoordelingen: list("beoordelingen"), rondes: list("rondes"), glossary: list("glossary") };
+          } catch (err) {
+            console.warn("Gecombineerde aanvraag mislukt, de lijsten worden apart opgehaald:", err.message);
+          }
+        }
+
+        const [promises, beoordelingen, rondes, glossary] = await Promise.all([
+          fetchTable(PROMISES_API, "Promises table", "promises"),
+          fetchOptionalTable(BEOORDELINGEN_API, "Beoordelingen", "beoordelingen", BEOORDELINGEN_TABLE_ID),
+          fetchOptionalTable(RONDES_API, "Rondes", "rondes", RONDES_TABLE_ID),
+          withGlossary ? fetchOptionalTable(GLOSSARY_API, "Woordenboek", "glossary", GLOSSARY_TABLE_ID) : Promise.resolve(null)
+        ]);
+        return { promises, beoordelingen, rondes, glossary };
       }
 
       function renderTerms(row) {
@@ -1502,11 +1795,171 @@
         const outcome = getField(promise, PROMISE_FIELDS.uitkomst);
         const numbers = getField(promise, PROMISE_FIELDS.cijfers);
         const metrics = extractMetricItems(numbers, outcome);
-        const outcomeBlock = renderEvidenceBlock("Uitkomst", outcome);
+        const outcomeBlock = renderEvidenceBlock(EVIDENCE_TITLE, outcome);
         const numbersFallback = !metrics.length ? renderEvidenceBlock("Cijfers", numbers) : "";
         const metricBlock = renderMetricGrid(metrics);
         const blocks = [outcomeBlock, metricBlock || numbersFallback].filter(Boolean);
         return blocks.length ? `<div class="pd-evidence-grid">${blocks.join("")}</div>` : "";
+      }
+
+      /* "BRUZZ Check beoordelingen": one dot per assessment round (every 6 months). A filled dot has the colour of
+         the verdict this promise got in that round, an empty circle is a round that still has to be filled in. */
+      let roundsInfo = { rounds: [], verdicts: [] };
+      const ROUND_MONTHS = ["jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
+
+      /* the season of a date, as on the rest of the page: nov = herfst, mei = lente, etc. */
+      function seasonName(date) {
+        const m = date.getMonth();   // 0 = january
+        if (m === 11 || m <= 1) return "Winter";
+        if (m <= 4) return "Lente";
+        if (m <= 7) return "Zomer";
+        return "Herfst";
+      }
+
+      function roundList() {
+        const verdicts = roundsInfo.verdicts || [];
+        let rounds = (roundsInfo.rounds || []).map(round => ({ time: round.time, iso: round.iso, published: round.published }));
+        if (!rounds.length) {
+          // no Rondes table available: every 6 months from 15 November 2026 until November 2029
+          for (let i = 0; i < 7; i++) {
+            const d = new Date(2026, 10 + i * 6, 15);
+            rounds.push({ time: d.getTime(), iso: bIso(d.getTime()), published: false });
+          }
+        }
+        return rounds.map(round => {
+          const verdict = verdicts.find(item => item.iso === round.iso);
+          return Object.assign({}, round, { verdict, published: round.published || Boolean(verdict) });
+        });
+      }
+
+      function renderRoundsTimeline() {
+        const rounds = roundList();
+        if (rounds.length < 2) return "";
+        const first = rounds[0].time;
+        const last = rounds[rounds.length - 1].time;
+        const span = Math.max(1, last - first);
+        const pos = time => Math.min(100, Math.max(0, (time - first) / span * 100));
+        const today = Date.now();
+        // coloured in until the last round that has a verdict
+        const doneTimes = rounds.filter(round => round.verdict).map(round => round.time);
+        const fill = doneTimes.length ? pos(Math.max(...doneTimes)) : 0;
+        const nextIndex = rounds.findIndex(round => !round.published && round.time >= today - 86400000);
+        const label = time => { const d = new Date(time); return `${seasonName(d)} ${d.getFullYear()}`; };
+
+        const dots = rounds.map((round, index) => {
+          const conf = round.verdict ? STATUS_CONFIG[round.verdict.key] : null;
+          const state = round.verdict ? "done" : (index === nextIndex ? "next" : "todo");
+          const title = round.verdict
+            ? `${label(round.time)}: ${round.verdict.label}`
+            : `${label(round.time)}: nog te beoordelen`;
+          const vIndex = round.verdict ? (roundsInfo.verdicts || []).indexOf(round.verdict) : -1;
+          const style = `--pos:${pos(round.time)}%;${conf ? ` --c:${conf.color};` : ""}`;
+          if (vIndex >= 0) {
+            return `<button type="button" class="pd-round pd-round--${state}" style="${style}" title="${escapeHtml(title)}" aria-label="Ga naar de beoordeling: ${escapeHtml(title)}" data-round-target="bm-timeline-status-${vIndex}"></button>`;
+          }
+          return `<span class="pd-round pd-round--${state}" style="${style}" title="${escapeHtml(title)}"></span>`;
+        }).join("");
+
+        const labels = rounds.map((round, index) => {
+          const d = new Date(round.time);
+          return `<span class="pd-round-label" style="--pos:${pos(round.time)}%">${seasonName(d)}<br>${d.getFullYear()}</span>`;
+        }).join("");
+
+        return `
+          <div class="pd-rounds">
+            <h3 class="pd-rounds-title">BRUZZ Check beoordelingen</h3>
+            <div class="pd-rounds-shell">
+              <div class="pd-rounds-track"><span class="pd-rounds-fill" style="width:${fill}%"></span>${dots}</div>
+              <div class="pd-rounds-labels">${labels}</div>
+            </div>
+          </div>
+        `;
+      }
+
+      /* ---------- carousel with other promises ---------- */
+      let carouselPool = [];
+
+      function carouselCards(current) {
+        const key = promiseIdentity(current);
+        const firstName = row => {
+          const p = ministerPeople(getRawField(row, PROMISE_FIELDS.minister), getRawField(row, PROMISE_FIELDS.party))[0];
+          return p ? p.name : "";
+        };
+        const mine = firstName(current);
+        // start after the current promise, so every page shows a different row
+        const at = carouselPool.findIndex(row => promiseIdentity(row) === key);
+        const ordered = at >= 0 ? carouselPool.slice(at + 1).concat(carouselPool.slice(0, at)) : carouselPool.slice();
+        const rotated = ordered.filter(row => getField(row, PROMISE_FIELDS.title) && promiseIdentity(row) !== key);
+        const same = mine ? rotated.filter(row => firstName(row) === mine) : [];
+        const rest = rotated.filter(row => !same.includes(row));
+        return same.concat(rest).slice(0, CAROUSEL_COUNT);
+      }
+
+      function promiseIdentity(row) {
+        return String(getPromiseKey(row) || row.id || "");
+      }
+
+      function renderCarousel(current) {
+        if (!CAROUSEL_COUNT) return "";
+        const cards = carouselCards(current);
+        if (!cards.length) return "";
+
+        const items = cards.map(row => {
+          const title = getField(row, PROMISE_FIELDS.title).replace(/[“”"]/g, "").trim();
+          const conf = statusConfigFor(row);
+          const key = statusKey(getField(row, PROMISE_FIELDS.status));
+          const image = getImageField(row, PROMISE_FIELDS.heroImage);
+          const emoji = getField(row, PROMISE_FIELDS.emoji);
+          const url = getField(row, PROMISE_FIELDS.detailUrl).trim();
+          const media = image
+            ? `<span class="pd-car-media"><img src="${escapeHtml(image)}" alt="" loading="lazy" decoding="async"></span>`
+            : `<span class="pd-car-media pd-car-media--empty" aria-hidden="true">${escapeHtml(emoji || "")}</span>`;
+          const body = `
+              ${media}
+              <span class="pd-car-badge" title="${escapeHtml(statusLabel(key))}">${renderSym(conf)}</span>
+              <span class="pd-car-title">${escapeHtml(title)}</span>`;
+          return url
+            ? `<a class="pd-car-card" href="${escapeHtml(url)}">${body}</a>`
+            : `<div class="pd-car-card pd-car-card--static">${body}</div>`;
+        }).join("");
+
+        return `
+          <section class="pd-section pd-car" aria-label="${escapeHtml(CAROUSEL_TITLE)}">
+            <div class="pd-section-head pd-car-head">
+              <h2 class="pd-section-title">${escapeHtml(CAROUSEL_TITLE)}</h2>
+              <div class="pd-car-arrows">
+                <button type="button" class="pd-car-arrow pd-car-prev" data-car-dir="-1" aria-label="Vorige" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <button type="button" class="pd-car-arrow" data-car-dir="1" aria-label="Volgende"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              </div>
+            </div>
+            <div class="pd-car-track" tabindex="0">${items}</div>
+          </section>
+        `;
+      }
+
+      /* arrows scroll the track by about one screen of cards; an arrow is disabled at the start and the end */
+      function updateCarouselArrows(track) {
+        const box = track.closest(".pd-car");
+        if (!box) return;
+        const prev = box.querySelector('[data-car-dir="-1"]');
+        const next = box.querySelector('[data-car-dir="1"]');
+        if (prev) prev.disabled = track.scrollLeft <= 2;
+        if (next) next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      }
+
+      root.addEventListener("click", function (event) {
+        const arrow = event.target.closest("[data-car-dir]");
+        if (!arrow) return;
+        const track = arrow.closest(".pd-car").querySelector(".pd-car-track");
+        track.scrollBy({ left: Number(arrow.getAttribute("data-car-dir")) * track.clientWidth * 0.85, behavior: "smooth" });
+      });
+
+      function setupCarousel() {
+        root.querySelectorAll(".pd-car-track").forEach(track => {
+          updateCarouselArrows(track);
+          track.addEventListener("scroll", () => updateCarouselArrows(track), { passive: true });
+        });
+        window.addEventListener("resize", () => root.querySelectorAll(".pd-car-track").forEach(updateCarouselArrows));
       }
 
       function renderVerdictEvidence(promise) {
@@ -1522,7 +1975,7 @@
           if (!isMeaningfulText(outcome)) return "";
           return `
           <div class="pd-verdict-evidence">
-            <h3 class="pd-verdict-evidence-title">Uitkomst</h3>
+            <h3 class="pd-verdict-evidence-title">${escapeHtml(EVIDENCE_TITLE)}</h3>
             <div class="pd-verdict-evidence-text">${renderRichText(outcome)}</div>
           </div>
         `;
@@ -1612,6 +2065,11 @@
           || (latestUpdate ? formatDate(latestUpdate["Update date"]) : "");
         const nextDate = formatMaybeDate(listValues(getColumn(promise, "volgendebeoordeling")).join(", ") || getField(promise, PROMISE_FIELDS.nextUpdate));
         const journalists = listValues(getColumn(promise, "journalist"));
+        // "minister Elke Van den Brandt", "staatssecretaris Audrey Henry", or "minister A en staatssecretaris B"
+        const executedByText = joinNames(people.map(p => {
+          const role = p.person && p.person.centerKicker ? p.person.centerKicker.toLowerCase() : "";
+          return `${role ? role + " " : ""}<strong>${escapeHtml(p.name)}</strong>`;
+        }));
         const assessmentText = (latestDate
           ? `De laatste beoordeling was op <strong>${escapeHtml(latestDate)}</strong>.`
           : "Er is nog geen beoordeling geweest.")
@@ -1621,16 +2079,20 @@
 
         $("pdBackLink").href = OVERVIEW_URL;
 
+        const pollKey = getPromiseKey(promise) || String(promise.id || "");
+        const pollVoted = hasVotedOn(pollKey);
+        const pollMarkup = POLL_TALLY_ID ? pollMarkupFor(pollKey, pollVoted) : "";
+
         host.innerHTML = `
           <section class="pd-hero" aria-labelledby="pd-title">
-            <div class="pd-promise-panel" style="${heroStyle}">
+            <div class="pd-promise-panel${POLL_TALLY_ID ? " pd-has-poll" : ""}" style="${heroStyle}${POLL_TALLY_ID ? ` --pd-overlay:${POLL_OVERLAY};` : ""}">
               ${(!heroImageUrl && emoji) ? `<span class="pd-hero-emoji" aria-hidden="true">${escapeHtml(emoji)}</span>` : ""}
               <div class="pd-promise-content">
-                <p class="pd-eyebrow">${renderIcon("flag")}<span>Belofte</span></p>
+                ${ministerBlock ? `<div class="pd-hero-top">${ministerBlock}</div>` : ""}
                 <h1 class="${titleClass}" id="pd-title">${escapeHtml(plainTitle)}</h1>
-                <div class="pd-hero-details">
-                  ${ministerBlock}
-                  ${(sourceName || sourceUrl) ? `
+                <div class="pd-hero-bottom">
+                ${(sourceName || sourceUrl) ? `<div class="pd-hero-details">
+                  ${`
                     <div class="pd-hero-detail">
                       ${renderIcon("article")}
                       <div>
@@ -1640,7 +2102,9 @@
                         </div>
                       </div>
                     </div>
-                  ` : ""}
+                  `}
+                </div>` : ""}
+                  ${pollMarkup}
                 </div>
               </div>
             </div>
@@ -1653,10 +2117,7 @@
               <div class="pd-verdict-body">
                 ${verdictBody ? `<div class="pd-verdict-lead">${renderRichText(verdictBody)}</div>` : ""}
                 ${renderVerdictEvidence(promise)}
-                <div class="pd-verdict-meta">
-                  <span class="pd-verdict-meta-row">${renderIcon("calendar_month")}<span>${assessmentText}</span></span>
-                  ${journalists.length ? `<span class="pd-verdict-meta-row">${renderIcon("article")}<span>Deze belofte wordt opgevolgd door ${journalists.length > 1 ? "journalisten" : "journalist"} <strong>${escapeHtml(joinNames(journalists))}</strong></span></span>` : ""}
-                </div>
+                ${renderRoundsTimeline()}
               </div>
             </aside>
           </section>
@@ -1671,6 +2132,7 @@
 
           <div id="pdTimelineMount" class="pd-section"></div>
           <div id="pdQuotesMount"></div>
+          ${renderCarousel(promise)}
         `;
       }
 
@@ -1693,11 +2155,11 @@
         { word: "Wagenpark", forms: ["wagenpark"], meaning: "Alle voertuigen die in een bepaald gebied rondrijden of ingeschreven zijn." }
       ];
 
-      async function loadGlossary() {
-        // with a proxy the table number lives in the proxy, so it is not needed here
-        if (!GLOSSARY_TABLE_ID && !API_BASE_URL) return GLOSSARY_DEMO ? DEMO_GLOSSARY : [];
+      function loadGlossary(rows) {
+        // rows come from the combined request; without a table or proxy the example words are used
+        if (rows == null && !GLOSSARY_TABLE_ID && !API_BASE_URL) return GLOSSARY_DEMO ? DEMO_GLOSSARY : [];
         try {
-          const rows = await fetchTable(GLOSSARY_API, "Woordenboek", "glossary");
+          if (!Array.isArray(rows)) throw new Error("geen woordenboek ontvangen");
           return rows.map(row => {
             const forms = getField(row, GLOSSARY_FIELDS.word).split(/\s*[;|,\n]\s*/).map(f => f.trim()).filter(Boolean);
             const meaning = getField(row, GLOSSARY_FIELDS.meaning);
@@ -2007,7 +2469,166 @@
         spaceLogged = true;
       }
 
+      /* One vote per promise: after a submission the browser remembers that promise (localStorage), so the same
+         reader can still vote on the other promises. This is a convenience, not a lock: it is per browser. */
+      const POLL_STORAGE_PREFIX = "bruzzcheck-voted-";
+      function hasVotedOn(key) {
+        try { return localStorage.getItem(POLL_STORAGE_PREFIX + key) === "1"; } catch (_) { return false; }
+      }
+      function rememberVote(key) {
+        try { localStorage.setItem(POLL_STORAGE_PREFIX + key, "1"); } catch (_) {}
+      }
+
+      window.addEventListener("message", function (event) {
+        if (!event.origin || !/^https:\/\/tally\.so$/.test(event.origin)) return;
+        let data = event.data;
+        if (typeof data === "string") { try { data = JSON.parse(data); } catch (_) { return; } }
+        if (!data || data.event !== "Tally.FormSubmitted") return;
+        const frame = root.querySelector(".pd-poll iframe");
+        if (!frame || frame.contentWindow !== event.source) return;
+        const match = /[?&]promise=([^&]*)/.exec(frame.getAttribute("src") || frame.dataset.tallySrc || "");
+        if (match) {
+          const key = decodeURIComponent(match[1]);
+          rememberVote(key);
+          const card = frame.closest(".pd-poll");
+          if (POLL_SHOW_RESULTS && card) {
+            card.outerHTML = pollMarkupFor(key, "fresh");
+            const done = root.querySelector(".pd-poll-done");
+            if (done) loadPollResults(done, key, [2500, 6000, 12000]);   // the webhook needs a moment to count the new vote
+          }
+        }
+      });
+
+      /* Results: ask the Worker, and try again a few times because the vote may not be counted yet. */
+      function pollBars(result) {
+        const counts = result.questions || {};
+        const norm = text => String(text).trim().toLowerCase();
+        /* questions from the settings first; any other question that the Worker returns is shown too */
+        const known = POLL_QUESTIONS.map(question => ({ label: question.label, options: question.options }));
+        Object.keys(counts).forEach(label => {
+          if (!known.some(question => norm(question.label) === norm(label))) known.push({ label, options: [] });
+        });
+        const blocks = known.map(question => {
+          const found = Object.keys(counts).find(label => norm(label) === norm(question.label));
+          const answers = found ? counts[found] : {};
+          const order = question.options.concat(Object.keys(answers).filter(a => !question.options.some(o => norm(o) === norm(a))));
+          const total = order.reduce((sum, option) => {
+            const hit = Object.keys(answers).find(a => norm(a) === norm(option));
+            return sum + (hit ? answers[hit] : 0);
+          }, 0);
+          if (!total) return "";
+          const rows = order.map(option => {
+            const hit = Object.keys(answers).find(a => norm(a) === norm(option));
+            const n = hit ? answers[hit] : 0;
+            const pct = Math.round(n / total * 100);
+            return `<div class="pd-pr-row"><span class="pd-pr-name">${escapeHtml(option)}</span><span class="pd-pr-bar"><i style="width:${pct}%"></i></span><span class="pd-pr-pct">${pct}%</span></div>`;
+          }).join("");
+          return `<div class="pd-pr-q"><p class="pd-pr-title">${escapeHtml(question.label)}</p>${rows}</div>`;
+        }).join("");
+        return blocks ? `<div class="pd-pr">${blocks}<p class="pd-pr-note">${result.votes} stemmen · geen representatieve peiling</p></div>` : "";
+      }
+
+      async function loadPollResults(card, key, delays) {
+        const slot = card.querySelector(".pd-poll-thanks");
+        if (!slot) return;
+        const waiting = "De resultaten verschijnen zodra genoeg lezers gestemd hebben.";
+        let lastError = "";
+        for (let attempt = 0; attempt <= delays.length; attempt++) {
+          if (attempt > 0) await new Promise(resolve => setTimeout(resolve, delays[attempt - 1]));
+          if (!document.body.contains(card)) return;
+          try {
+            const res = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/poll-results?promise=${encodeURIComponent(key)}`);
+            if (!res.ok) throw new Error("status " + res.status);
+            const result = await res.json();
+            if (result && result.enough) {
+              const html = pollBars(result);
+              if (html) { slot.outerHTML = html; return; }
+            }
+            lastError = "";
+            slot.textContent = slot.textContent.split(" De resultaten")[0] + " " + waiting;
+          } catch (err) { lastError = err.message; }
+        }
+        if (lastError) console.warn("BRUZZ Check: poll-resultaten niet geladen:", lastError);
+      }
+
+      /* The poll card: the Tally form, or (after voting) a thank-you with a small cross that brings the form back. */
+      function pollMarkupFor(key, voted) {
+        const label = POLL_LABEL ? `<p class="pd-poll-label">${escapeHtml(POLL_LABEL)}</p>` : "";
+        if (voted) {
+          return `
+                  <div class="pd-poll pd-poll-done" aria-label="Poll">
+                    <button type="button" class="pd-poll-close" data-poll-reset="${escapeHtml(key)}" aria-label="Toon de poll opnieuw" title="Toon de poll opnieuw">&times;</button>
+                    ${label}
+                    <p class="pd-poll-thanks">${voted === "fresh" ? "Bedankt voor je stem." : "Je hebt al gestemd."}</p>
+                  </div>`;
+        }
+        return `
+                  <div class="pd-poll" aria-label="Poll" style="--pd-poll-zoom:${POLL_ZOOM}; --pd-poll-bg:${POLL_BG}; --pd-poll-border:${POLL_BORDER}; --pd-poll-trim-top:${POLL_TRIM_TOP}px; --pd-poll-trim-bottom:${POLL_TRIM_BOTTOM}px;">
+                    ${label}
+                    <iframe data-tally-src="https://tally.so/embed/${encodeURIComponent(POLL_TALLY_ID)}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&promise=${encodeURIComponent(key)}" loading="lazy" width="100%" height="120" frameborder="0" marginheight="0" marginwidth="0" title="Poll"></iframe>
+                  </div>`;
+      }
+
+      /* a dot of the round timeline brings you to that verdict in the timeline, and opens it */
+      root.addEventListener("click", function (event) {
+        const dot = event.target.closest("[data-round-target]");
+        if (!dot) return;
+        const target = document.getElementById(dot.getAttribute("data-round-target"));
+        if (!target) {
+          const mount = document.getElementById("pdTimelineMount");
+          if (mount) mount.scrollIntoView({ behavior: "smooth", block: "start" });
+          return;
+        }
+        target.classList.remove("bm-timeline-hidden-after-limit");
+        const head = target.querySelector("button.bm-verdict-head");
+        const opening = Boolean(head && head.getAttribute("aria-expanded") !== "true");
+        if (opening) head.click();   // open it straight away
+        // after the opening animation, scroll to the (now taller) verdict; a very tall one is shown from its top
+        setTimeout(function () {
+          const tall = target.getBoundingClientRect().height > window.innerHeight * 0.8;
+          target.scrollIntoView({ behavior: "smooth", block: tall ? "start" : "center" });
+        }, opening ? 280 : 0);
+      });
+
+      root.addEventListener("click", function (event) {
+        const btn = event.target.closest("[data-poll-reset]");
+        if (!btn) return;
+        const key = btn.getAttribute("data-poll-reset");
+        try { localStorage.removeItem(POLL_STORAGE_PREFIX + key); } catch (_) {}
+        const card = btn.closest(".pd-poll");
+        if (!card) return;
+        card.outerHTML = pollMarkupFor(key, false);
+        loadTallyEmbeds();
+      });
+
+      /* Tally: the embed script is added once; the iframes are created by renderPage(). */
+      function loadTallyEmbeds() {
+        const d = document, src = "https://tally.so/widgets/embed.js";
+        const run = function () {
+          if (typeof Tally !== "undefined") Tally.loadEmbeds();
+          else d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) { e.src = e.dataset.tallySrc; });
+        };
+        if (typeof Tally !== "undefined") run();
+        else if (!d.querySelector('script[src="' + src + '"]')) {
+          const t = d.createElement("script");
+          t.src = src; t.onload = run; t.onerror = run;
+          d.body.appendChild(t);
+        } else run();
+      }
+
+      /* "BRUZZ CHECK" next to the back button uses the heading font of the site: the look is read from a real
+         heading on the page (the page title, or a section title) and handed over as CSS variables. */
+      function syncBrandFont() {
+        const sample = document.querySelector("h1:not(#promise-detail-embed h1), .section-title__title, h2:not(#promise-detail-embed h2)");
+        if (!sample) return;
+        const cs = window.getComputedStyle(sample);
+        root.style.setProperty("--pd-brand-font", cs.fontFamily);
+        root.style.setProperty("--pd-brand-weight", cs.fontWeight);
+      }
+
       async function init() {
+        syncBrandFont();
+        setTimeout(syncBrandFont, 1200);
         hidePageHeader();
         pullEmbedUp();
 
@@ -2016,13 +2637,22 @@
             throw new Error("Vul API_BASE_URL in voor de proxy, of vul tijdelijk TOKEN in met een read-only Baserow database token.");
           }
 
-          const [promises, updates, glossary] = await Promise.all([
-            fetchTable(PROMISES_API, "Promises table", "promises"),
-            fetchTable(UPDATES_API, "Updates table", "updates").catch(() => []),
-            loadGlossary()
-          ]);
+          const all = await loadAll(true);
+          const promisesRaw = all.promises;
+          const beoordelingen = all.beoordelingen;
+          const rondes = all.rondes;
+          const glossary = loadGlossary(all.glossary);
+          const updates = [];
 
+          const merged = applyBeoordelingen(promisesRaw, beoordelingen, rondes);
+          const promises = merged.promises;
           const promise = findPromise(promises);
+
+          /* the published verdicts of this promise: the timeline script shows them as status cards */
+          window.BRUZZ_STATUS_UPDATES = merged.updatesFor(promise);
+          roundsInfo = { rounds: merged.rounds || [], verdicts: merged.updatesFor(promise) };
+          carouselPool = promises;
+          window.BRUZZ_STATUS_READY = true;
 
           if (!promise) {
             $("pdRoot").innerHTML = `
@@ -2035,12 +2665,20 @@
           }
 
           renderPage(promise, getPromiseUpdates(promise, updates));
+          if (POLL_TALLY_ID && POLL_SHOW_RESULTS) {
+            const done = root.querySelector(".pd-poll-done");
+            const doneKey = done && done.querySelector("[data-poll-reset]");
+            if (doneKey) loadPollResults(done, doneKey.getAttribute("data-poll-reset"), []);
+          }
           syncBodyTypography();
+          setupCarousel();
           startCmsQuoteSync();
+          if (POLL_TALLY_ID) loadTallyEmbeds();
 
           const marked = applyGlossary(glossary);
           if (glossary.length) console.info(`Woordenboek: ${glossary.length} woorden geladen, ${marked} gemarkeerd${(GLOSSARY_TABLE_ID || API_BASE_URL) ? "" : " (voorbeeldwoorden)"}`);
         } catch (err) {
+          window.BRUZZ_STATUS_READY = true;
           $("pdRoot").innerHTML = `<div class="pd-error"><strong>Could not load data:</strong><br>${escapeHtml(err.message)}</div>`;
         }
       }
@@ -2125,6 +2763,8 @@
       waitForConfiguredSources: false,
       maxWaitForSourcesMs: 1500,
       initializationDelayMs: 100,
+      showArticleDate: true,       // the small line under an article title: true = only the date (no theme, no time), false = nothing
+      maxWaitForStatusMs: 10000,   // wait (max) this long for the page to load the Beoordelingen first
 
       dedupeByHref: true,
       hideMergedSourceSections: true,
@@ -2240,10 +2880,79 @@
       return clean(a).toLocaleLowerCase("nl-BE") === clean(b).toLocaleLowerCase("nl-BE");
     }
 
-    function getDateInfo(meta) {
+    /* ---- dates written in the text of a card: "30/10/2026", "30-10-2026 10.30u", "30 oktober 2026", "30 okt 2026" ---- */
+    const NL_MONTHS = {
+      januari: 0, jan: 0, februari: 1, feb: 1, maart: 2, mrt: 2, april: 3, apr: 3, mei: 4,
+      juni: 5, jun: 5, juli: 6, jul: 6, augustus: 7, aug: 7, september: 8, sept: 8, sep: 8,
+      oktober: 9, okt: 9, november: 10, nov: 10, december: 11, dec: 11
+    };
+
+    function findDateInText(text) {
+      const value = clean(text);
+      const numeric = value.match(/(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})(?:\s+(\d{1,2})[.:](\d{2})\s*u?)?/);
+      let day, month, year, hour = 12, minute = 0, match;
+
+      if (numeric) {
+        match = numeric[0];
+        day = Number(numeric[1]); month = Number(numeric[2]) - 1; year = Number(numeric[3]);
+        if (numeric[4] !== undefined) { hour = Number(numeric[4]); minute = Number(numeric[5]); }
+      } else {
+        const names = Object.keys(NL_MONTHS).sort(function (a, b) { return b.length - a.length; }).join("|");
+        const textual = value.match(new RegExp("(\\d{1,2})\\s+(" + names + ")\\.?\\s+(\\d{4})", "i"));
+        if (!textual) return null;
+        match = textual[0];
+        day = Number(textual[1]); month = NL_MONTHS[textual[2].toLowerCase()]; year = Number(textual[3]);
+      }
+
+      const ms = new Date(year, month, day, hour, minute).getTime();
+      return Number.isFinite(ms) ? { ms: ms, match: match } : null;
+    }
+
+    /* tidy leftovers after cutting a date out of a title: "Gelukt - ", "Gelukt ()", " | Gelukt" */
+    function tidyTitle(text) {
+      return clean(text)
+        .replace(/\(\s*\)|\[\s*\]/g, "")
+        .replace(/^[\s\-–—|,:;(]+|[\s\-–—|,:;(]+$/g, "")
+        .trim();
+    }
+
+    /* the status named in a text ("Niet op schema" wins over "Op schema"), using the same list as the page */
+    function findStatus(text) {
+      const shared = window.BRUZZ_STATUS;
+      if (!shared || !shared.config) return null;
+
+      const upper = clean(text).toUpperCase();
+      const keys = Object.keys(shared.config).concat(Object.keys(shared.legacy || {}));
+      let best = null;
+
+      keys.forEach(function (key) {
+        const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        const hit = new RegExp("(^|[^A-Z\\u00C0-\\u00DD])(" + escaped + ")(?![A-Z\\u00C0-\\u00DD])").exec(upper);
+        if (!hit) return;
+        const index = hit.index + hit[1].length;
+        if (!best || key.length > best.length) best = { key: key, index: index, length: key.length };
+      });
+
+      if (!best) return null;
+
+      const mapped = (shared.legacy && shared.legacy[best.key]) || best.key;
+      const conf = shared.config[mapped];
+      if (!conf) return null;
+
+      const lower = mapped.toLowerCase();
+      return {
+        key: mapped,
+        conf: conf,
+        label: lower.charAt(0).toUpperCase() + lower.slice(1),
+        before: tidyTitle(clean(text).slice(0, best.index))
+      };
+    }
+
+    function getDateInfo(meta, item) {
       const node =
         (meta && meta.querySelector("[data-dynamic-date]")) ||
-        (meta && meta.querySelector(".meta__item:nth-child(2) div"));
+        (meta && meta.querySelector(".meta__item:nth-child(2) div")) ||
+        (item && item.querySelector("[data-dynamic-date]"));
 
       const seconds = Number(node && node.getAttribute("data-dynamic-date"));
 
@@ -2257,11 +2966,45 @@
         };
       }
 
+      // Other teaser types (e.g. "stub") have no .meta block: try <time datetime>, then a date written in the text.
+      if (item) {
+        const timeEl = item.querySelector("time[datetime]");
+        const iso = timeEl ? Date.parse(timeEl.getAttribute("datetime")) : NaN;
+
+        if (Number.isFinite(iso)) {
+          return { dateLabel: formatDate(iso), dateTimeLabel: formatDateTime(iso), ms: iso };
+        }
+
+        const found = findDateInText(clean(item.textContent));
+
+        if (found) {
+          return { dateLabel: formatDate(found.ms), dateTimeLabel: formatDateTime(found.ms), ms: found.ms };
+        }
+      }
+
       return {
         dateLabel: clean(node && node.textContent),
         dateTimeLabel: clean(node && node.textContent),
         ms: NaN
       };
+    }
+
+    // Title of a teaser: normal articles have .teaser__title; other types (stub) may only have the aria-label or plain text.
+    function getFeedTitle(item) {
+      const titleEl =
+        item.querySelector(".teaser__title") ||
+        item.querySelector("[class*='teaser__title'], [class*='__title']") ||
+        item.querySelector(".teaser__content h1, .teaser__content h2, .teaser__content h3, .teaser__content h4");
+
+      const fromEl = clean(titleEl ? titleEl.textContent : "");
+      if (fromEl) return fromEl;
+
+      const link = item.querySelector("a.teaser, .teaser");
+      const aria = clean(link ? link.getAttribute("aria-label") : "");
+      if (aria) return aria;
+
+      const content = item.querySelector(".teaser__content");
+      return clean(content ? content.textContent : "");
     }
 
     function getCategory(meta) {
@@ -2281,15 +3024,12 @@
     }
 
     function getFeedHref(item) {
-      const link = item.querySelector("a.teaser[href]");
+      const link = item.querySelector("a.teaser[href]") || item.querySelector(".teaser a[href]");
       return link ? link.getAttribute("href") : "";
     }
 
     function getMetaLine(meta, dateInfo) {
-      const category = getCategory(meta);
-      const dateTime = dateInfo.dateTimeLabel;
-
-      return [category, dateTime].filter(Boolean).join(" ");
+      return config.showArticleDate ? dateInfo.dateLabel : "";
     }
 
     function normalizeManualCard(card, index) {
@@ -2312,6 +3052,52 @@
         imageAlt: card.imageAlt || "",
         realized: Boolean(card.realized)
       };
+    }
+
+    /* a status card (a published Beoordeling): same structure as a CMS "stub", but built here */
+    function normalizeStatusCard(update, index) {
+      const shared = window.BRUZZ_STATUS || {};
+      const conf = shared.config && shared.config[update.key];
+      const dateLabel = formatDate(update.time);
+
+      return {
+        id: "bm-timeline-status-" + index,
+        isManual: true,
+        title: update.label,
+        badge: config.defaultBadge,
+        status: "",
+        dateLabel: dateLabel,
+        dateTimeLabel: dateLabel,
+        metaLine: dateLabel,
+        dateMs: update.time,
+        href: null,
+        image: null,
+        imageAlt: "",
+        realized: update.key === "GELUKT",
+        stub: conf ? { key: update.key, conf: conf, label: update.label, before: "" } : null,
+        toelichtingHtml: shared.renderRichText ? shared.renderRichText(update.toelichting) : "",
+        bewijsHtml: shared.renderEvidence ? shared.renderEvidence(update.bewijs) : ""
+      };
+    }
+
+    function createStatusItem() {
+      const li = document.createElement("li");
+      li.className = "bm-timeline-status-source";
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "teaser-wrapper";
+
+      const shell = document.createElement("div");
+      shell.className = "teaser teaser--variant-horizontal teaser--status";
+
+      const content = document.createElement("div");
+      content.className = "teaser__content";
+
+      shell.appendChild(content);
+      wrapper.appendChild(shell);
+      li.appendChild(wrapper);
+
+      return li;
     }
 
     function createManualItem(card) {
@@ -2357,25 +3143,37 @@
     }
 
     function readFeedCard(item, index) {
-      const titleEl = item.querySelector(".teaser__title");
       const meta = item.querySelector(".meta");
-      const title = clean(titleEl ? titleEl.textContent : "");
-      const dateInfo = getDateInfo(meta);
+      const title = getFeedTitle(item);
+      const dateInfo = getDateInfo(meta, item);
+
+      /* "stub" teasers (e.g. "BRUZZ oordeelt: Gelukt 30/10/2026"): the status is read from the title,
+         the date is read from the text and removed from the title */
+      let stubTitle = title;
+      let stub = null;
+
+      if (item.querySelector(".teaser--type-stub")) {
+        const inTitle = findDateInText(title);
+        if (inTitle) stubTitle = tidyTitle(title.replace(inTitle.match, " "));
+        const status = findStatus(stubTitle);
+        if (status) stub = status;
+      }
 
       return {
         id: "bm-timeline-feed-" + index,
         isManual: false,
-        title: title,
+        stub: stub,
+        title: stubTitle,
         badge: getBadge(title),
         status: "",
         dateLabel: dateInfo.dateLabel,
         dateTimeLabel: dateInfo.dateTimeLabel,
-        metaLine: getMetaLine(meta, dateInfo),
+        metaLine: stub ? dateInfo.dateLabel : getMetaLine(meta, dateInfo),
         dateMs: dateInfo.ms,
         href: getFeedHref(item),
         image: null,
         imageAlt: "",
-        realized: false
+        realized: Boolean(stub && stub.key === "GELUKT")
       };
     }
 
@@ -2497,6 +3295,17 @@
       const track = document.createElement("div");
       track.className = "bm-timeline-nav__track";
 
+      /* the part of the timeline that has already happened (up to today) is coloured pink */
+      const startMs = new Date(startDate).getTime();
+      const endMs = new Date(endDate).getTime();
+      if (endMs > startMs) {
+        const done = Math.min(100, Math.max(0, (Date.now() - startMs) / (endMs - startMs) * 100));
+        const fill = document.createElement("span");
+        fill.className = "bm-timeline-nav__fill";
+        fill.style.width = done + "%";
+        track.appendChild(fill);
+      }
+
       cards.forEach(function (card, index) {
         const dot = document.createElement("button");
         dot.type = "button";
@@ -2512,6 +3321,11 @@
 
         if (card.realized) {
           dot.classList.add("bm-timeline-nav__dot--realized");
+        }
+
+        if (card.stub && card.stub.conf && card.stub.conf.color) {
+          dot.classList.add("bm-timeline-nav__dot--status");
+          dot.style.setProperty("--bm-dot-color", card.stub.conf.color);
         }
 
         dot.style.left = dotPositions[index] + "%";
@@ -2562,6 +3376,117 @@
       }
     }
 
+    /* A verdict card ("Oordeel van BRUZZ"): a slim bar in the status colour with icon, status and date.
+       When there is a toelichting the bar is a button that opens and closes the text underneath. */
+    function renderStubItem(item, content, originalMedia, titleEl, card, isLinked) {
+      const stub = card.stub;
+
+      /* not a link: turn the <a> of a CMS stub into a plain <div> */
+      let shell = item.querySelector(".teaser");
+      if (shell && shell.tagName.toLowerCase() === "a") {
+        const plain = document.createElement("div");
+        plain.className = shell.className;
+        while (shell.firstChild) plain.appendChild(shell.firstChild);
+        shell.replaceWith(plain);
+        shell = plain;
+      }
+
+      if (originalMedia) originalMedia.remove();
+
+      const shared = window.BRUZZ_STATUS || {};
+      const onColor = shared.onColor ? shared.onColor(stub.key) : "#FFFFFF";
+      const textIsWhite = /^#?f{3}(f{3})?$/i.test(onColor.trim());
+
+      if (shell) {
+        shell.style.setProperty("--bm-verdict-color", stub.conf.color);
+        shell.style.setProperty("--bm-verdict-on", onColor);
+      }
+
+      const hasText = Boolean(card.toelichtingHtml || card.bewijsHtml);
+
+      const head = document.createElement(hasText ? "button" : "span");
+      head.className = "bm-verdict-head";
+
+      const icon = document.createElement("span");
+      icon.className = "bm-verdict-icon";
+      const iconUrl = String(stub.conf.iconUrl || "").trim();
+
+      if (/^https?:\/\//i.test(iconUrl)) {
+        const img = document.createElement("img");
+        img.src = iconUrl;
+        img.alt = "";
+        img.decoding = "async";
+        img.style.filter = textIsWhite ? "brightness(0) invert(1)" : "brightness(0)";
+        icon.appendChild(img);
+      } else {
+        icon.textContent = stub.conf.symbol || "";
+      }
+
+      const title = document.createElement("span");
+      title.className = "bm-verdict-title";
+      title.textContent = stub.label;
+
+      const when = document.createElement("span");
+      when.className = "bm-verdict-when";
+      const lead = document.createElement("span");
+      lead.className = "bm-verdict-lead";
+      const caps = document.createElement("span");
+      caps.className = "bm-verdict-caps";
+      caps.textContent = "Oordeel van BRUZZ";
+      lead.appendChild(caps);
+      if (card.dateLabel) lead.appendChild(document.createTextNode(" op "));
+      when.appendChild(lead);
+      if (card.dateLabel) when.appendChild(document.createTextNode(card.dateLabel));
+
+      head.append(icon, title, when);
+
+      if (hasText) {
+        const chevron = document.createElement("span");
+        chevron.className = "bm-verdict-chevron";
+        chevron.setAttribute("aria-hidden", "true");
+        chevron.innerHTML = '<svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 5 5-5"/></svg>';
+        head.appendChild(chevron);
+      }
+
+      const heading = document.createElement("h3");
+      heading.className = "teaser__title bm-verdict-heading";
+      heading.appendChild(head);
+
+      const parts = [heading];
+
+      if (hasText) {
+        const body = document.createElement("div");
+        body.className = "bm-verdict-body";
+        body.id = card.id + "-text";
+        const inner = document.createElement("div");
+        inner.className = "bm-verdict-text";
+        inner.innerHTML = (card.toelichtingHtml || "") + (card.bewijsHtml || "");
+        body.appendChild(inner);
+        parts.push(body);
+
+        head.setAttribute("type", "button");
+        head.setAttribute("aria-controls", body.id);
+
+        const setOpen = function (open) {
+          shell.classList.toggle("bm-verdict-open", open);
+          head.setAttribute("aria-expanded", open ? "true" : "false");
+        };
+
+        head.addEventListener("click", function () {
+          setOpen(!shell.classList.contains("bm-verdict-open"));
+        });
+
+        setOpen(Boolean(card.openByDefault));
+      }
+
+      content.replaceChildren.apply(content, parts);
+
+      item.classList.remove("bm-timeline-no-image");
+      item.classList.add("bm-timeline-verdict", "bm-timeline-status-card", "bm-timeline-type-bruzz");
+      item.classList.toggle("bm-timeline-realized", Boolean(card.realized));
+      item.classList.add("bm-timeline-no-link");
+    }
+
     function transformItem(item, card) {
       const shell = item.querySelector(".teaser");
       const content = item.querySelector(".teaser__content");
@@ -2592,10 +3517,18 @@
 
       titleEl.classList.toggle("bm-timeline-title-hidden", shouldHideTitle);
 
+      if (card.stub) {
+        renderStubItem(item, content, originalMedia, titleEl, card, isLinked);
+        return;
+      }
+
       const media = document.createElement("div");
       media.className = "bm-timeline-media";
 
-      const img = originalMedia ? originalMedia.querySelector("img") : null;
+      // normal articles: an <img>; stub teasers: some other element (coloured block / text) that we keep as it is
+      const img = originalMedia
+        ? (originalMedia.querySelector("img") || originalMedia.firstElementChild)
+        : null;
 
       if (img) {
         media.appendChild(img);
@@ -2645,6 +3578,57 @@
       if (!card.isManual) {
         item.classList.add("bm-timeline-type-bruzz");
       }
+    }
+
+    /* "Alleen statusupdates": shows only the status cards of the timeline (CMS stubs and Beoordelingen) */
+    /* The verdict bars use the same font as the article titles next to them: the look is read from a real
+       article title on the page (font, weight, spacing) and handed to the bars as CSS variables. */
+    function syncVerdictFont(section) {
+      const apply = function () {
+        const sample = section.querySelector("li:not(.bm-timeline-verdict) .teaser__title");
+        if (!sample) return;
+        const target = sample.querySelector("a, span") || sample;
+        const cs = window.getComputedStyle(target);
+        section.style.setProperty("--bm-art-font", cs.fontFamily);
+        section.style.setProperty("--bm-art-weight", cs.fontWeight);
+        section.style.setProperty("--bm-art-spacing", cs.letterSpacing);
+        section.style.setProperty("--bm-art-style", cs.fontStyle);
+      };
+      apply();
+      setTimeout(apply, 800);
+      window.addEventListener("load", apply);
+    }
+
+    function setupStatusFilter(section) {
+      const top = section.querySelector(".section-title__top");
+      const tools = top && top.querySelector(".bm-timeline-heading-tools");
+      if (!tools) return;
+
+      const old = tools.querySelector(".bm-timeline-filter-toggle");
+      if (old) old.remove();
+
+      const statusItems = section.querySelectorAll(".teaser-section__items > li.bm-timeline-status-card");
+      if (!statusItems.length) return;
+
+      const total = section.querySelectorAll(".teaser-section__items > li").length;
+      const count = tools.querySelector(".bm-timeline-count");
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "bm-timeline-order-toggle bm-timeline-filter-toggle";
+      button.setAttribute("aria-pressed", "false");
+      button.innerHTML = "<span>Alleen beoordelingen</span>";
+
+      button.addEventListener("click", function () {
+        const on = button.getAttribute("aria-pressed") !== "true";
+        button.setAttribute("aria-pressed", on ? "true" : "false");
+        section.classList.toggle("bm-only-status", on);
+        if (count) count.textContent = on
+          ? statusItems.length + (statusItems.length === 1 ? " beoordeling" : " beoordelingen")
+          : total + " updates";
+      });
+
+      tools.appendChild(button);
     }
 
     function setupOrderToggle(section) {
@@ -2757,7 +3741,13 @@
 
       const feedPairs = collectFeedPairs(sourceSections);
 
-      if (!feedPairs.length && !config.manualCards.length) return false;
+      if (!window.BRUZZ_STATUS_READY && Date.now() - startedAt < config.maxWaitForStatusMs) return false;
+
+      const statusCards = (window.BRUZZ_STATUS_UPDATES || [])
+        .map(normalizeStatusCard)
+        .filter(card => card.stub);
+
+      if (!feedPairs.length && !config.manualCards.length && !statusCards.length) return false;
 
       const manualPairs = config.manualCards.map(function (manualCard, index) {
         const card = normalizeManualCard(manualCard, index);
@@ -2768,7 +3758,11 @@
         };
       });
 
-      const allPairs = feedPairs.concat(manualPairs);
+      const statusPairs = statusCards.map(function (card) {
+        return { item: createStatusItem(), card: card };
+      });
+
+      const allPairs = feedPairs.concat(manualPairs, statusPairs);
 
       allPairs.sort(function (a, b) {
         return (b.card.dateMs || 0) - (a.card.dateMs || 0);
@@ -2818,12 +3812,14 @@
       });
 
       setupOrderToggle(mainSection);
+      setupStatusFilter(mainSection);
       hideSecondarySections(sourceSections, mainSection);
 
       mainSection.classList.add("bm-master-timeline");
       mainSection.classList.add("bm-timeline-ready");
 
       ensureTimelinePlacement(mainSection);
+      syncVerdictFont(mainSection);
 
       initialized = true;
       return true;
@@ -2837,7 +3833,7 @@
         return;
       }
 
-      if (Date.now() - startedAt < config.maxWaitForSourcesMs + 2000) {
+      if (Date.now() - startedAt < config.maxWaitForSourcesMs + config.maxWaitForStatusMs + 2000) {
         retryTimer = setTimeout(attemptInit, 500);
       }
     }
@@ -2863,3 +3859,4 @@
 
   })();
 })();
+
