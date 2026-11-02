@@ -521,6 +521,20 @@ document.head.appendChild(style);
       /* Puts the latest published Beoordeling on top of each Promise row (Status, Verdict, Uitkomst, Laatsteverdict,
          Volgendebeoordeling), so the rest of the page works as before. Returns the new promises and, per promise
          row id, all published verdicts (newest first) for the timeline. */
+      // A row only becomes a card when it has a title and at least MIN_FILLED_FIELDS filled columns
+      // (id, order and other technical columns do not count). Fully empty rows are skipped.
+      const MIN_FILLED_FIELDS = 2;
+      const IGNORED_COLUMNS = ["id", "order", "Sort order", "Order", "Status", "Created on", "Last modified"];
+      function isUsablePromiseRow(row) {
+        if (!row || !getDisplayValue(row["Promise"]).trim()) return false;
+        let filled = 0;
+        Object.keys(row).forEach(key => {
+          if (IGNORED_COLUMNS.includes(key)) return;
+          if (getDisplayValue(row[key]).trim()) filled++;
+        });
+        return filled >= MIN_FILLED_FIELDS;
+      }
+
       function applyBeoordelingen(promises, beoordelingen, rondes) {
         const byPromise = new Map();
 
@@ -1331,7 +1345,7 @@ document.head.appendChild(style);
           const rondes = all.rondes;
           const updates = [];
 
-          const promises = applyBeoordelingen(promisesRaw, beoordelingen, rondes).promises;
+          const promises = applyBeoordelingen(promisesRaw.filter(isUsablePromiseRow), beoordelingen, rondes).promises;
 
           allPromises = promises;
           allUpdates = updates;
