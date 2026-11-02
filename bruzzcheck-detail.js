@@ -337,8 +337,10 @@
         wat: ["Wat"],
         waar: ["Waar"],
         wanneer: ["Wanneer"],
+        doelgroep: ["Doelgroep"],
         waarom: ["Waarom"],
         hoe: ["Hoe"],
+        overig: ["Overig"],
         methodologie: ["Methodologie", "Methodology", "Methodiek"],
         verdict: ["Verdict", "Vonnis", "BRUZZ verdict"],
         woorden: ["Woorden", "Glossary", "Begrippen", "Moeilijke woorden"],
@@ -1661,9 +1663,14 @@
         `;
       }
 
+      function isFilledFact(value) {
+        const text = plainText(value).replace(/&nbsp;/g, " ").trim();
+        if (!/[A-Za-zÀ-ÿ0-9]/.test(text)) return false;
+        return !/^(n\.?\s?v\.?\s?t\.?|nvt|n\/a|na|tbd|todo)$/i.test(text);
+      }
+
       function renderOverviewItem(key, label, value) {
-        if (!isMeaningfulText(value)) return "";
-        if (!value) return "";
+        if (!isFilledFact(value)) return "";
         return `
           <article class="pd-overview-item pd-overview-${escapeHtml(key)}">
             <div class="pd-overview-label-row">
@@ -1677,26 +1684,22 @@
       function renderPromiseFacts(promise) {
         const items = [
           renderOverviewItem("wat", "Wat", getField(promise, PROMISE_FIELDS.wat)),
-          renderOverviewItem("waar", "Waar", getField(promise, PROMISE_FIELDS.waar)),
-          renderOverviewItem("wanneer", "Wanneer", getField(promise, PROMISE_FIELDS.wanneer) || getField(promise, PROMISE_FIELDS.deadlinePromised)),
           renderOverviewItem("waarom", "Waarom", getField(promise, PROMISE_FIELDS.waarom)),
-          renderOverviewItem("hoe", "Hoe", getField(promise, PROMISE_FIELDS.hoe))
+          renderOverviewItem("hoe", "Hoe", getField(promise, PROMISE_FIELDS.hoe)),
+          renderOverviewItem("waar", "Waar", getField(promise, PROMISE_FIELDS.waar)),
+          renderOverviewItem("wanneer", "Wanneer", getField(promise, PROMISE_FIELDS.wanneer)),
+          renderOverviewItem("doelgroep", "Doelgroep", getField(promise, PROMISE_FIELDS.doelgroep)),
+          renderOverviewItem("overig", "Overig", getField(promise, PROMISE_FIELDS.overig))
         ].filter(Boolean);
 
-        if (items.length) {
-          return `
-            <div class="pd-promise-overview-box" aria-label="Belofte in het kort">
-              <div class="pd-overview-grid">
-                ${items.join("")}
-              </div>
+        if (!items.length) return "";
+        return `
+          <div class="pd-promise-overview-box" aria-label="Belofte in het kort">
+            <div class="pd-overview-grid">
+              ${items.join("")}
             </div>
-          `;
-        }
-
-        const fallback = getField(promise, PROMISE_FIELDS.shortDescription);
-        return fallback
-          ? `<div class="pd-copy">${renderRichText(fallback)}</div>`
-          : `<div class="pd-empty">Vul de velden Wat, Waar, Wanneer, Waarom en Hoe in Baserow om deze sectie te vullen.</div>`;
+          </div>
+        `;
       }
 
       function plainText(value) {
@@ -2074,6 +2077,7 @@
         const heroStyle = heroImageUrl
           ? `--pd-hero-image:url(&quot;${escapeCssUrl(heroImageUrl)}&quot;); --pd-image-focus:${escapeHtml(heroFocus)};`
           : `--pd-image-focus:center center;`;
+        const promiseFactsHtml = renderPromiseFacts(promise);
         const verdictBody = getField(promise, PROMISE_FIELDS.verdict)
           || getField(latestUpdate || {}, ["Update tekst uitklap", "Context", "Detail text"])
           || getField(promise, PROMISE_FIELDS.shortDescription);
@@ -2139,13 +2143,13 @@
             </aside>
           </section>
 
-          <section class="pd-section" id="belofte">
+          ${promiseFactsHtml ? `<section class="pd-section" id="belofte">
             <div class="pd-section-head">
               <h2 class="pd-section-title">Wat houdt de belofte in?</h2>
             </div>
-            ${renderPromiseFacts(promise)}
+            ${promiseFactsHtml}
             ${renderTerms(promise)}
-          </section>
+          </section>` : ""}
 
           <div id="pdTimelineMount" class="pd-section"></div>
           <div id="pdQuotesMount"></div>
