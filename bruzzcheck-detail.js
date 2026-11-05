@@ -2599,9 +2599,13 @@ document.head.appendChild(style);
           if (attempt > 0) await new Promise(resolve => setTimeout(resolve, delays[attempt - 1]));
           if (!document.body.contains(card)) return;
           try {
-            const res = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/poll-results?promise=${encodeURIComponent(key)}`);
-            if (!res.ok) throw new Error("status " + res.status);
-            const result = await res.json();
+            let result = null;
+            if (attempt === 0 && earlyPoll && earlyPoll.key === key) result = await earlyPoll.promise;   // already on its way
+            if (!result) {
+              const res = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/poll-results?promise=${encodeURIComponent(key)}`);
+              if (!res.ok) throw new Error("status " + res.status);
+              result = await res.json();
+            }
             lastVotes = result && typeof result.votes === "number" ? result.votes : null;
             if (result && result.enough) {
               const html = pollBars(result, key);
@@ -2802,7 +2806,21 @@ document.head.appendChild(style);
         document.querySelectorAll(".pd-prehide").forEach(el => el.classList.remove("pd-prehide"));
       }
 
+      /* the poll results are asked for at once (the promise key is known from data-slug), in parallel with the other data,
+         so a reader who already voted does not wait for the whole page to be built before the request even starts */
+      let earlyPoll = null;
+      function startEarlyPollFetch() {
+        const key = String(DEFAULT_PROMISE_KEY || "").trim();
+        if (!API_BASE_URL || !key || !hasVotedOn(key)) return;
+        earlyPoll = {
+          key,
+          promise: fetch(`${API_BASE_URL.replace(/\/$/, "")}/poll-results?promise=${encodeURIComponent(key)}`)
+            .then(res => (res.ok ? res.json() : null)).catch(() => null)
+        };
+      }
+
       async function init() {
+        startEarlyPollFetch();
         preHideCmsSources();
         syncBrandFont();
         setTimeout(syncBrandFont, 1200);
@@ -2846,7 +2864,7 @@ document.head.appendChild(style);
           if ((POLL_TALLY_ID || Object.keys(pollCfg).length) && POLL_SHOW_RESULTS) {
             const done = root.querySelector(".pd-poll-done");
             const doneKey = done && done.getAttribute("data-poll-key");
-            if (doneKey) loadPollResults(done, doneKey, [2500, 6000]);
+            if (doneKey) loadPollResults(done, doneKey, [1200, 3000, 6000]);
           }
           syncBodyTypography();
           setupCarousel();
