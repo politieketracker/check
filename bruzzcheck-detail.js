@@ -2521,6 +2521,9 @@ document.head.appendChild(style);
       function hasVotedOn(key) {
         try { return localStorage.getItem(POLL_STORAGE_PREFIX + key) === "1"; } catch (_) { return false; }
       }
+      function forgetVote(key) {
+        try { localStorage.removeItem(POLL_STORAGE_PREFIX + key); } catch (_) {}
+      }
       function rememberVote(key) {
         try { localStorage.setItem(POLL_STORAGE_PREFIX + key, "1"); } catch (_) {}
       }
@@ -2591,6 +2594,7 @@ document.head.appendChild(style);
         if (!slot) return;
         const waiting = "Resultaten laden...";
         let lastError = "";
+        let lastVotes = null;   // votes the Worker reported on the last successful answer
         for (let attempt = 0; attempt <= delays.length; attempt++) {
           if (attempt > 0) await new Promise(resolve => setTimeout(resolve, delays[attempt - 1]));
           if (!document.body.contains(card)) return;
@@ -2598,6 +2602,7 @@ document.head.appendChild(style);
             const res = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/poll-results?promise=${encodeURIComponent(key)}`);
             if (!res.ok) throw new Error("status " + res.status);
             const result = await res.json();
+            lastVotes = result && typeof result.votes === "number" ? result.votes : null;
             if (result && result.enough) {
               const html = pollBars(result, key);
               if (html) {
@@ -2622,6 +2627,12 @@ document.head.appendChild(style);
           } catch (err) { lastError = err.message; }
         }
         if (lastError) console.warn("BRUZZ Check: poll-resultaten niet geladen:", lastError);
+        /* own poll: this browser says "voted", but the database has no votes for this promise (e.g. they were cleared):
+           forget the note and show the buttons again */
+        if (pollCfg[key] && lastVotes === 0 && document.body.contains(card)) {
+          forgetVote(key);
+          card.outerHTML = pollMarkupFor(key, false);
+        }
       }
 
       /* The poll card: the Tally form, or (after voting) a thank-you and the results. There is no way back to the form. */
