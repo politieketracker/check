@@ -100,7 +100,7 @@ document.head.appendChild(style);
       /* OWN POLL: a promise with a "Poll vraag" in Baserow (and optionally "Poll antwoorden", one answer per line or
          separated by ;) gets buttons on the page itself, and a click is the vote. Promises without one keep the Tally form above.
          POLL_TURNSTILE_SITE_KEY: Cloudflare Turnstile site key. Leave empty for no bot check (then leave TURNSTILE_SECRET out of the Worker too). */
-      const POLL_TURNSTILE_SITE_KEY = "";
+      const POLL_TURNSTILE_SITE_KEY = "0x4AAAAAAF0sc8k3iyfJ9zFH";
       const POLL_DEFAULT_ANSWERS = ["Ja", "Nee", "Weet niet"];
       const POLL_ZOOM = 0.8;   // size of the form: 1 = normal, 0.8 = 20% smaller, 0.7 = smaller still
       const POLL_MIN_WIDTH = 560;    // Tally puts the answers next to each other when the form is at least this wide (px, before zooming);
