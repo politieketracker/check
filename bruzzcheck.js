@@ -58,6 +58,7 @@ style.textContent += "\n    @media (min-width: 641px) {\n      #promise-tracker-
 style.textContent += "\n    @media (min-width: 641px) {\n      #promise-tracker-embed .pt-ministers .pt-strip-photo::before { transition: background-color .16s ease; }\n      #promise-tracker-embed .pt-ministers .pt-strip-photo img { transition: filter .16s ease; }\n      #promise-tracker-embed .pt-ministers .pt-strip-item { transition: transform .18s ease, opacity .16s ease; }\n      #promise-tracker-embed .pt-ministers .pt-strip-item .pt-strip-photo { transition: transform .18s ease; }\n    }\n";
 style.textContent += "\n    #promise-tracker-embed .pt-tl-track { height: 4px; }\n    #promise-tracker-embed .pt-tl-track::before, #promise-tracker-embed .pt-tl-track::after { width: 2px; height: 14px; background: #b4b1b8; }\n    #promise-tracker-embed .pt-tl-track::before { left: 0; }\n    #promise-tracker-embed .pt-tl-track::after { right: 0; }\n    #promise-tracker-embed .pt-tl-mid { width: 1px; height: 8px; }\n";
 style.textContent += "\n/* status tag: the text is centred on its capital letters, so it looks vertically centred in the label */\n#promise-tracker-embed .pt-chip { padding: 7px 12px 7px 7px; line-height: 1; align-items: center; }\n#promise-tracker-embed .pt-chip > span:last-child { display: block; line-height: 1; text-box: trim-both cap alphabetic; }\n";
+style.textContent += "\n    /* ministers strip: the pink circles all sit behind every photo; a hovered minister comes to the front */\n    #promise-tracker-embed .pt-ministers .pt-strip { isolation: isolate; }\n    #promise-tracker-embed .pt-ministers .pt-strip-item { z-index: auto; opacity: 1; }\n    #promise-tracker-embed .pt-ministers .pt-strip-item.pt-inactive { opacity: 1; }\n    #promise-tracker-embed .pt-ministers .pt-strip-item:hover, #promise-tracker-embed .pt-ministers .pt-strip-item:focus-visible { z-index: 5; }\n    #promise-tracker-embed .pt-ministers .pt-strip-item.pt-active { z-index: auto; }\n    #promise-tracker-embed .pt-ministers .pt-strip-item .pt-strip-photo, #promise-tracker-embed .pt-ministers .pt-strip-item.pt-active .pt-strip-photo { transform: none !important; width: 109%; max-width: none; margin: 0 -4.5%; }\n    #promise-tracker-embed .pt-ministers .pt-strip-photo::before { z-index: -1; }\n    #promise-tracker-embed .pt-ministers .pt-strip-item.pt-inactive .pt-strip-photo img, #promise-tracker-embed .pt-ministers .pt-strip-item.pt-inactive .pt-strip-photo::before { opacity: .6; }\n";
 document.head.appendChild(style);
   MOUNT.innerHTML = "<div class=\"pt-app\">\n    <div class=\"pt-layout\">\n\n      <section class=\"pt-mtop\" id=\"pt-mtop\"><div class=\"pt-mhost\" id=\"pt-mhost\"></div><div class=\"pt-mtitle\"><h2 class=\"pt-title\">BRUZZ Check</h2><p class=\"pt-mq\">Hoe ver staat de Brusselse regering met haar beloftes?</p></div></section>\n\n      <section class=\"pt-arch\" id=\"pt-arch\" aria-label=\"Ministers\">\n        <div class=\"pt-arch-stage\" id=\"pt-archStage\"></div>\n        <p class=\"pt-arch-info\" id=\"pt-archInfo\" aria-live=\"polite\"></p>\n      </section>\n\n      <div class=\"pt-panel\">\n\n        <div class=\"pt-col pt-col-left\">\n\n        <header class=\"pt-intro\">\n          <div class=\"pt-intro-text\">\n          <h2 class=\"pt-title\">BRUZZ Check</h2>\n          <p class=\"pt-subtitle\">Hoe ver staat de Brusselse regering met haar beloftes?</p>\n\n          <p class=\"pt-lede\">\n            Belofte maakt schuld. In februari 2026 trad de Brusselse regering aan, met een regeerakkoord vol engagementen. <span class=\"pt-lede-more\">De politieke barometer van BRUZZ Check volgt 25 concrete beloften en maakt halfjaarlijks de balans op: wat is uitgevoerd, wat zit op schema en wat blijft achter?</span>\n          </p>\n          </div>\n\n        </header>\n\n        <div class=\"pt-tlwrap\"><h3 class=\"pt-sec-h\">De legislatuur</h3>\n        <div class=\"pt-timeline\" role=\"img\" aria-label=\"Voortgang van de legislatuur\">\n          <div class=\"pt-tl-track\">\n            <span class=\"pt-tl-fill\"></span>\n            <span class=\"pt-tl-mid\"></span>\n            <span class=\"pt-tl-dot\"></span>\n            <span class=\"pt-tl-today\">Vandaag</span>\n          </div>\n          <div class=\"pt-tl-ends\">\n            <span class=\"pt-tl-end\"><b>Regering gevormd</b><i>Feb 2026</i></span>\n            <span class=\"pt-tl-end pt-tl-end-right\"><b>Einde legislatuur</b><i>Zomer 2029</i></span>\n          </div>\n        </div></div>\n\n        <section class=\"pt-ministers\" aria-label=\"Ministers\">\n          <h3 class=\"pt-sec-h\">De Brusselse regering</h3>\n          <div class=\"pt-ministers-body\" id=\"pt-ministersOrbit\"></div>\n        </section>\n\n        </div>\n\n        <div class=\"pt-col pt-col-right\">\n\n        <div class=\"pt-vcard\">\n\n        <section class=\"pt-plinko\" id=\"pt-plinko\" aria-label=\"Overzicht van de beloftes\">\n          <button type=\"button\" class=\"pt-plinko-replay\" id=\"pt-plinkoReplay\" aria-label=\"Opnieuw afspelen\"><svg viewBox=\"0 0 24 24\" width=\"17\" height=\"17\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"/><path d=\"M3 3v5h5\"/></svg><span class=\"pt-plinko-rpt\">Replay</span></button>\n          <canvas id=\"pt-plinkoCv\" role=\"img\" aria-label=\"Beloftes per status\"></canvas>\n        </section>\n\n        <section class=\"pt-status\" id=\"pt-status\" aria-labelledby=\"pt-statusSummaryCopy\">\n          <div class=\"pt-status-head\">\n            <h3 class=\"pt-status-title\" id=\"pt-statusSummaryCopy\">Voortgang<span class=\"pt-status-title-long\"> 25 beloftes</span></h3>\n            <span class=\"pt-assessment-date\" id=\"pt-assessmentDate\">Stand op -</span>\n          </div>\n          <div class=\"pt-status-bars\" id=\"pt-statusBars\"></div>\n        </section>\n\n        </div>\n\n        <div class=\"pt-meta\" id=\"pt-meta\">\n          <p class=\"pt-meta-item pt-meta-note\">BRUZZ beoordeelt de beloftes halfjaarlijks. <a class=\"pt-meta-link\" href=\"#pt-redactie\" data-scroll-redactie>Zo gaat de redactie te werk.</a></p>\n        </div>\n\n        </div>\n\n      </div>\n\n      <section class=\"pt-filters\" id=\"pt-filters\" aria-label=\"Beloftes filteren\">\n        <label class=\"pt-search\">\n          <span class=\"pt-sr\">Zoeken</span>\n          <svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><circle cx=\"9\" cy=\"9\" r=\"5.8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"m13.4 13.4 4 4\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>\n          <input id=\"pt-searchInput\" type=\"search\" placeholder=\"Zoek op belofte of minister\" autocomplete=\"off\">\n        </label>\n\n        <div class=\"pt-selects\">\n          <label class=\"pt-select\" data-filter=\"status\">\n            <span class=\"pt-sr\">Status</span>\n            <select id=\"pt-statusFilter\"><option value=\"\">Alle statussen</option></select>\n          </label>\n          <label class=\"pt-select\" data-filter=\"minister\">\n            <span class=\"pt-sr\">Minister</span>\n            <select id=\"pt-ministerFilter\"><option value=\"\">Alle ministers</option></select>\n          </label>\n          <label class=\"pt-select\" data-filter=\"party\">\n            <span class=\"pt-sr\">Partij</span>\n            <select id=\"pt-partyFilter\"><option value=\"\">Alle partijen</option></select>\n          </label>\n          <label class=\"pt-select\" data-filter=\"theme\">\n            <span class=\"pt-sr\">Thema</span>\n            <select id=\"pt-themeFilter\"><option value=\"\">Alle thema's</option></select>\n          </label>\n        </div>\n\n        <button class=\"pt-clear\" id=\"pt-clearFilters\" type=\"button\" hidden>Wis filters</button>\n      </section>\n\n      <div class=\"pt-results\">\n        <div class=\"pt-results-bar\" id=\"pt-resultsBar\">\n          <p class=\"pt-results-count\" id=\"pt-resultsMeta\" aria-live=\"polite\" hidden></p>\n          <button class=\"pt-filter-toggle\" id=\"pt-filterToggle\" type=\"button\" aria-expanded=\"false\" aria-controls=\"pt-filters\">Filters</button>\n        </div>\n        <div class=\"pt-cards\" id=\"pt-cardsContainer\">\n          <div class=\"pt-loading\">Aan het laden...</div>\n        </div>\n\n        <div class=\"pt-pager-wrap\" id=\"pt-paginationWrap\" hidden>\n          <button class=\"pt-showall\" id=\"pt-showAllToggle\" type=\"button\">Toon alles</button>\n          <div class=\"pt-pager\" id=\"pt-pagination\"></div>\n        </div>\n      </div>\n    </div>\n\n    <section class=\"pt-redactie\" id=\"pt-redactie\" aria-labelledby=\"pt-redactieTitle\">\n      <h3 class=\"pt-redactie-title\" id=\"pt-redactieTitle\">Redactionele aanpak</h3>\n      <p>BRUZZ Check is de politieke barometer van BRUZZ en volgt 25 concrete beloften uit het Brusselse regeerakkoord van februari 2026. Halfjaarlijks maakt de redactie de balans op. Op basis van vaste criteria en controleerbare bronnen krijgt elke belofte een status: \u2018niet gestart\u2019, \u2018gestart\u2019, \u2018op schema\u2019, \u2018niet op schema\u2019, \u2018gerealiseerd\u2019, \u2018mislukt\u2019 of \u2018niet verifieerbaar\u2019.</p>\n      <p>Meer weten over de werkwijze? Lees de <a class=\"pt-meta-link\" href=\"/node/214357\">veelgestelde vragen</a>.</p>\n    </section>\n  </div>";
 
@@ -193,14 +194,34 @@ document.head.appendChild(style);
 
       const MINISTERS = [
             {
-              name: "Boris DILLIÈS",
-              shortName: "Boris DILLIÈS",
+              name: "Laurent HUBLET",
+              shortName: "Laurent HUBLET",
+              partij: "Les Engagés",
               bg: "#05060a",
-              partij: "MR",
-              image: "https://app.razuna.eu/file/remote?i=69e631c4055d275698f393b6&f=t&dl=t&c=d46434a1c7adef8d8d92d3b79146c196&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFjNDA1NWQyNzU2OThmMzkzYjYmZj10JmRsPXQmYz1kNDY0MzRhMWM3YWRlZjhkOGQ5MmQzYjc5MTQ2YzE5NiIsInR5cGUiOiJkaXJlY3QifQ.XJHg57he5qKKB4yxRONV0wsmLZeBvgtTrd3KPRhnDv8",
-              centerKicker: "Minister-President",
-              centerTitle: "Boris DILLIÈS",
-              centerSubtitle: "Veiligheid & Wetenschappelijk Onderzoek"
+              image: "https://app.razuna.eu/file/remote?i=69e631bd25f5635dbfdd91b3&f=t&dl=t&c=3618157e1ee9e6eb0d8231ae1d06fc40&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFiZDI1ZjU2MzVkYmZkZDkxYjMmZj10JmRsPXQmYz0zNjE4MTU3ZTFlZTllNmViMGQ4MjMxYWUxZDA2ZmM0MCIsInR5cGUiOiJkaXJlY3QifQ.ea8EC6iSs_Rsfxkmd2wd18TRtsp9EOFyNnC1JzeJB5E",
+              centerKicker: "Minister",
+              centerTitle: "Laurent HUBLET",
+              centerSubtitle: "Economie, Digitale Economie en Werk"
+            },
+            {
+              name: "Dirk DE SMEDT",
+              shortName: "Dirk DE SMEDT",
+              partij: "Anders",
+              bg: "#05060a",
+              image: "https://app.razuna.eu/file/remote?i=69e631c7b134cb119fc27b85&f=t&dl=t&c=635019ef630af87328c4cddfbd7fd289&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFjN2IxMzRjYjExOWZjMjdiODUmZj10JmRsPXQmYz02MzUwMTllZjYzMGFmODczMjhjNGNkZGZiZDdmZDI4OSIsInR5cGUiOiJkaXJlY3QifQ.v2MzKxHZM55Fo2nuwcLvQP3dIwpJgxkERanzIRZgdBo",
+              centerKicker: "Minister",
+              centerTitle: "Dirk DE SMEDT",
+              centerSubtitle: "Financiën, Begroting, Ambtenarenzaken & Digitalisering"
+            },
+            {
+              name: "Ahmed LAAOUEJ",
+              shortName: "Ahmed LAAOUEJ",
+              partij: "PS",
+              bg: "#05060a",
+              image: "https://app.razuna.eu/file/remote?i=69e631b98e15ec28d9d0eea9&f=t&dl=t&c=0857aedf1d75baa86d212b52ae80ebc8&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFiOThlMTVlYzI4ZDlkMGVlYTkmZj10JmRsPXQmYz0wODU3YWVkZjFkNzViYWE4NmQyMTJiNTJhZTgwZWJjOCIsInR5cGUiOiJkaXJlY3QifQ.PKdtRvJjcvCLFElGSdtGm0YcF4yZKbvrwAiKVQ4CmeE",
+              centerKicker: "Minister",
+              centerTitle: "Ahmed LAAOUEJ",
+              centerSubtitle: "Plaatselijke Besturen, Gelijke Kansen & Schoolondersteuning"
             },
             {
               name: "Elke VAN DEN BRANDT",
@@ -213,14 +234,14 @@ document.head.appendChild(style);
               centerSubtitle: "Mobiliteit, Openbare Werken, Verkeersveiligheid & Dierenwelzijn"
             },
             {
-              name: "Dirk DE SMEDT",
-              shortName: "Dirk DE SMEDT",
-              partij: "Anders",
+              name: "Boris DILLIÈS",
+              shortName: "Boris DILLIÈS",
               bg: "#05060a",
-              image: "https://app.razuna.eu/file/remote?i=69e631c7b134cb119fc27b85&f=t&dl=t&c=635019ef630af87328c4cddfbd7fd289&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFjN2IxMzRjYjExOWZjMjdiODUmZj10JmRsPXQmYz02MzUwMTllZjYzMGFmODczMjhjNGNkZGZiZDdmZDI4OSIsInR5cGUiOiJkaXJlY3QifQ.v2MzKxHZM55Fo2nuwcLvQP3dIwpJgxkERanzIRZgdBo",
-              centerKicker: "Minister",
-              centerTitle: "Dirk DE SMEDT",
-              centerSubtitle: "Financiën, Begroting, Ambtenarenzaken & Digitalisering"
+              partij: "MR",
+              image: "https://app.razuna.eu/file/remote?i=69e631c4055d275698f393b6&f=t&dl=t&c=d46434a1c7adef8d8d92d3b79146c196&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFjNDA1NWQyNzU2OThmMzkzYjYmZj10JmRsPXQmYz1kNDY0MzRhMWM3YWRlZjhkOGQ5MmQzYjc5MTQ2YzE5NiIsInR5cGUiOiJkaXJlY3QifQ.XJHg57he5qKKB4yxRONV0wsmLZeBvgtTrd3KPRhnDv8",
+              centerKicker: "Minister-President",
+              centerTitle: "Boris DILLIÈS",
+              centerSubtitle: "Veiligheid & Wetenschappelijk Onderzoek"
             },
             {
               name: "Audrey HENRY",
@@ -251,26 +272,6 @@ document.head.appendChild(style);
               centerKicker: "Staatssecretaris",
               centerTitle: "Karine LALIEUX",
               centerSubtitle: "Huisvesting, Taxisector & Sportinfrastructuur"
-            },
-            {
-              name: "Ahmed LAAOUEJ",
-              shortName: "Ahmed LAAOUEJ",
-              partij: "PS",
-              bg: "#05060a",
-              image: "https://app.razuna.eu/file/remote?i=69e631b98e15ec28d9d0eea9&f=t&dl=t&c=0857aedf1d75baa86d212b52ae80ebc8&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFiOThlMTVlYzI4ZDlkMGVlYTkmZj10JmRsPXQmYz0wODU3YWVkZjFkNzViYWE4NmQyMTJiNTJhZTgwZWJjOCIsInR5cGUiOiJkaXJlY3QifQ.PKdtRvJjcvCLFElGSdtGm0YcF4yZKbvrwAiKVQ4CmeE",
-              centerKicker: "Minister",
-              centerTitle: "Ahmed LAAOUEJ",
-              centerSubtitle: "Plaatselijke Besturen, Gelijke Kansen & Schoolondersteuning"
-            },
-            {
-              name: "Laurent HUBLET",
-              shortName: "Laurent HUBLET",
-              partij: "Les Engagés",
-              bg: "#05060a",
-              image: "https://app.razuna.eu/file/remote?i=69e631bd25f5635dbfdd91b3&f=t&dl=t&c=3618157e1ee9e6eb0d8231ae1d06fc40&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFiZDI1ZjU2MzVkYmZkZDkxYjMmZj10JmRsPXQmYz0zNjE4MTU3ZTFlZTllNmViMGQ4MjMxYWUxZDA2ZmM0MCIsInR5cGUiOiJkaXJlY3QifQ.ea8EC6iSs_Rsfxkmd2wd18TRtsp9EOFyNnC1JzeJB5E",
-              centerKicker: "Minister",
-              centerTitle: "Laurent HUBLET",
-              centerSubtitle: "Economie, Digitale Economie en Werk"
             }
           ];
 
@@ -1585,10 +1586,21 @@ document.head.appendChild(style);
       let plSim = null, plRaf = 0, plRun = 0, plStarted = false, plObserver = null, plSeed = 5;
       function plRnd() { plSeed = (plSeed * 9301 + 49297) % 233280; return plSeed / 233280; }
 
+      /* second peg layout: the dots form a shape (data-plinko="shape" on the mount, or root.__plSet("shape") at runtime) */
+      const PL_SHAPE_PEGS = [[122.9,50.3],[181.1,50.3],[152.0,60.8],[100.2,61.8],[203.8,61.8],[91.5,85.7],[212.5,85.7],[110.0,86.7],[138.0,86.7],[166.0,86.7],[194.0,86.7],[100.5,110.5],[203.5,110.5],[124.0,110.7],[152.0,110.7],[180.0,110.7],[47.9,117.5],[256.1,117.5],[74.5,122.7],[229.5,122.7],[24.9,128.7],[279.1,128.7],[86.7,130.0],[120.7,130.0],[183.3,130.0],[217.3,130.0],[54.0,134.7],[250.0,134.7],[130.9,140.2],[173.1,140.2],[107.6,149.3],[196.4,149.3],[140.2,152.4],[163.8,152.4],[15.2,152.5],[288.8,152.5],[40.0,158.7],[68.0,158.7],[96.0,158.7],[208.0,158.7],[236.0,158.7],[264.0,158.7],[152.0,169.4],[123.7,172.5],[180.3,172.5],[23.9,176.7],[280.1,176.7],[130.1,185.2],[173.9,185.2],[89.2,186.3],[214.8,186.3],[105.5,187.7],[198.5,187.7],[47.1,189.8],[256.9,189.8],[131.4,201.6],[172.6,201.6]];
+      /* fine decorative dots that fill the shape (the balls pass over them; only PL_SHAPE_PEGS are solid), x10 */
+      const PL_SHAPE_DECOR = [1240,482,1296,482,1744,482,1800,482,1100,531,1156,531,1212,531,1268,531,1324,531,1380,531,1436,531,1604,531,1660,531,1716,531,1772,531,1828,531,1884,531,1940,531,1016,580,1072,580,1128,580,1184,580,1240,580,1296,580,1352,580,1408,580,1464,580,1520,580,1576,580,1632,580,1688,580,1744,580,1800,580,1856,580,1912,580,1968,580,2024,580,988,629,1044,629,1100,629,1156,629,1212,629,1268,629,1324,629,1380,629,1436,629,1492,629,1548,629,1604,629,1660,629,1716,629,1772,629,1828,629,1884,629,1940,629,1996,629,2052,629,960,678,1016,678,1072,678,1128,678,1184,678,1240,678,1296,678,1352,678,1408,678,1464,678,1520,678,1576,678,1632,678,1688,678,1744,678,1800,678,1856,678,1912,678,1968,678,2024,678,2080,678,932,727,988,727,1044,727,1100,727,1156,727,1212,727,1268,727,1324,727,1380,727,1436,727,1492,727,1548,727,1604,727,1660,727,1716,727,1772,727,1828,727,1884,727,1940,727,1996,727,2052,727,2108,727,904,776,960,776,1016,776,1072,776,1128,776,1184,776,1240,776,1296,776,1352,776,1408,776,1464,776,1520,776,1576,776,1632,776,1688,776,1744,776,1800,776,1856,776,1912,776,1968,776,2024,776,2080,776,2136,776,932,825,988,825,1044,825,1100,825,1156,825,1212,825,1268,825,1324,825,1380,825,1436,825,1492,825,1548,825,1604,825,1660,825,1716,825,1772,825,1828,825,1884,825,1940,825,1996,825,2052,825,2108,825,904,874,960,874,1016,874,1072,874,1128,874,1184,874,1240,874,1296,874,1352,874,1408,874,1464,874,1520,874,1576,874,1632,874,1688,874,1744,874,1800,874,1856,874,1912,874,1968,874,2024,874,2080,874,2136,874,932,923,988,923,1044,923,1100,923,1156,923,1212,923,1268,923,1324,923,1380,923,1436,923,1492,923,1548,923,1604,923,1660,923,1716,923,1772,923,1828,923,1884,923,1940,923,1996,923,2052,923,2108,923,960,972,1016,972,1072,972,1128,972,1184,972,1240,972,1296,972,1352,972,1408,972,1464,972,1520,972,1576,972,1632,972,1688,972,1744,972,1800,972,1856,972,1912,972,1968,972,2024,972,2080,972,932,1021,988,1021,1044,1021,1100,1021,1156,1021,1212,1021,1268,1021,1324,1021,1380,1021,1436,1021,1492,1021,1548,1021,1604,1021,1660,1021,1716,1021,1772,1021,1828,1021,1884,1021,1940,1021,1996,1021,2052,1021,2108,1021,960,1070,1016,1070,1072,1070,1128,1070,1184,1070,1240,1070,1296,1070,1352,1070,1408,1070,1464,1070,1520,1070,1576,1070,1632,1070,1688,1070,1744,1070,1800,1070,1856,1070,1912,1070,1968,1070,2024,1070,2080,1070,1044,1119,1100,1119,1156,1119,1212,1119,1268,1119,1324,1119,1380,1119,1436,1119,1492,1119,1548,1119,1604,1119,1660,1119,1716,1119,1772,1119,1828,1119,1884,1119,1940,1119,1996,1119,456,1168,512,1168,568,1168,624,1168,1072,1168,1128,1168,1184,1168,1240,1168,1296,1168,1352,1168,1408,1168,1464,1168,1520,1168,1576,1168,1632,1168,1688,1168,1744,1168,1800,1168,1856,1168,1912,1168,1968,1168,2416,1168,2472,1168,2528,1168,2584,1168,316,1217,372,1217,428,1217,484,1217,540,1217,596,1217,652,1217,708,1217,764,1217,1100,1217,1156,1217,1212,1217,1268,1217,1324,1217,1380,1217,1436,1217,1492,1217,1548,1217,1604,1217,1660,1217,1716,1217,1772,1217,1828,1217,1884,1217,1940,1217,2276,1217,2332,1217,2388,1217,2444,1217,2500,1217,2556,1217,2612,1217,2668,1217,2724,1217,288,1266,344,1266,400,1266,456,1266,512,1266,568,1266,624,1266,680,1266,736,1266,792,1266,848,1266,1184,1266,1240,1266,1296,1266,1352,1266,1408,1266,1464,1266,1520,1266,1576,1266,1632,1266,1688,1266,1744,1266,1800,1266,1856,1266,2192,1266,2248,1266,2304,1266,2360,1266,2416,1266,2472,1266,2528,1266,2584,1266,2640,1266,2696,1266,2752,1266,204,1315,260,1315,316,1315,372,1315,428,1315,484,1315,540,1315,596,1315,652,1315,708,1315,764,1315,820,1315,876,1315,1212,1315,1268,1315,1324,1315,1380,1315,1436,1315,1492,1315,1548,1315,1604,1315,1660,1315,1716,1315,1772,1315,1828,1315,2164,1315,2220,1315,2276,1315,2332,1315,2388,1315,2444,1315,2500,1315,2556,1315,2612,1315,2668,1315,2724,1315,2780,1315,2836,1315,176,1364,232,1364,288,1364,344,1364,400,1364,456,1364,512,1364,568,1364,624,1364,680,1364,736,1364,792,1364,848,1364,904,1364,960,1364,1296,1364,1352,1364,1408,1364,1464,1364,1520,1364,1576,1364,1632,1364,1688,1364,1744,1364,2080,1364,2136,1364,2192,1364,2248,1364,2304,1364,2360,1364,2416,1364,2472,1364,2528,1364,2584,1364,2640,1364,2696,1364,2752,1364,2808,1364,2864,1364,204,1413,260,1413,316,1413,372,1413,428,1413,484,1413,540,1413,596,1413,652,1413,708,1413,764,1413,820,1413,876,1413,932,1413,988,1413,1324,1413,1380,1413,1436,1413,1492,1413,1548,1413,1604,1413,1660,1413,1716,1413,2052,1413,2108,1413,2164,1413,2220,1413,2276,1413,2332,1413,2388,1413,2444,1413,2500,1413,2556,1413,2612,1413,2668,1413,2724,1413,2780,1413,2836,1413,176,1462,232,1462,288,1462,344,1462,400,1462,456,1462,512,1462,568,1462,624,1462,680,1462,736,1462,792,1462,848,1462,904,1462,960,1462,1016,1462,1072,1462,1352,1462,1408,1462,1464,1462,1520,1462,1576,1462,1632,1462,1688,1462,1968,1462,2024,1462,2080,1462,2136,1462,2192,1462,2248,1462,2304,1462,2360,1462,2416,1462,2472,1462,2528,1462,2584,1462,2640,1462,2696,1462,2752,1462,2808,1462,2864,1462,148,1511,204,1511,260,1511,316,1511,372,1511,428,1511,484,1511,540,1511,596,1511,652,1511,708,1511,764,1511,820,1511,876,1511,932,1511,988,1511,1044,1511,1100,1511,1380,1511,1436,1511,1492,1511,1548,1511,1604,1511,1660,1511,1940,1511,1996,1511,2052,1511,2108,1511,2164,1511,2220,1511,2276,1511,2332,1511,2388,1511,2444,1511,2500,1511,2556,1511,2612,1511,2668,1511,2724,1511,2780,1511,2836,1511,2892,1511,176,1560,232,1560,288,1560,344,1560,400,1560,456,1560,512,1560,568,1560,624,1560,680,1560,736,1560,792,1560,848,1560,904,1560,960,1560,1016,1560,1072,1560,1128,1560,1408,1560,1464,1560,1520,1560,1576,1560,1632,1560,1912,1560,1968,1560,2024,1560,2080,1560,2136,1560,2192,1560,2248,1560,2304,1560,2360,1560,2416,1560,2472,1560,2528,1560,2584,1560,2640,1560,2696,1560,2752,1560,2808,1560,2864,1560,148,1609,204,1609,260,1609,316,1609,372,1609,428,1609,484,1609,540,1609,596,1609,652,1609,708,1609,764,1609,820,1609,876,1609,932,1609,988,1609,1044,1609,1100,1609,1156,1609,1436,1609,1492,1609,1548,1609,1604,1609,1884,1609,1940,1609,1996,1609,2052,1609,2108,1609,2164,1609,2220,1609,2276,1609,2332,1609,2388,1609,2444,1609,2500,1609,2556,1609,2612,1609,2668,1609,2724,1609,2780,1609,2836,1609,2892,1609,176,1658,232,1658,288,1658,344,1658,400,1658,456,1658,512,1658,568,1658,624,1658,680,1658,736,1658,792,1658,848,1658,904,1658,960,1658,1016,1658,1072,1658,1128,1658,1184,1658,1464,1658,1520,1658,1576,1658,1856,1658,1912,1658,1968,1658,2024,1658,2080,1658,2136,1658,2192,1658,2248,1658,2304,1658,2360,1658,2416,1658,2472,1658,2528,1658,2584,1658,2640,1658,2696,1658,2752,1658,2808,1658,2864,1658,204,1707,260,1707,316,1707,372,1707,428,1707,484,1707,540,1707,596,1707,652,1707,708,1707,764,1707,820,1707,876,1707,932,1707,988,1707,1044,1707,1100,1707,1156,1707,1212,1707,1492,1707,1548,1707,1828,1707,1884,1707,1940,1707,1996,1707,2052,1707,2108,1707,2164,1707,2220,1707,2276,1707,2332,1707,2388,1707,2444,1707,2500,1707,2556,1707,2612,1707,2668,1707,2724,1707,2780,1707,2836,1707,232,1756,288,1756,344,1756,400,1756,456,1756,512,1756,568,1756,624,1756,680,1756,736,1756,792,1756,848,1756,904,1756,960,1756,1016,1756,1072,1756,1128,1756,1184,1756,1240,1756,1800,1756,1856,1756,1912,1756,1968,1756,2024,1756,2080,1756,2136,1756,2192,1756,2248,1756,2304,1756,2360,1756,2416,1756,2472,1756,2528,1756,2584,1756,2640,1756,2696,1756,2752,1756,2808,1756,260,1805,316,1805,372,1805,428,1805,484,1805,540,1805,596,1805,652,1805,708,1805,764,1805,820,1805,876,1805,932,1805,988,1805,1044,1805,1100,1805,1156,1805,1212,1805,1268,1805,1772,1805,1828,1805,1884,1805,1940,1805,1996,1805,2052,1805,2108,1805,2164,1805,2220,1805,2276,1805,2332,1805,2388,1805,2444,1805,2500,1805,2556,1805,2612,1805,2668,1805,2724,1805,2780,1805,344,1854,400,1854,456,1854,512,1854,568,1854,624,1854,680,1854,736,1854,792,1854,848,1854,904,1854,960,1854,1016,1854,1072,1854,1128,1854,1184,1854,1240,1854,1296,1854,1744,1854,1800,1854,1856,1854,1912,1854,1968,1854,2024,1854,2080,1854,2136,1854,2192,1854,2248,1854,2304,1854,2360,1854,2416,1854,2472,1854,2528,1854,2584,1854,2640,1854,2696,1854,428,1903,484,1903,540,1903,596,1903,652,1903,708,1903,764,1903,1100,1903,1156,1903,1212,1903,1268,1903,1324,1903,1716,1903,1772,1903,1828,1903,1884,1903,1940,1903,2276,1903,2332,1903,2388,1903,2444,1903,2500,1903,2556,1903,2612,1903,1240,1952,1296,1952,1352,1952,1688,1952,1744,1952,1800,1952,1268,2001,1324,2001,1716,2001,1772,2001];
+      /* darker dotted outline of the shape, x10 */
+      const PL_SHAPE_EDGE = [2480,1151,2430,1158,2383,1170,2337,1183,2293,1204,2250,1224,2211,1247,2168,1276,2127,1305,2091,1333,2055,1363,2022,1397,1989,1429,1950,1473,1922,1506,1890,1545,1862,1582,1833,1626,1808,1664,1786,1707,1761,1748,1739,1791,1720,1835,1705,1881,1689,1926,1680,1975,1678,2019,1701,2044,1740,2036,1777,2003,1815,1976,1857,1948,1904,1926,1949,1908,1997,1899,2045,1890,2094,1882,2149,1888,2193,1894,2248,1901,2298,1907,2339,1918,2389,1924,2445,1929,2490,1930,2540,1925,2589,1918,2636,1905,2679,1884,2720,1864,2756,1840,2799,1805,2826,1775,2855,1735,2877,1691,2896,1648,2905,1605,2909,1549,2907,1505,2900,1456,2889,1409,2870,1365,2848,1322,2821,1285,2789,1251,2755,1225,2713,1200,2670,1179,2625,1163,2576,1156,2532,1151,482,1151,432,1158,387,1173,345,1189,303,1213,264,1239,227,1275,199,1310,178,1349,159,1393,143,1438,135,1484,128,1533,135,1582,140,1629,155,1675,173,1716,201,1757,231,1793,265,1826,301,1853,344,1878,386,1899,433,1912,477,1924,524,1930,576,1930,625,1924,676,1920,725,1912,774,1906,822,1897,871,1889,920,1882,976,1887,1025,1895,1073,1905,1119,1921,1164,1937,1206,1961,1246,1990,1285,2024,1319,2044,1356,2032,1363,1993,1356,1943,1342,1897,1326,1852,1304,1808,1286,1764,1263,1722,1239,1679,1215,1637,1186,1597,1160,1560,1130,1521,1102,1485,1064,1446,1036,1413,1000,1378,958,1341,924,1313,888,1284,843,1256,807,1231,763,1210,719,1190,674,1175,627,1162,578,1156,534,1151,1232,479,1184,490,1136,502,1092,521,1050,545,1014,575,983,604,955,641,931,683,912,727,900,774,891,820,891,872,894,920,906,968,920,1010,944,1056,968,1094,999,1134,1032,1171,1062,1201,1097,1236,1135,1268,1172,1300,1208,1335,1249,1371,1277,1404,1311,1441,1346,1484,1374,1525,1401,1565,1428,1610,1452,1652,1474,1695,1497,1731,1536,1732,1561,1707,1582,1664,1608,1619,1632,1577,1657,1539,1685,1494,1716,1456,1749,1418,1780,1384,1821,1342,1858,1309,1894,1280,1932,1244,1967,1213,1999,1180,2034,1145,2062,1108,2089,1068,2112,1025,2131,980,2143,933,2149,890,2149,837,2143,788,2132,740,2115,695,2091,653,2066,615,2036,583,1998,551,1956,526,1916,505,1870,492,1822,482,1777,479,1726,483,1678,492,1632,506,1592,528,1554,554,1498,566,1462,537,1421,512,1375,495,1330,485,1284,479];
+      let plShape = (MOUNT.getAttribute("data-plinko") || "") === "shape";
+
       function plCfg() {
-        const cx = 152, cy = 190, rows = [[32, 140], [25, 112], [19, 84], [13, 56]], dots = [], GAPA = .26, total = Math.PI - 2 * GAPA, FR = [.37, .26, .37];
+        if (plShape) {
+          return { cx: 152, cy: 150, dots: PL_SHAPE_PEGS.map(p => ({ x: p[0], y: p[1] })), bw: 96, r: 4.3, BT: PHONE_MQ.matches ? 236 : 220, FL: PHONE_MQ.matches ? 280 : 256 };
+        }
+        const cx = 152, cy = 190, rows = [[[11, 14, 11], 140], [[8, 10, 8], 112], [[6, 7, 6], 84], [[4, 5, 4], 56]], dots = [], GAPA = .26, total = Math.PI - 2 * GAPA, FR = [.31, .38, .31];
         rows.forEach(r => {
-          const n = r[0], side = Math.round(n * .37), cnt = [side, n - 2 * side, side];
+          const cnt = r[0];
           let start = Math.PI;
           for (let k = 0; k < 3; k++) {
             const span = total * FR[k], ns = cnt[k];
@@ -1599,7 +1611,9 @@ document.head.appendChild(style);
             start -= span + GAPA;
           }
         });
-        return { cx, cy, dots, bw: 96, r: 4.3, BT: PHONE_MQ.matches ? 236 : 220, FL: PHONE_MQ.matches ? 280 : 256 };
+        /* the 8 dots (inner ring: centre section + first 3 of the right section) that stand for the 8 ministers */
+        const gov = dots.slice(dots.length - 13 + 4, dots.length - 13 + 12);
+        return { cx, cy, dots, gov, bw: 96, r: 4.3, BT: PHONE_MQ.matches ? 236 : 220, FL: PHONE_MQ.matches ? 280 : 256 };
       }
 
       function plBuild(C) {
@@ -1634,7 +1648,7 @@ document.head.appendChild(style);
           }
           b.x += b.vx * dt; b.y += b.vy * dt;
           for (let i = 0; i < C.dots.length; i++) {
-            const p = C.dots[i], dx = b.x - p.x, dy = b.y - p.y, d2 = dx * dx + dy * dy, m = r + 2.2;
+            const p = C.dots[i], dx = b.x - p.x, dy = b.y - p.y, d2 = dx * dx + dy * dy, m = r + (plShape ? 2.2 : 1.1);
             if (d2 < m * m && d2 > 1e-6) {
               const d = Math.sqrt(d2), nx = dx / d, ny = dy / d;
               b.x = p.x + nx * m; b.y = p.y + ny * m;
@@ -1703,10 +1717,28 @@ document.head.appendChild(style);
 
       function plDraw(c, C, st) {
         const ink = "#17171c";
+        if (plShape) {
+          c.fillStyle = "#eee8eb";
+          for (let i = 0; i < PL_SHAPE_DECOR.length; i += 2) { c.beginPath(); c.arc(PL_SHAPE_DECOR[i] / 10, PL_SHAPE_DECOR[i + 1] / 10, 1.05, 0, 6.3); c.fill(); }
+          c.fillStyle = "#c4bbc1";
+          for (let i = 0; i < PL_SHAPE_EDGE.length; i += 2) { c.beginPath(); c.arc(PL_SHAPE_EDGE[i] / 10, PL_SHAPE_EDGE[i + 1] / 10, 1.25, 0, 6.3); c.fill(); }
+        }
         C.dots.forEach(p => { c.fillStyle = "#c9c1c6"; c.beginPath(); c.arc(p.x, p.y, 2.2, 0, 6.3); c.fill(); });
+        if (!plShape && C.gov) {
+          const hi = plHiMinister();
+          const m = hi != null ? MINISTERS[hi] : null;
+          const pos = m ? PL_GOV_ORDER.findIndex(n => String(m.name || "").toUpperCase().includes(n)) : -1;
+          if (pos >= 0 && pos < C.gov.length) {
+            C.gov.forEach(p => { c.fillStyle = "#ffe9ee"; c.beginPath(); c.arc(p.x, p.y, 3.4, 0, 6.3); c.fill(); });
+            const g = C.gov[pos];
+            c.fillStyle = "#f5b8c8"; c.beginPath(); c.arc(g.x, g.y, 4.8, 0, 6.3); c.fill();
+          }
+        }
         c.textAlign = "center"; c.fillStyle = ink;
-        c.font = "900 30px " + st.font; c.fillText(String(st.total), C.cx, C.cy - 9);
-        c.font = "600 10.5px " + st.font; c.fillStyle = ink; c.fillText("beloftes", C.cx, C.cy + 4);
+        if (!plShape) {
+          c.font = "900 30px " + st.font; c.fillText(String(st.total), C.cx, C.cy - 9);
+          c.font = "600 10.5px " + st.font; c.fillStyle = ink; c.fillText("beloftes", C.cx, C.cy + 4);
+        }
         PL_BUCKETS.forEach((bk, i) => {
           const x = 8 + C.bw * i, mid = x + C.bw / 2;
           if (st.hover === i) { c.fillStyle = "rgba(242,184,200,.22)"; c.fillRect(x + 2, C.BT, C.bw - 4, C.FL + 4 - C.BT); }
@@ -1798,6 +1830,18 @@ document.head.appendChild(style);
         plObserver.observe(el);
       }
       $("pt-plinkoReplay").addEventListener("click", () => plinkoStart(true));
+      /* hovering or selecting a minister lights up the minister dots in the parliament */
+      const PL_GOV_ORDER = ["HUBLET", "DE SMEDT", "LAAOUEJ", "VAN DEN BRANDT", "DILLI", "HENRY", "PERSOONS", "LALIEUX"]; /* left to right on the inner ring */
+      let plHover = null;
+      function plHiMinister() { return plHover != null ? plHover : activeMinisterIndex; }
+      const plHiRefresh = () => { if (plSim && !plRaf) plPaint(); };
+      root.addEventListener("mouseover", e => { const b = e.target.closest && e.target.closest("[data-minister-index]"); const v = b ? Number(b.dataset.ministerIndex) : null; if (v !== plHover) { plHover = v; plHiRefresh(); } });
+      root.addEventListener("focusin", e => { const b = e.target.closest && e.target.closest("[data-minister-index]"); if (b) { plHover = Number(b.dataset.ministerIndex); plHiRefresh(); } });
+      root.addEventListener("focusout", () => { plHover = null; plHiRefresh(); });
+      root.addEventListener("click", () => setTimeout(plHiRefresh, 0));
+      const plTitle = () => { const e = root.querySelector(".pt-status-title-long"); if (e) e.style.display = plShape ? "inline" : ""; };
+      plTitle();
+      root.__plSet = mode => { plShape = mode === "shape"; plTitle(); plinkoStart(true); return plShape ? "shape" : "parliament"; };
       // hovering a bucket lights up its bars
       (function () {
         const cv = $("pt-plinkoCv"), bars = $("pt-statusBars");
