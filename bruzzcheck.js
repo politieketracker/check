@@ -153,8 +153,8 @@ document.head.appendChild(style);
       const PARTY_INK = {
         "Anders": "#3f6fcf",
         "MR": "#3f6fcf",
-        "Les Engagés": "#1594a6",
-        "Les Engages": "#1594a6",
+        "Les Engagés": "#67dce9",
+        "Les Engages": "#67dce9",
         "Groen": "#2c9a35",
         "Vooruit": "#e6002f",
         "PS": "#e6002f"

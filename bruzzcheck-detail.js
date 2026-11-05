@@ -2594,7 +2594,7 @@ document.head.appendChild(style);
       async function loadPollResults(card, key, delays) {
         const slot = card.querySelector(".pd-poll-thanks");
         if (!slot) return;
-        const waiting = "Resultaten laden...";
+        const waiting = "Poll laden...";
         let lastError = "";
         let lastVotes = null;   // votes the Worker reported on the last successful answer
         for (let attempt = 0; attempt <= delays.length; attempt++) {
@@ -2648,7 +2648,7 @@ document.head.appendChild(style);
           return `
                   <div class="pd-poll pd-poll-done" aria-label="Poll" data-poll-key="${escapeHtml(key)}">
                     ${label}
-                    <p class="pd-poll-thanks">Resultaten laden...</p>
+                    <p class="pd-poll-thanks">Poll laden...</p>
                   </div>`;
         }
         const own = pollCfg[key];
