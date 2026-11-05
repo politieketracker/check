@@ -105,7 +105,7 @@
          in the order they should be shown. The Worker only hands out results once a promise has enough votes
          (20 by default, set in the Worker). */
       const POLL_QUESTIONS = [
-        { label: "Hier staat een vraag?", options: ["Antwoord 1", "Antwoord 2", "Antwoord 3"] }
+        { label: "Denk je dat de Brusselse regering deze belofte zal waarmaken?", options: ["Ja", "Nee", "Weet niet"] }
       ];
       const POLL_SHOW_RESULTS = true;
 
@@ -2556,7 +2556,7 @@
           }).join("");
           return `<div class="pd-pr-q"><p class="pd-pr-title">${escapeHtml(question.label)}</p>${rows}</div>`;
         }).join("");
-        return blocks ? `<div class="pd-pr">${blocks}<p class="pd-pr-note">${result.votes} ${result.votes === 1 ? "stem" : "stemmen"} (geen representatieve peiling)</p></div>` : "";
+        return blocks ? `<div class="pd-pr">${blocks}<p class="pd-pr-note">${result.votes} ${result.votes === 1 ? "stem" : "stemmen"} (geen representatieve peiling) &middot; bijgewerkt om ${new Date().toLocaleTimeString("nl-BE", { hour: "2-digit", minute: "2-digit" })}</p></div>` : "";
       }
 
       async function loadPollResults(card, key, delays) {
@@ -2573,7 +2573,22 @@
             const result = await res.json();
             if (result && result.enough) {
               const html = pollBars(result);
-              if (html) { slot.outerHTML = html; return; }
+              if (html) {
+                slot.outerHTML = html;
+                // keep the numbers fresh while the page stays open: look again every minute
+                const timer = setInterval(async () => {
+                  if (!document.body.contains(card)) { clearInterval(timer); return; }
+                  if (document.hidden) return;
+                  try {
+                    const r2 = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/poll-results?promise=${encodeURIComponent(key)}`);
+                    const res2 = r2.ok ? await r2.json() : null;
+                    const box = card.querySelector(".pd-pr");
+                    const fresh = res2 && res2.enough ? pollBars(res2) : "";
+                    if (box && fresh) box.outerHTML = fresh;
+                  } catch (_) {}
+                }, 60000);
+                return;
+              }
             }
             lastError = "";
             slot.textContent = slot.textContent.split(" De resultaten")[0] + " " + waiting;
@@ -2582,13 +2597,12 @@
         if (lastError) console.warn("BRUZZ Check: poll-resultaten niet geladen:", lastError);
       }
 
-      /* The poll card: the Tally form, or (after voting) a thank-you with a small cross that brings the form back. */
+      /* The poll card: the Tally form, or (after voting) a thank-you and the results. There is no way back to the form. */
       function pollMarkupFor(key, voted) {
         const label = POLL_LABEL ? `<p class="pd-poll-label">${escapeHtml(POLL_LABEL)}</p>` : "";
         if (voted) {
           return `
-                  <div class="pd-poll pd-poll-done" aria-label="Poll">
-                    <button type="button" class="pd-poll-close" data-poll-reset="${escapeHtml(key)}" aria-label="Toon de poll opnieuw" title="Toon de poll opnieuw">&times;</button>
+                  <div class="pd-poll pd-poll-done" aria-label="Poll" data-poll-key="${escapeHtml(key)}">
                     ${label}
                     <p class="pd-poll-thanks">${voted === "fresh" ? "Bedankt voor je stem." : "Je hebt al gestemd."}</p>
                   </div>`;
@@ -2619,17 +2633,6 @@
           const tall = target.getBoundingClientRect().height > window.innerHeight * 0.8;
           target.scrollIntoView({ behavior: "smooth", block: tall ? "start" : "center" });
         }, opening ? 280 : 0);
-      });
-
-      root.addEventListener("click", function (event) {
-        const btn = event.target.closest("[data-poll-reset]");
-        if (!btn) return;
-        const key = btn.getAttribute("data-poll-reset");
-        try { localStorage.removeItem(POLL_STORAGE_PREFIX + key); } catch (_) {}
-        const card = btn.closest(".pd-poll");
-        if (!card) return;
-        card.outerHTML = pollMarkupFor(key, false);
-        loadTallyEmbeds();
       });
 
       /* Tally: the embed script is added once; the iframes are created by renderPage(). */
@@ -2712,8 +2715,8 @@
           renderPage(promise, getPromiseUpdates(promise, updates));
           if (POLL_TALLY_ID && POLL_SHOW_RESULTS) {
             const done = root.querySelector(".pd-poll-done");
-            const doneKey = done && done.querySelector("[data-poll-reset]");
-            if (doneKey) loadPollResults(done, doneKey.getAttribute("data-poll-reset"), [2500, 6000]);
+            const doneKey = done && done.getAttribute("data-poll-key");
+            if (doneKey) loadPollResults(done, doneKey, [2500, 6000]);
           }
           syncBodyTypography();
           setupCarousel();
