@@ -49,10 +49,11 @@
   style.textContent += "\n  /* ---- minister at the top of the hero card, \"Laatste beoordeling\" pill, timeline at the bottom of the card ---- */\n  #promise-detail-embed .pd-hero-top { display: block; margin: 0 0 4px; }\n  /* three or more ministers: just the faces in a row (names on hover) */\n  #promise-detail-embed .pd-minister-faces { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }\n  #promise-detail-embed .pd-minister-faces li { margin: 0; padding: 0; }\n  #promise-detail-embed .pd-minister-faces .pd-hero-avatar { width: 40px; height: 40px; }\n  #promise-detail-embed .pd-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }\n  \n  #promise-detail-embed .pd-hero-top .pd-hero-detail { display: inline-grid; }\n  #promise-detail-embed .pd-rounds { margin-top: auto; }\n  #promise-detail-embed .pd-rounds-shell { margin-top: 0; }\n  #promise-detail-embed .pd-rounds-tag { position: absolute; left: var(--pos); bottom: 100%; margin-bottom: 14px; transform: translateX(-50%); padding: 5px 11px; border-radius: 0; background: #17171c; color: #fff; font-size: 12px; line-height: 1; font-weight: 800; letter-spacing: .01em; white-space: nowrap; pointer-events: none; }\n  #promise-detail-embed .pd-rounds-tag--end { transform: translateX(calc(-100% + 18px)); }\n";
   style.textContent += "\n  /* ---- back button: a bit more compact, with tighter spacing above and below ---- */\n  #promise-detail-embed .pd-app { padding-top: 30px; }\n  #promise-detail-embed .pd-back { margin: 0 0 32px; font-size: 16px; }\n  #promise-detail-embed .pd-back-text { padding: 13px 24px 13px 18px; gap: 10px; }\n  #promise-detail-embed .pd-back-text::before { width: 20px; height: 20px; }\n  #promise-detail-embed .pd-back-brand { padding: 13px 26px 13px 20px; font-size: 16px; }\n  @media (max-width: 520px) {\n    #promise-detail-embed .pd-back { margin-bottom: 24px; }\n    #promise-detail-embed .pd-back-brand { padding: 4px 18px 9px 22px; }\n  }\n";
   style.textContent += "\n  /* ---- carousel with other promises ---- */\n  #promise-detail-embed .pd-car-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 7px; }\n  #promise-detail-embed .pd-car-arrows { display: flex; align-items: center; gap: 12px; }\n  #promise-detail-embed .pd-car-arrow { appearance: none; -webkit-appearance: none; display: grid; place-items: center; width: 44px; height: 44px; min-width: 44px; padding: 0; border-radius: 50%; border: 1.5px solid var(--pd-line); background: #fff; color: var(--pd-ink); line-height: 1; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; transition: border-color .2s, opacity .2s; }\n  #promise-detail-embed .pd-car-arrow svg { width: 16px; height: 16px; }\n  #promise-detail-embed .pd-car-prev svg { transform: scaleX(-1); }\n  #promise-detail-embed .pd-car-arrow:hover:not(:disabled) { border-color: var(--pd-ink); }\n  #promise-detail-embed .pd-car-arrow:disabled { opacity: .35; cursor: default; }\n  #promise-detail-embed .pd-car-track { display: flex; gap: 14px; margin: 0 -4px; padding: 4px 4px 12px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; -webkit-overflow-scrolling: touch; }\n  #promise-detail-embed .pd-car-track::-webkit-scrollbar { display: none; }\n  #promise-detail-embed .pd-car-card { position: relative; flex: 0 0 clamp(180px, 19vw, 215px); display: flex; flex-direction: column; gap: 12px; padding: 8px 8px 16px; border-radius: 0; background: #fff; color: var(--pd-ink); text-decoration: none; box-shadow: var(--pd-shadow); scroll-snap-align: start; transition: transform .25s var(--pd-ease), box-shadow .25s var(--pd-ease); }\n  #promise-detail-embed a.pd-car-card:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(23, 23, 28, .04), 0 2px 4px rgba(23, 23, 28, .035), 0 12px 26px -12px rgba(23, 23, 28, .10); }\n  #promise-detail-embed .pd-car-media { display: block; height: 124px; overflow: hidden; border-radius: 0; background: var(--pd-tint); }\n  #promise-detail-embed .pd-car-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--pd-ease); }\n  #promise-detail-embed a.pd-car-card:hover .pd-car-media img { transform: scale(1.05); }\n  #promise-detail-embed .pd-car-media--empty { display: grid; place-items: center; font-size: 38px; }\n  #promise-detail-embed .pd-car-badge { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 255, 255, .94); box-shadow: 0 0 0 1px rgba(23, 23, 28, .035), 0 1px 2px rgba(23, 23, 28, .05); }\n  #promise-detail-embed .pd-car-badge .pd-sym { --sym: 26px; }\n  #promise-detail-embed .pd-car-title { padding: 0 8px; font-family: var(--pd-brand-font, inherit); font-size: 16px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }\n";
-  style.textContent += "\n  /* ---- Tally watermark hidden: a black block over the bottom right corner of the poll ---- */\n  #promise-detail-embed .pd-poll:not(.pd-poll-done)::after { content: \"\"; position: absolute; right: 0; bottom: 0; width: 200px; height: 52px; background: linear-gradient(90deg, rgba(0,0,0,0), #000 22px); z-index: 3; }\n  /* ---- editorial approach ---- */\n  #promise-detail-embed .pd-redactie { margin-top: 48px; max-width: min(760px, 100%); }\n  #promise-detail-embed .pd-redactie-title { font-size: 16px; font-weight: 600; line-height: 1.3; margin: 0 0 8px; }\n  #promise-detail-embed .pd-redactie p { margin: 0; font-size: 15.5px; line-height: 1.5; }\n  #promise-detail-embed .pd-redactie p + p { margin-top: 10px; }\n  #promise-detail-embed .pd-redactie a { color: var(--pd-red); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }\n  @media (max-width: 900px) { #promise-detail-embed .pd-redactie { max-width: none; } }\n  @media (max-width: 640px) { #promise-detail-embed .pd-redactie { margin-top: 36px; } #promise-detail-embed .pd-redactie p { font-size: 15px; } }\n";
+  style.textContent += "\n  /* ---- Tally watermark hidden: a black block over the bottom right corner of the poll ---- */\n  #promise-detail-embed .pd-poll:not(.pd-poll-done):not(.pd-poll-native)::after { content: \"\"; position: absolute; right: 0; bottom: 0; width: 200px; height: 52px; background: linear-gradient(90deg, rgba(0,0,0,0), #000 22px); z-index: 3; }\n  /* ---- editorial approach ---- */\n  #promise-detail-embed .pd-redactie { margin-top: 48px; max-width: min(760px, 100%); }\n  #promise-detail-embed .pd-redactie-title { font-size: 16px; font-weight: 600; line-height: 1.3; margin: 0 0 8px; }\n  #promise-detail-embed .pd-redactie p { margin: 0; font-size: 15.5px; line-height: 1.5; }\n  #promise-detail-embed .pd-redactie p + p { margin-top: 10px; }\n  #promise-detail-embed .pd-redactie a { color: var(--pd-red); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }\n  @media (max-width: 900px) { #promise-detail-embed .pd-redactie { max-width: none; } }\n  @media (max-width: 640px) { #promise-detail-embed .pd-redactie { margin-top: 36px; } #promise-detail-embed .pd-redactie p { font-size: 15px; } }\n";
   style.textContent += "\n  .pd-prehide:not(.bm-timeline-ready) { max-height: 0 !important; overflow: hidden !important; opacity: 0 !important; visibility: hidden !important; margin: 0 !important; padding: 0 !important; }\n";
   style.textContent += "\nbody:has(.bruzz-promise-detail) .hero { display: none !important; }\n.bruzz-promise-detail { display: block; min-height: 100vh; background: #fff9fb; }\n";
 style.textContent += "\n  /* verdict bar in the timeline: flat colour, no gradient */\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-head,\n  .bm-master-timeline.bm-timeline-ready .bm-timeline-verdict button.bm-verdict-head {\n    background-image: none !important;\n    box-shadow: none !important;\n    background-color: var(--bm-verdict-color) !important;\n  }\n";
+style.textContent += "\n/* own poll: question + answers next to each other */\n#promise-detail-embed .pd-poll-native { padding: 4px 14px 14px; }\n#promise-detail-embed .pd-poll-q { margin: 0 0 12px; color: #fff; font-family: inherit; font-size: 15px; line-height: 1.35; font-weight: 600; }\n#promise-detail-embed .pd-poll-opts { display: flex; gap: 8px; }\n#promise-detail-embed .pd-poll-opt { flex: 1 1 0; min-width: 0; padding: 10px 8px; border: 1px solid rgba(255,255,255,.32); border-radius: 8px; background: rgba(255,255,255,.08); color: #fff; font: inherit; font-size: 14px; font-weight: 600; line-height: 1.2; text-align: center; cursor: pointer; transition: background .15s, border-color .15s; }\n#promise-detail-embed .pd-poll-opt:hover:not(:disabled), #promise-detail-embed .pd-poll-opt:focus-visible { background: #ff0033; border-color: #ff0033; outline: 0; }\n#promise-detail-embed .pd-poll-opt.is-chosen { background: #ff0033; border-color: #ff0033; }\n#promise-detail-embed .pd-poll-opt:disabled { cursor: default; opacity: .75; }\n#promise-detail-embed .pd-poll-opt.is-chosen:disabled { opacity: 1; }\n#promise-detail-embed .pd-poll-err { margin: 10px 0 0; color: #ff9aa9; font-size: 12.5px; }\n";
 document.head.appendChild(style);
   MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\"><span class=\"pd-back-brand\">BRUZZ CHECK</span><span class=\"pd-back-text\">Zie het overzicht met alle beloftes</span></a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
 
@@ -96,7 +97,15 @@ document.head.appendChild(style);
           tell the answers per promise apart in your Tally results.
       */
       const POLL_TALLY_ID = "4aa7A5";
+      /* OWN POLL: a promise with a "Poll vraag" in Baserow (and optionally "Poll antwoorden", one answer per line or
+         separated by ;) gets buttons on the page itself, and a click is the vote. Promises without one keep the Tally form above.
+         POLL_TURNSTILE_SITE_KEY: Cloudflare Turnstile site key. Leave empty for no bot check (then leave TURNSTILE_SECRET out of the Worker too). */
+      const POLL_TURNSTILE_SITE_KEY = "";
+      const POLL_DEFAULT_ANSWERS = ["Ja", "Nee", "Weet niet"];
       const POLL_ZOOM = 0.8;   // size of the form: 1 = normal, 0.8 = 20% smaller, 0.7 = smaller still
+      const POLL_MIN_WIDTH = 560;    // Tally puts the answers next to each other when the form is at least this wide (px, before zooming);
+                                     // on a narrow card the form is shrunk a bit more so it stays that wide. Raise it if the answers still stack.
+      const POLL_MIN_ZOOM = 0.55;    // never shrink the form below this
       const POLL_TRIM_TOP = 20;      // pulls the form up (px): removes the empty space Tally leaves above the questions
       const POLL_TRIM_BOTTOM = 10;   // same for the space below the button
       const POLL_BORDER = "0";       // "0" = no border; or e.g. "1px solid rgba(255,255,255,.18)" for a thin light line
@@ -2109,11 +2118,14 @@ document.head.appendChild(style);
 
         const pollKey = getPromiseKey(promise) || String(promise.id || "");
         const pollVoted = hasVotedOn(pollKey);
-        const pollMarkup = POLL_TALLY_ID ? pollMarkupFor(pollKey, pollVoted) : "";
+        const pollOwn = pollConfigOf(promise);
+        if (pollOwn) pollCfg[pollKey] = pollOwn;
+        const hasPoll = Boolean(POLL_TALLY_ID || pollOwn);
+        const pollMarkup = hasPoll ? pollMarkupFor(pollKey, pollVoted) : "";
 
         host.innerHTML = `
           <section class="pd-hero" aria-labelledby="pd-title">
-            <div class="pd-promise-panel${POLL_TALLY_ID ? " pd-has-poll" : ""}" style="${heroStyle}${POLL_TALLY_ID ? ` --pd-overlay:${POLL_OVERLAY};` : ""}">
+            <div class="pd-promise-panel${hasPoll ? " pd-has-poll" : ""}" style="${heroStyle}${hasPoll ? ` --pd-overlay:${POLL_OVERLAY};` : ""}">
               ${(!heroImageUrl && emoji) ? `<span class="pd-hero-emoji" aria-hidden="true">${escapeHtml(emoji)}</span>` : ""}
               <div class="pd-promise-content">
                 ${ministerBlock ? `<div class="pd-hero-top">${ministerBlock}</div>` : ""}
@@ -2532,17 +2544,26 @@ document.head.appendChild(style);
         }
       });
 
+      /* The own poll of a promise: { label, options } from its Baserow row, or null (then the Tally form is used). */
+      const pollCfg = {};
+      function pollConfigOf(promise) {
+        const label = getField(promise, ["Poll vraag"]);
+        if (!label) return null;
+        const options = getField(promise, ["Poll antwoorden"]).split(/[\n;]+/).map(s => s.trim()).filter(Boolean);
+        return { label, options: options.length ? options : POLL_DEFAULT_ANSWERS.slice() };
+      }
+
       /* Results: ask the Worker, and try again a few times because the vote may not be counted yet. */
       /* "25/11/26, 11:06": the moment these numbers were fetched */
       function pollStamp() {
         const t = new Date(), two = n => String(n).padStart(2, "0");
         return `${two(t.getDate())}/${two(t.getMonth() + 1)}/${String(t.getFullYear()).slice(-2)}, ${two(t.getHours())}:${two(t.getMinutes())}`;
       }
-      function pollBars(result) {
+      function pollBars(result, key) {
         const counts = result.questions || {};
         const norm = text => String(text).trim().toLowerCase();
         /* questions from the settings */
-        const known = POLL_QUESTIONS.map(question => ({ label: question.label, options: question.options }));
+        const known = (pollCfg[key] ? [pollCfg[key]] : POLL_QUESTIONS).map(question => ({ label: question.label, options: question.options }));
         /* only the questions listed in POLL_QUESTIONS are shown: old test votes under another question text stay hidden */
         const blocks = known.map(question => {
           const found = Object.keys(counts).find(label => norm(label) === norm(question.label));
@@ -2577,7 +2598,7 @@ document.head.appendChild(style);
             if (!res.ok) throw new Error("status " + res.status);
             const result = await res.json();
             if (result && result.enough) {
-              const html = pollBars(result);
+              const html = pollBars(result, key);
               if (html) {
                 slot.outerHTML = html;
                 // keep the numbers fresh while the page stays open: look again every minute
@@ -2588,7 +2609,7 @@ document.head.appendChild(style);
                     const r2 = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/poll-results?promise=${encodeURIComponent(key)}`);
                     const res2 = r2.ok ? await r2.json() : null;
                     const box = card.querySelector(".pd-pr");
-                    const fresh = res2 && res2.enough ? pollBars(res2) : "";
+                    const fresh = res2 && res2.enough ? pollBars(res2, key) : "";
                     if (box && fresh) box.outerHTML = fresh;
                   } catch (_) {}
                 }, 60000);
@@ -2610,6 +2631,18 @@ document.head.appendChild(style);
                   <div class="pd-poll pd-poll-done" aria-label="Poll" data-poll-key="${escapeHtml(key)}">
                     ${label}
                     <p class="pd-poll-thanks">Resultaten laden...</p>
+                  </div>`;
+        }
+        const own = pollCfg[key];
+        if (own) {
+          return `
+                  <div class="pd-poll pd-poll-native" aria-label="Poll" data-poll-key="${escapeHtml(key)}">
+                    ${label}
+                    <p class="pd-poll-q">${escapeHtml(own.label)}</p>
+                    <div class="pd-poll-opts" role="group" aria-label="${escapeHtml(own.label)}">
+                      ${own.options.map(option => `<button type="button" class="pd-poll-opt" data-answer="${escapeHtml(option)}">${escapeHtml(option)}</button>`).join("")}
+                    </div>
+                    <p class="pd-poll-err" role="alert" hidden></p>
                   </div>`;
         }
         return `
@@ -2640,8 +2673,75 @@ document.head.appendChild(style);
         }, opening ? 280 : 0);
       });
 
+      /* Own poll: a click on an answer is the vote. */
+      function pollToken() {
+        if (!POLL_TURNSTILE_SITE_KEY) return Promise.resolve("");
+        return new Promise((resolve, reject) => {
+          const start = () => {
+            const holder = document.createElement("div");
+            holder.style.cssText = "position:fixed;left:0;bottom:0;z-index:2147483647";
+            document.body.appendChild(holder);
+            const done = fn => v => { try { window.turnstile.remove(id); } catch (_) {} holder.remove(); fn(v); };
+            const id = window.turnstile.render(holder, {
+              sitekey: POLL_TURNSTILE_SITE_KEY, execution: "execute", appearance: "interaction-only",
+              callback: done(resolve), "error-callback": done(() => reject(new Error("bot check"))), "timeout-callback": done(() => reject(new Error("bot check")))
+            });
+            window.turnstile.execute(id);
+          };
+          if (window.turnstile) return start();
+          const s = document.createElement("script");
+          s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+          s.async = true; s.onload = start; s.onerror = () => reject(new Error("bot check"));
+          document.head.appendChild(s);
+        });
+      }
+      root.addEventListener("click", async function (event) {
+        const button = event.target.closest(".pd-poll-opt");
+        if (!button) return;
+        const card = button.closest(".pd-poll-native");
+        if (!card || card.classList.contains("pd-poll-busy")) return;
+        const key = card.getAttribute("data-poll-key");
+        const err = card.querySelector(".pd-poll-err");
+        card.classList.add("pd-poll-busy");
+        card.querySelectorAll(".pd-poll-opt").forEach(b => { b.disabled = true; });
+        button.classList.add("is-chosen");
+        if (err) err.hidden = true;
+        try {
+          const token = await pollToken();
+          const res = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/vote`, {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ promise: key, answer: button.getAttribute("data-answer"), token })
+          });
+          if (!res.ok) throw new Error("status " + res.status);
+          rememberVote(key);
+          card.outerHTML = pollMarkupFor(key, "fresh");
+          const done = root.querySelector(".pd-poll-done");
+          if (done) loadPollResults(done, key, [0, 1500, 4000]);
+        } catch (e) {
+          console.warn("BRUZZ Check: stemmen mislukt:", e.message);
+          card.classList.remove("pd-poll-busy");
+          card.querySelectorAll(".pd-poll-opt").forEach(b => { b.disabled = false; b.classList.remove("is-chosen"); });
+          if (err) { err.textContent = "Stemmen lukt nu niet. Probeer het later opnieuw."; err.hidden = false; }
+        }
+      });
+
       /* Tally: the embed script is added once; the iframes are created by renderPage(). */
+      function fitPollZoom() {
+        document.querySelectorAll("#promise-detail-embed .pd-poll:not(.pd-poll-done):not(.pd-poll-native)").forEach(box => {
+          const cs = getComputedStyle(box);
+          const inner = box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+          if (inner <= 0) return;
+          const zoom = Math.max(POLL_MIN_ZOOM, Math.min(POLL_ZOOM, inner / POLL_MIN_WIDTH));
+          box.style.setProperty("--pd-poll-zoom", zoom.toFixed(3));
+        });
+      }
       function loadTallyEmbeds() {
+        fitPollZoom();
+        if (!window.__pdPollFit) {
+          window.__pdPollFit = true;
+          window.addEventListener("resize", fitPollZoom);
+          if (window.ResizeObserver) new ResizeObserver(fitPollZoom).observe(root);
+        }
         const d = document, src = "https://tally.so/widgets/embed.js";
         const run = function () {
           if (typeof Tally !== "undefined") Tally.loadEmbeds();
@@ -2718,7 +2818,7 @@ document.head.appendChild(style);
           }
 
           renderPage(promise, getPromiseUpdates(promise, updates));
-          if (POLL_TALLY_ID && POLL_SHOW_RESULTS) {
+          if ((POLL_TALLY_ID || Object.keys(pollCfg).length) && POLL_SHOW_RESULTS) {
             const done = root.querySelector(".pd-poll-done");
             const doneKey = done && done.getAttribute("data-poll-key");
             if (doneKey) loadPollResults(done, doneKey, [2500, 6000]);
@@ -2726,7 +2826,7 @@ document.head.appendChild(style);
           syncBodyTypography();
           setupCarousel();
           startCmsQuoteSync();
-          if (POLL_TALLY_ID) loadTallyEmbeds();
+          if (POLL_TALLY_ID && root.querySelector("iframe[data-tally-src]")) loadTallyEmbeds();
 
           const marked = applyGlossary(glossary);
           if (glossary.length) console.info(`Woordenboek: ${glossary.length} woorden geladen, ${marked} gemarkeerd${(GLOSSARY_TABLE_ID || API_BASE_URL) ? "" : " (voorbeeldwoorden)"}`);
