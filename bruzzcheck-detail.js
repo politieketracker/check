@@ -130,7 +130,7 @@ document.head.appendChild(style);
         Promises of the same minister come first, then the others. Each card links to the "Detail URL" of that promise.
       */
       const CAROUSEL_COUNT = 100;   // 100 = all of them
-      const CAROUSEL_TITLE = "Andere beloftes";   // small red title above the form; leave empty for none
+      const CAROUSEL_TITLE = "Verder in BRUZZ Check";   // small red title above the form; leave empty for none
 
       const PROMISES_API = `https://api.baserow.io/api/database/rows/table/${PROMISES_TABLE_ID}/?user_field_names=true&size=200`;
       const UPDATES_API = `https://api.baserow.io/api/database/rows/table/${UPDATES_TABLE_ID}/?user_field_names=true&size=200`;
@@ -1551,7 +1551,7 @@ document.head.appendChild(style);
         return `
           <section class="pd-section" id="debat">
             <div class="pd-section-head">
-              <h2 class="pd-section-title">Wat is er gezegd?</h2>
+              <h2 class="pd-section-title">Wie zegt wat?</h2>
             </div>
 
             <div class="pd-quotes-grid">
@@ -1895,7 +1895,7 @@ document.head.appendChild(style);
 
         return `
           <div class="pd-rounds">
-            <h3 class="pd-rounds-title">BRUZZ Check beoordelingen</h3>
+            <h3 class="pd-rounds-title">BRUZZ Check agenda</h3>
             <div class="pd-rounds-shell">
               <div class="pd-rounds-track"><span class="pd-rounds-fill" style="width:${fill}%"></span>${dots}</div>
               <div class="pd-rounds-labels">${labels}</div>
@@ -2011,7 +2011,7 @@ document.head.appendChild(style);
 
         return `
           <div class="pd-verdict-evidence">
-            <h3 class="pd-verdict-evidence-title">Waarom dit vonnis?</h3>
+            <h3 class="pd-verdict-evidence-title">Waarom deze status?</h3>
             <ul class="pd-verdict-evidence-list">
               ${metrics.map(item => `<li>${highlightFirstMetric(item.sentence || `${item.value} ${item.label}`, item.value)}</li>`).join("")}
             </ul>
@@ -2153,7 +2153,7 @@ document.head.appendChild(style);
 
             <aside class="pd-verdict-card" aria-labelledby="pd-verdict-title">
               <div class="pd-verdict-head">
-                <h2 class="pd-verdict-title" id="pd-verdict-title">Voortgang</h2>
+                <h2 class="pd-verdict-title" id="pd-verdict-title">Stand van zaken</h2>
                 <span class="pd-status-pill">${renderSym(conf)}${escapeHtml(statusLabel(status))}</span>
               </div>
               <div class="pd-verdict-body">
@@ -2166,7 +2166,7 @@ document.head.appendChild(style);
 
           ${promiseFactsHtml ? `<section class="pd-section" id="belofte">
             <div class="pd-section-head">
-              <h2 class="pd-section-title">Wat houdt de belofte in?</h2>
+              <h2 class="pd-section-title">De belofte uitgelegd</h2>
             </div>
             ${promiseFactsHtml}
             ${renderTerms(promise)}
@@ -2967,7 +2967,7 @@ document.head.appendChild(style);
       dedupeByHref: true,
       hideMergedSourceSections: true,
 
-      heading: "Wat is er ondertussen gebeurd?",
+      heading: "Tijdlijn",
       visibleInitialCount: 5,
 
       defaultBadge: "BRUZZ",
