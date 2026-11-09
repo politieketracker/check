@@ -84,8 +84,12 @@ style.textContent += "#promise-detail-embed .pd-rounds-title{font-size:20px;font
   style.textContent += "\n#promise-detail-embed .pd-people-btn[hidden]{display:none}\n#promise-detail-embed .pd-people-btn{padding:0}\n#promise-detail-embed .pd-people-list{display:flex!important;flex-wrap:wrap;align-items:center;gap:10px 24px;margin:0!important;padding:0;cursor:pointer;animation:pdUnfold .28s ease-out}\n#promise-detail-embed .pd-people-list[hidden]{display:none!important}\n#promise-detail-embed .pd-people-list .pd-minister-row{display:flex;align-items:center;gap:10px;margin:0;padding:0}\n#promise-detail-embed .pd-people-list .pd-hero-avatar{width:40px;height:40px;border:2px solid rgba(255,255,255,.85)}\n@keyframes pdUnfold{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}\n#promise-detail-embed .pd-promise-panel .pd-title{margin-bottom:26px!important}\n#promise-detail-embed .pd-hero-bottom{border-top:0!important;padding-top:0!important}\n#promise-detail-embed .pd-promise-panel.pd-has-poll .pd-hero-bottom{margin-top:34px!important}\n";
   style.textContent += "#promise-detail-embed .pd-hero-avatar,#promise-detail-embed .pd-avatar-stack .pd-hero-avatar,#promise-detail-embed .pd-people-list .pd-hero-avatar{border:0!important}#promise-detail-embed .pd-avatar-stack .pd-hero-avatar{box-shadow:0 0 0 2px rgba(0,0,0,.4)}";
   style.textContent += "#promise-detail-embed .pd-evi-toggle,.bm-master-timeline .pd-evi-toggle,.pd-evi-toggle{color:#ff0033!important}";
-  document.head.appendChild(style);
-  MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\"><span class=\"pd-back-text\">Terug naar alle BRUZZ Check beloftes</span></a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
+  style.textContent += "\n#promise-detail-embed .pd-quote-mark{display:none!important}\n#promise-detail-embed .pd-quote-content{grid-template-columns:minmax(0,1fr)!important;column-gap:0!important;row-gap:10px!important}\n#promise-detail-embed .pd-quote-text,#promise-detail-embed .pd-quote-text p,#promise-detail-embed .pd-quote-text *{grid-column:1!important;font-size:17px!important;line-height:1.35!important;font-weight:400!important;letter-spacing:0!important}\n#promise-detail-embed .pd-quote-text strong,#promise-detail-embed .pd-quote-text b{font-weight:400!important}\n#promise-detail-embed .pd-quote-footer{grid-column:1!important;margin-top:2px!important}\n#promise-detail-embed .pd-quote-person-block{gap:1px!important}\n#promise-detail-embed .pd-quote-source-name{font-size:14px!important;line-height:1.3!important;font-weight:700!important}\n#promise-detail-embed .pd-quote-role{font-size:13.5px!important;line-height:1.35!important;font-weight:400!important}\n#promise-detail-embed .pd-quote-source-name a,#promise-detail-embed .pd-quote-role a,#promise-detail-embed .pd-quote-footer a{color:#ff0033!important;font-weight:400!important}\n@media (min-width:641px){.bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-when{width:auto!important;margin-right:8px!important}}\n";
+  style.textContent += "\n#promise-detail-embed .pd-back-text{gap:6px!important;padding-left:12px!important;padding-right:16px!important}\n#promise-detail-embed .pd-back-text::before{width:14px!important;height:14px!important}\n#promise-detail-embed .pd-poll-q{word-break:normal!important;overflow-wrap:normal!important;hyphens:none!important;-webkit-hyphens:none!important;text-wrap:balance}\n@media (max-width:640px){\n#promise-detail-embed .pd-verdict-head{display:flex!important;flex-wrap:nowrap!important;justify-content:space-between!important;align-items:center!important;gap:10px!important}\n#promise-detail-embed .pd-verdict-headtext{flex:1 1 auto;min-width:0}\n#promise-detail-embed .pd-verdict-head .pd-status-pill{flex:0 0 auto;white-space:nowrap}\n#promise-detail-embed .pd-car-arrows{display:none!important}\n#promise-detail-embed .pd-verdict-lead,#promise-detail-embed .pd-verdict-lead p,#promise-detail-embed .pd-verdict-lead li{font-size:17px!important;line-height:1.5!important}\n#promise-detail-embed .pd-poll-q{font-size:14px!important;line-height:1.35!important}\n}\n";
+  style.textContent += "\n#promise-detail-embed .pd-hero-people{margin:14px 0 0!important;padding:0!important;min-height:44px!important;display:flex!important;align-items:center!important}\n#promise-detail-embed .pd-hero-people .pd-people{min-height:44px!important;display:flex!important;align-items:center!important;margin:0!important}\n#promise-detail-embed .pd-hero-people .pd-people-btn{height:44px!important;min-height:44px!important;display:inline-flex!important;align-items:center!important;margin:0!important;padding:0 2px!important}\n#promise-detail-embed .pd-hero-people .pd-people-list{min-height:44px!important;margin:0!important;padding:0!important;align-items:center!important}\n#promise-detail-embed .pd-hero-people .pd-minister-row{min-height:44px!important;align-items:center!important}\n";
+style.textContent += "\n#promise-detail-embed .pd-quote-text,#promise-detail-embed .pd-quote-card .pd-quote-text{font-weight:300!important}\n#promise-detail-embed .pd-quote-source-name,#promise-detail-embed .pd-quote-card .pd-quote-source-name{font-weight:700!important}\n#promise-detail-embed .pd-quote-role,#promise-detail-embed .pd-quote-card .pd-quote-role{font-weight:300!important}\n#promise-detail-embed .pd-quote-card a,#promise-detail-embed .pd-quote-footer a{font-weight:300!important;color:#ff0033!important}\n";
+document.head.appendChild(style);
+  MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\"><span class=\"pd-back-text\">Alle beloftes van BRUZZ Check</span></a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
 
   /* ---- page + data ---- */
   (function () {
@@ -405,7 +409,14 @@ style.textContent += "#promise-detail-embed .pd-rounds-title{font-size:20px;font
 
       const $ = (id) => root.querySelector(`#${id}`);
 
-      function escapeHtml(value) {
+      function quoteWithMarks(t){
+    t=String(t==null?"":t).trim();
+    if(!t) return t;
+    const open=/^["'\u201c\u201d\u201e\u201f\u2018\u2019\u201a\u201b\u00ab\u00bb\u2039\u203a]/;
+    const close=/["'\u201c\u201d\u201e\u201f\u2018\u2019\u201a\u201b\u00ab\u00bb\u2039\u203a]$/;
+    return (open.test(t)?"":"\u201c")+t+(close.test(t)?"":"\u201d");
+  }
+  function escapeHtml(value) {
         return String(value ?? "")
           .replaceAll("&", "&amp;")
           .replaceAll("<", "&lt;")
@@ -1616,7 +1627,7 @@ style.textContent += "#promise-detail-embed .pd-rounds-title{font-size:20px;font
             <div class="pd-quote-content">
               <div class="pd-quote-mark" aria-hidden="true">“</div>
 
-              <p class="pd-quote-text">${escapeHtml(quote.text)}</p>
+              <p class="pd-quote-text">${escapeHtml(quoteWithMarks(quote.text))}</p>
 
               ${hasMeta ? `
                 <div class="pd-quote-footer">
@@ -2161,8 +2172,8 @@ style.textContent += "#promise-detail-embed .pd-rounds-title{font-size:20px;font
             <div class="pd-promise-panel${hasPoll ? " pd-has-poll" : ""}" style="${heroStyle}${hasPoll ? ` --pd-overlay:${POLL_OVERLAY};` : ""}">
               ${(!heroImageUrl && emoji) ? `<span class="pd-hero-emoji" aria-hidden="true">${escapeHtml(emoji)}</span>` : ""}
               <div class="pd-promise-content">
-                ${ministerBlock ? `<div class="pd-hero-top">${ministerBlock}</div>` : ""}
                 <h1 class="${titleClass}" id="pd-title">&ldquo;${escapeHtml(plainTitle)}&rdquo;</h1>
+                ${ministerBlock ? `<div class="pd-hero-top pd-hero-people">${ministerBlock}</div>` : ""}
                 <div class="pd-hero-bottom">
                 ${(sourceName || sourceUrl) ? `<div class="pd-hero-details">
                   ${`
@@ -2850,10 +2861,13 @@ style.textContent += "#promise-detail-embed .pd-rounds-title{font-size:20px;font
       /* a long "Waarom deze status?" is folded after EVI_MAX characters, with a "Toon alles" button */
       const EVI_MAX = 600;
       function foldLongEvidence() {
-        document.querySelectorAll(".pd-verdict-evidence-text, .bm-verdict-evidence-text").forEach(box => {
+        document.querySelectorAll(".pd-verdict-evidence-text").forEach(box => {
           if (box.dataset.pdFold) return;
+          if (!box.offsetWidth) return;   /* not laid out yet: try again later */
           box.dataset.pdFold = "1";
-          if ((box.textContent || "").trim().length <= EVI_MAX) return;
+          const cs = getComputedStyle(box), fs = parseFloat(cs.fontSize) || 14, lh = parseFloat(cs.lineHeight) || fs * 1.5;
+          /* fold only when clearly more than the folded height (about 3 extra lines), otherwise show everything */
+          if (box.scrollHeight <= 11 * fs + 3 * lh) return;
           box.classList.add("pd-evi-collapsible", "pd-evi-collapsed");
           const btn = document.createElement("button");
           btn.type = "button";
@@ -2863,6 +2877,16 @@ style.textContent += "#promise-detail-embed .pd-rounds-title{font-size:20px;font
           box.insertAdjacentElement("afterend", btn);
         });
       }
+      let evW = window.innerWidth;
+      window.addEventListener("resize", () => {
+        if (window.innerWidth === evW) return;
+        evW = window.innerWidth;
+        document.querySelectorAll(".pd-verdict-evidence-text").forEach(box => {
+          delete box.dataset.pdFold;
+          box.classList.remove("pd-evi-collapsible", "pd-evi-collapsed");
+          const n = box.nextElementSibling; if (n && n.classList.contains("pd-evi-toggle")) n.remove();
+        });
+      });
 
       /* the back button text stays on one line: the font shrinks a little when the screen is narrow */
       function fitBackButton() {
