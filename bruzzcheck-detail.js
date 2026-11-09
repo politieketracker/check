@@ -88,6 +88,7 @@ style.textContent += "#promise-detail-embed .pd-rounds-title{font-size:20px;font
   style.textContent += "\n#promise-detail-embed .pd-back-text{gap:6px!important;padding-left:12px!important;padding-right:16px!important}\n#promise-detail-embed .pd-back-text::before{width:14px!important;height:14px!important}\n#promise-detail-embed .pd-poll-q{word-break:normal!important;overflow-wrap:normal!important;hyphens:none!important;-webkit-hyphens:none!important;text-wrap:balance}\n@media (max-width:640px){\n#promise-detail-embed .pd-verdict-head{display:flex!important;flex-wrap:nowrap!important;justify-content:space-between!important;align-items:center!important;gap:10px!important}\n#promise-detail-embed .pd-verdict-headtext{flex:1 1 auto;min-width:0}\n#promise-detail-embed .pd-verdict-head .pd-status-pill{flex:0 0 auto;white-space:nowrap}\n#promise-detail-embed .pd-car-arrows{display:none!important}\n#promise-detail-embed .pd-verdict-lead,#promise-detail-embed .pd-verdict-lead p,#promise-detail-embed .pd-verdict-lead li{font-size:17px!important;line-height:1.5!important}\n#promise-detail-embed .pd-poll-q{font-size:14px!important;line-height:1.35!important}\n}\n";
   style.textContent += "\n#promise-detail-embed .pd-hero-people{margin:14px 0 0!important;padding:0!important;min-height:44px!important;display:flex!important;align-items:center!important}\n#promise-detail-embed .pd-hero-people .pd-people{min-height:44px!important;display:flex!important;align-items:center!important;margin:0!important}\n#promise-detail-embed .pd-hero-people .pd-people-btn{height:44px!important;min-height:44px!important;display:inline-flex!important;align-items:center!important;margin:0!important;padding:0 2px!important}\n#promise-detail-embed .pd-hero-people .pd-people-list{min-height:44px!important;margin:0!important;padding:0!important;align-items:center!important}\n#promise-detail-embed .pd-hero-people .pd-minister-row{min-height:44px!important;align-items:center!important}\n";
 style.textContent += "\n#promise-detail-embed .pd-quote-text,#promise-detail-embed .pd-quote-card .pd-quote-text{font-weight:300!important}\n#promise-detail-embed .pd-quote-source-name,#promise-detail-embed .pd-quote-card .pd-quote-source-name{font-weight:700!important}\n#promise-detail-embed .pd-quote-role,#promise-detail-embed .pd-quote-card .pd-quote-role{font-weight:300!important}\n#promise-detail-embed .pd-quote-card a,#promise-detail-embed .pd-quote-footer a{font-weight:300!important;color:#ff0033!important}\n";
+style.textContent += "#promise-detail-embed .pd-people-btn[hidden],#promise-detail-embed .pd-hero-people .pd-people-btn[hidden]{display:none!important}\n#promise-detail-embed .pd-people-list[hidden]{display:none!important}\n";
 document.head.appendChild(style);
   MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\"><span class=\"pd-back-text\">Alle beloftes van BRUZZ Check</span></a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
 
@@ -1413,6 +1414,15 @@ document.head.appendChild(style);
           icon.className = "pd-quote-link-icon";
           icon.setAttribute("aria-hidden", "true");
           link.before(icon);
+          /* no quote marks around the article title */
+          const q = /^[\s"'\u201c\u201d\u201e\u2018\u2019\u201a\u00ab\u00bb\u2039\u203a]+|[\s"'\u201c\u201d\u201e\u2018\u2019\u201a\u00ab\u00bb\u2039\u203a]+$/g;
+          const w = document.createTreeWalker(link, NodeFilter.SHOW_TEXT);
+          const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+          if (nodes.length) {
+            nodes[0].nodeValue = nodes[0].nodeValue.replace(/^[\s"'\u201c\u201d\u201e\u2018\u2019\u201a\u00ab\u00bb\u2039\u203a]+/, "");
+            const l = nodes[nodes.length - 1];
+            l.nodeValue = l.nodeValue.replace(/[\s"'\u201c\u201d\u201e\u2018\u2019\u201a\u00ab\u00bb\u2039\u203a]+$/, "");
+          }
         });
 
         return template.innerHTML;
