@@ -986,6 +986,8 @@ document.head.appendChild(style);
         const DEFAULT_HEAD = "De Brusselse regering";
         const setCap = idx => {
           if (!headEl) return;
+          const subEl = headEl.parentElement.querySelector(".pt-sec-sub");
+          if (subEl) subEl.style.setProperty("visibility", idx == null ? "visible" : "hidden", "important");
           if (idx == null) { headEl.className = "pt-sec-h"; headEl.textContent = DEFAULT_HEAD; return; }
           const m = MINISTERS[idx];
           const role = [m.centerKicker, m.centerSubtitle].filter(Boolean).join(" van ");
