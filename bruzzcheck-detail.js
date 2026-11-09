@@ -2061,8 +2061,8 @@ document.head.appendChild(style);
 
         const outcome = getField(promise, PROMISE_FIELDS.uitkomst);
 
-        // no figures in the text: show the Uitkomst text itself under the verdict
-        if (!metrics.length) {
+        // show the whole Uitkomst/Bewijs text (all bullets) under the verdict; only fall back to the short list of figures when there is no text
+        if (isMeaningfulText(outcome) || !metrics.length) {
           if (!isMeaningfulText(outcome)) return "";
           return `
           <div class="pd-verdict-evidence">
