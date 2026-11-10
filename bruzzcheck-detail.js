@@ -22,7 +22,9 @@
     slug: MOUNT.getAttribute("data-slug") || "",
     timeline: MOUNT.getAttribute("data-timeline") || "#timeline-artikels",
     overview: MOUNT.getAttribute("data-overview") || DEFAULT_OVERVIEW,
-    api: MOUNT.getAttribute("data-api") || DEFAULT_API
+    api: MOUNT.getAttribute("data-api") || DEFAULT_API,
+    view: MOUNT.getAttribute("data-timeline-view") === "dots" ? "dots" : "stripes",
+    viewToggle: MOUNT.getAttribute("data-timeline-toggle") === "on"
   };
 
   MOUNT.id = "promise-detail-embed";
@@ -111,6 +113,11 @@ style.textContent += "\n@media(max-width:640px){#promise-detail-embed .pd-verdic
 style.textContent += "\n/* ---- timeline articles a bit smaller on a phone ---- */\n@media(max-width:640px){\n.bm-master-timeline.bm-timeline-ready .teaser__content{grid-template-columns:68px minmax(0,1fr)!important;min-height:60px!important}\n.bm-master-timeline.bm-timeline-ready li:not(.bm-timeline-verdict):not(.bm-timeline-stub) .teaser__title{font-size:14px!important;line-height:1.25!important}\n.bm-master-timeline.bm-timeline-ready li:not(.bm-timeline-verdict):not(.bm-timeline-stub) .meta,.bm-master-timeline.bm-timeline-ready li:not(.bm-timeline-verdict):not(.bm-timeline-stub) .meta__item{font-size:12px!important}\n}\n";
 style.textContent += "\n@media(max-width:640px){\n.bm-master-timeline.bm-timeline-ready li:not(.bm-timeline-verdict):not(.bm-timeline-stub) .bm-timeline-media{width:68px!important;min-height:60px!important}\n.bm-master-timeline.bm-timeline-ready li:not(.bm-timeline-verdict):not(.bm-timeline-stub) .bm-timeline-main{padding:10px 12px!important}\n}\n";
 style.textContent += "\n#promise-detail-embed .pd-pr-op{display:inline-block}\n@media(max-width:640px){#promise-detail-embed .pd-pr-op{display:block}}\n";
+style.textContent += "\n/* ---- stripes timeline ---- */\n.bm-master-timeline:not(.bm-view-stripes) .bm-stripes-nav{display:none!important}\n.bm-master-timeline.bm-view-stripes .bm-timeline-nav:not(.bm-stripes-nav){display:none!important}\n.bm-master-timeline .teaser-section__items > li.bm-stripe-out{display:none!important}\n.bm-stripes__label{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;min-height:18px;margin:0 0 6px;font-size:12.5px;line-height:1.35;color:var(--bm-muted,#6f6f78)}\n.bm-stripes__label b{color:#17171c;font-weight:700}\n.bm-stripes__clear{appearance:none;border:0;background:none;padding:0;font:inherit;color:var(--bm-red,#ff0033);text-decoration:underline;cursor:pointer}\n.bm-stripes__wrap{position:relative;min-width:0}\n.bm-stripes__marks{position:relative;height:20px}\n.bm-stripes__mark{appearance:none;position:absolute;top:3px;width:12px;height:12px;padding:0;border:0;border-radius:50%;background:var(--bm-dot-color,#17171c);box-shadow:0 0 0 2px #fff;transform:translateX(-50%);cursor:pointer;z-index:3}\n.bm-stripes__mark:hover{transform:translateX(-50%) scale(1.25)}\n.bm-stripes{position:relative;display:flex;gap:1px;height:36px}\n.bm-stripe{appearance:none;flex:1 1 0;min-width:0;padding:0;border:0;border-radius:0;background:rgba(23,23,28,.07);cursor:pointer;transition:opacity .2s}\n.bm-stripe:not([data-n=\"0\"]){background:rgba(255,0,51,var(--a,.5))}\n.bm-stripe:disabled{cursor:default}\n.bm-stripe:not(:disabled):hover{box-shadow:inset 0 0 0 2px #17171c}\n.bm-stripe.is-on{box-shadow:inset 0 0 0 2px #17171c;position:relative;z-index:2}\n.bm-stripes.has-on .bm-stripe:not(.is-on){opacity:.35}\n.bm-stripe:focus-visible{outline:2px solid #17171c;outline-offset:2px}\n.bm-stripes__today{position:absolute;top:-5px;bottom:-5px;width:2px;margin-left:-1px;background:#17171c;pointer-events:none;z-index:4}\n.bm-view-switch{display:inline-flex;gap:0;margin:0 0 8px;border:1px solid rgba(23,23,28,.2)}\n.bm-view-switch button{appearance:none;border:0;background:#fff;color:#17171c;padding:5px 11px;font:600 12px/1 inherit;cursor:pointer}\n.bm-view-switch button[aria-pressed=\"true\"]{background:#17171c;color:#fff}\n@media (max-width: 640px){ .bm-stripes{height:30px} .bm-stripes__label{font-size:11.5px} }\n";
+style.textContent += "\n.bm-view-switch button[aria-pressed=\"true\"]{background:#17171c!important;color:#fff!important}\n.bm-view-switch button[aria-pressed=\"false\"]{color:#17171c!important}\n@media (max-width: 640px){\n.bm-stripes-nav .bm-timeline-nav__row{grid-template-columns:1fr 1fr!important;row-gap:7px!important}\n.bm-stripes-nav .bm-stripes__wrap{grid-column:1 / -1;grid-row:1}\n.bm-stripes-nav .bm-timeline-nav__edge-label:last-child{text-align:right}\n}\n";
+style.textContent += "\n/* stripes: fine heatmap, not interactive */\n.bm-stripes-nav,.bm-stripes-nav *{pointer-events:none!important;cursor:default!important}\n.bm-stripes{gap:1px}\n.bm-stripes.is-fine{gap:0}\n.bm-stripe{background:rgba(23,23,28,.06)!important;box-shadow:none!important;opacity:1!important}\n.bm-stripe:not([data-n=\"0\"]){background:rgba(255,0,51,var(--a,.5))!important}\n.bm-stripes__mark{box-shadow:0 0 0 2px #fff;transform:translateX(-50%)!important}\n.bm-stripes{height:40px}\n@media (max-width: 640px){ .bm-stripes{height:34px} }\n";
+style.textContent += "\n.bm-stripes{height:24px!important}\n.bm-stripes__marks{height:18px}\n@media (max-width: 640px){ .bm-stripes{height:20px!important} }\n";
+style.textContent += "\n/* assessments sit on the stripes; no today line; labels centred on the bar */\n.bm-stripes__today{display:none!important}\n.bm-stripes__marks{position:absolute!important;left:0;right:0;top:0;bottom:0;height:auto!important;z-index:3}\n.bm-stripes__mark{top:50%!important;width:9px!important;height:9px!important;margin-top:-4.5px!important;box-shadow:0 0 0 1.5px #fff!important}\n.bm-stripes-nav .bm-timeline-nav__row{align-items:center!important}\n.bm-stripes-nav .bm-timeline-nav__edge-label{line-height:1!important;margin:0!important;align-self:center!important}\n";
 document.head.appendChild(style);
   MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\"><span class=\"pd-back-text\">Alle beloftes van <span class=\"pd-back-logo\" role=\"img\" aria-label=\"BRUZZ Check\" style=\"-webkit-mask-image:url(" + PD_LOGO + ");mask-image:url(" + PD_LOGO + ")\"></span></span></a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
 
@@ -2204,7 +2211,7 @@ document.head.appendChild(style);
             <div class="pd-promise-panel${hasPoll ? " pd-has-poll" : ""}" style="${heroStyle}${hasPoll ? ` --pd-overlay:${POLL_OVERLAY};` : ""}">
               ${(!heroImageUrl && emoji) ? `<span class="pd-hero-emoji" aria-hidden="true">${escapeHtml(emoji)}</span>` : ""}
               <div class="pd-promise-content">
-                <h1 class="${titleClass}" id="pd-title">&ldquo;${escapeHtml(plainTitle)}&rdquo;</h1>
+                <h1 class="${titleClass}" id="pd-title">${escapeHtml(plainTitle)}</h1>
                 ${ministerBlock ? `<div class="pd-hero-top pd-hero-people">${ministerBlock}</div>` : ""}
                 <div class="pd-hero-bottom">
                 ${(sourceName || sourceUrl) ? `<div class="pd-hero-details">
@@ -3346,6 +3353,8 @@ document.head.appendChild(style);
     const config = {
       mainSectionSelector: CONFIG.timeline,
       sourceSectionSelectors: [CONFIG.timeline],
+      view: CONFIG.view,
+      viewToggle: CONFIG.viewToggle,
 
       waitForConfiguredSources: false,
       maxWaitForSourcesMs: 1500,
@@ -3869,6 +3878,101 @@ document.head.appendChild(style);
       return result;
     }
 
+
+    /* ---- stripes view: a fine heatmap, one stripe per day / week / month; the colour is how many updates fall in it.
+       Purely visual (no clicking); the assessments show as small coloured dots above their stripe. ---- */
+    function buildStripesNav(section, cards, startDate, endDate) {
+      const old = section.querySelector(".bm-stripes-nav"); if (old) old.remove();
+      const oldSw = section.querySelector(".bm-view-switch"); if (oldSw) oldSw.remove();
+
+      function floorTo(unit, ms) {
+        const d = new Date(ms); d.setHours(0, 0, 0, 0);
+        if (unit === "week") d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+        if (unit === "month") d.setDate(1);
+        if (unit === "quarter") { d.setDate(1); d.setMonth(d.getMonth() - (d.getMonth() % 3)); }
+        if (unit === "year") { d.setDate(1); d.setMonth(0); }
+        return d;
+      }
+      function addUnit(unit, d) {
+        const x = new Date(d);
+        if (unit === "day") x.setDate(x.getDate() + 1);
+        else if (unit === "week") x.setDate(x.getDate() + 7);
+        else if (unit === "month") x.setMonth(x.getMonth() + 1);
+        else if (unit === "quarter") x.setMonth(x.getMonth() + 3);
+        else x.setFullYear(x.getFullYear() + 1);
+        return x;
+      }
+      function edgesFor(unit) {
+        const edges = [];
+        let d = floorTo(unit, startDate);
+        edges.push(d.getTime());
+        while (d.getTime() <= endDate && edges.length < 600) { d = addUnit(unit, d); edges.push(d.getTime()); }
+        return edges;
+      }
+      const maxStripes = 150;
+      let unit = "day", edges = edgesFor(unit);
+      ["day", "week", "month", "quarter", "year"].some(function (u) { unit = u; edges = edgesFor(u); return edges.length - 1 <= maxStripes; });
+      const n = edges.length - 1;
+
+      function bucketOf(ms) {
+        if (!Number.isFinite(ms)) return -1;
+        for (let i = 0; i < n; i++) if (ms >= edges[i] && ms < edges[i + 1]) return i;
+        return -1;
+      }
+      const counts = new Array(n).fill(0);
+      cards.forEach(function (c) { const b = bucketOf(c.dateMs); if (!c.stub && b >= 0) counts[b]++; });
+      const max = Math.max(1, Math.max.apply(null, counts));
+
+      const nav = document.createElement("div");
+      nav.className = "bm-timeline-nav bm-stripes-nav";
+      nav.setAttribute("role", "img");
+      nav.setAttribute("aria-label", "Overzicht van het aantal updates in de tijd");
+
+      const wrap = document.createElement("div"); wrap.className = "bm-stripes__wrap";
+      const marks = document.createElement("div"); marks.className = "bm-stripes__marks";
+      const bar = document.createElement("div"); bar.className = "bm-stripes" + (n > 60 ? " is-fine" : "");
+
+      for (let i = 0; i < n; i++) {
+        const b = document.createElement("span");
+        b.className = "bm-stripe";
+        b.dataset.n = String(counts[i]);
+        b.style.setProperty("--a", (0.16 + 0.84 * Math.sqrt(counts[i] / max)).toFixed(3));
+        bar.appendChild(b);
+      }
+
+      /* assessments (status cards) as little dots above their stripe */
+      cards.forEach(function (card) {
+        const bi = bucketOf(card.dateMs);
+        if (!(card.stub && card.stub.conf && card.stub.conf.color) || bi < 0) return;
+        const m = document.createElement("span");
+        m.className = "bm-stripes__mark";
+        m.style.left = ((bi + 0.5) / n * 100) + "%";
+        m.style.setProperty("--bm-dot-color", card.stub.conf.color);
+        marks.appendChild(m);
+      });
+
+      /* today */
+      const nowMs = Date.now();
+      if (nowMs >= edges[0] && nowMs < edges[n]) {
+        const t = document.createElement("span"); t.className = "bm-stripes__today";
+        t.style.left = ((nowMs - edges[0]) / (edges[n] - edges[0]) * 100) + "%";
+        bar.appendChild(t);
+      }
+
+      wrap.append(marks, bar);
+      const row = document.createElement("div");
+      row.className = "bm-timeline-nav__row";
+      const l = document.createElement("span"); l.className = "bm-timeline-nav__edge-label"; l.textContent = formatDate(startDate);
+      const r = document.createElement("span"); r.className = "bm-timeline-nav__edge-label"; r.textContent = formatDate(endDate);
+      row.append(l, wrap, r);
+      nav.appendChild(row);
+
+      const sectionTitle = section.querySelector(".section-title");
+      const dotsNav = section.querySelector(".bm-timeline-nav:not(.bm-stripes-nav)");
+      if (dotsNav) dotsNav.after(nav); else if (sectionTitle) sectionTitle.after(nav);
+      section.classList.add("bm-view-stripes");
+    }
+
     function buildTimelineNav(section, cards) {
       const oldNav = section.querySelector(".bm-timeline-nav");
       if (oldNav) oldNav.remove();
@@ -3965,6 +4069,8 @@ document.head.appendChild(style);
       if (sectionTitle) {
         sectionTitle.after(nav);
       }
+
+      buildStripesNav(section, cards, startDate, endDate);
     }
 
     /* A verdict card ("Oordeel van BRUZZ"): a slim bar in the status colour with icon, status and date.
