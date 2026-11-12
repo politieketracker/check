@@ -157,6 +157,7 @@ style.textContent += "\n#promise-detail-embed .bm-timeline-order-toggle:hover,#p
   style.textContent += "\n#promise-detail-embed .pd-back,#promise-detail-embed .pd-back .pd-back-text{font-family:var(--font-heading,var(--font-body,inherit))!important;font-size:var(--font-size--xl,22px)!important;font-weight:700!important;line-height:1.1!important;letter-spacing:0!important;word-spacing:0!important}\n#promise-detail-embed .pd-back .pd-back-text .pd-back-logo{height:.78em!important;width:auto!important;aspect-ratio:668/85;transform:translateY(.02em)!important;margin:0 0 0 2px!important}\n#promise-detail-embed .pd-back .pd-back-text::before{width:20px!important;height:20px!important}\n#promise-detail-embed .pd-back .pd-back-text::after{left:28px!important}\n";
   style.textContent += "\n#promise-detail-embed .pd-car-badge{display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important}\n#promise-detail-embed .pd-car-badge .pd-sym{--sym:28px!important;width:28px!important;height:28px!important;margin:0!important;transform:none!important;flex:none}\n#promise-detail-embed .pd-car-badge .pd-sym-img{inset:0!important;transform:none!important}\n";
   style.textContent += "\n#promise-detail-embed .pd-back .pd-back-text{text-decoration:none!important}\n#promise-detail-embed .pd-back .pd-back-text::after,#promise-detail-embed .pd-back:hover .pd-back-text::after{opacity:1!important;bottom:-4px!important;height:2px!important}\n";
+  style.textContent += ".pd-agenda2 { display: none; }\n@media (max-width: 640px){\n#promise-detail-embed .pd-agenda2 { display: block; margin: 22px 0px 26px; padding: 0px 22px; }\n#promise-detail-embed .pd-ag2-track { position: relative; height: 4px; background: rgb(239, 234, 235); }\n#promise-detail-embed .pd-ag2-fill { position: absolute; left: 0px; top: 0px; bottom: 0px; width: var(--ag-fill,0%); background: rgb(255, 0, 51); }\n#promise-detail-embed .pd-ag2-dot { position: absolute; top: 50%; left: var(--pos); width: 13px; height: 13px; margin: -6.5px 0px 0px -6.5px; border-radius: 50%; background: rgb(207, 200, 203); box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px; }\n#promise-detail-embed .pd-ag2-dot.is-past { width: 22px; height: 22px; margin: -11px 0px 0px -11px; background: #fff var(--pd-badge) center/contain no-repeat; }\n#promise-detail-embed .pd-ag2-labs { position: relative; height: 34px; margin-top: 14px; }\n#promise-detail-embed .pd-ag2-lab { position: absolute; top: 0px; left: var(--pos); transform: translateX(-50%); text-align: center; font-size: var(--font-size--xxs,12px); line-height: 1.25; color: var(--pd-muted); white-space: nowrap; }\n#promise-detail-embed .pd-ag2-first { color: var(--pd-red); font-weight: 700; }\n}\n@media (max-width: 640px){\n#promise-detail-embed .pd-agenda2 { padding: 0px 26px !important; }\n#promise-detail-embed .pd-ag2-dot { background: rgb(189, 181, 185); box-shadow: none !important; }\n#promise-detail-embed .pd-ag2-dot.is-past { background: #fff var(--pd-badge) center/contain no-repeat; width: 24px; height: 24px; margin: -12px 0px 0px -12px; }\n#promise-detail-embed .pd-ag2-last { color: var(--pd-muted); }\n}\n#promise-detail-embed .pd-agenda2 { margin: 22px 0px 26px; display: block !important; padding: 0px 26px !important; }\n#promise-detail-embed .pd-ag2-track { position: relative; height: 4px; background: rgb(239, 234, 235); }\n#promise-detail-embed .pd-ag2-fill { position: absolute; left: 0px; top: 0px; bottom: 0px; width: var(--ag-fill,0%); background: rgb(255, 0, 51); }\n#promise-detail-embed .pd-ag2-dot { position: absolute; top: 50%; left: var(--pos); width: 13px; height: 13px; margin: -6.5px 0px 0px -6.5px; border-radius: 50%; background: rgb(189, 181, 185); box-shadow: none; }\n#promise-detail-embed .pd-ag2-dot.is-past { width: 24px; height: 24px; margin: -12px 0px 0px -12px; background: #fff var(--pd-badge) center/contain no-repeat; }\n#promise-detail-embed .pd-ag2-labs { position: relative; height: 34px; margin-top: 14px; }\n#promise-detail-embed .pd-ag2-lab { position: absolute; top: 0px; left: var(--pos); transform: translateX(-50%); text-align: center; font-size: var(--font-size--xxs,12px); line-height: 1.25; color: var(--pd-muted); white-space: nowrap; }\n#promise-detail-embed .pd-ag2-first { color: var(--pd-red); font-weight: 700; }\n#promise-detail-embed .pd-agenda2 { padding: 0px 20px !important; }\n#promise-detail-embed .pd-ag2-lab { letter-spacing: -0.1px; font-size: 11px !important; }\n#promise-detail-embed .pd-agenda2 { padding: 0px 7px 0px 0px !important; }\n#promise-detail-embed .pd-ag2-lab.pd-ag2-first { transform: none !important; }\n#promise-detail-embed .pd-ag2-labs .pd-ag2-lab:last-child { transform: translateX(-100%) !important; }\n#promise-detail-embed .pd-ag2-dot { width: 10px !important; height: 10px !important; margin: -5px 0px 0px -5px !important; }\n#promise-detail-embed .pd-ag2-dot.is-past { width: 24px !important; height: 24px !important; margin: -12px 0px 0px -12px !important; }\n#promise-detail-embed .pd-ag2-lab.pd-ag2-first { text-align: left !important; }\n#promise-detail-embed .pd-ag2-labs .pd-ag2-lab:last-child { text-align: right !important; }\n#promise-detail-embed .pd-agenda2 { padding: 0px !important; }\n#promise-detail-embed .pd-ag2-labs .pd-ag2-lab:last-child { transform: translateX(-50%) !important; text-align: center !important; }\n#promise-detail-embed .pd-ag2-lab.pd-ag2-first { color: rgb(23, 23, 28) !important; font-weight: 700 !important; }\n#promise-detail-embed .pd-ag2-lab.is-past { color: var(--pd-red,#ff0033) !important; font-weight: 700 !important; }\n#promise-detail-embed .pd-y2-s { display: none; }\n@media (max-width: 640px){\n#promise-detail-embed .pd-y2-f { display: none; }\n#promise-detail-embed .pd-y2-s { display: inline; }\n}\n@media (max-width: 640px){\n#promise-detail-embed .pd-agenda2 { padding: 0px 16px 0px 0px !important; }\n}\n#promise-detail-embed .pd-agenda2 { margin: 34px 0px 22px !important; }\n#promise-detail-embed .pd-ag2-labs { height: 30px !important; }\n#promise-detail-embed .pd-ag2-track::before { content: \"\"; position: absolute; left: 0px; top: 50%; width: 3px; height: 20px; margin-top: -10px; background: rgb(23, 23, 28); z-index: 2; }\n#promise-detail-embed .pd-ag2-fill { background: linear-gradient(to right, rgb(23, 23, 28) 0px, rgb(255, 0, 51) 44px) !important; }\n@media (max-width: 640px){\n#promise-detail-embed .pd-ag2-track::before { width: 2px; height: 18px; margin-top: -9px; left: 0px; }\n#promise-detail-embed .pd-ag2-fill { background: linear-gradient(to right, rgb(23, 23, 28) 0px, rgb(255, 0, 51) 30px) !important; }\n}\n@media (max-width: 640px){\n#promise-detail-embed .pd-agenda2 { padding: 0px 16px 0px 4px !important; }\n}\n#promise-detail-embed .pd-ag2-dot.is-past { background-color: rgb(255, 249, 251) !important; }\n#promise-detail-embed .pd-ag2-fill { background: rgb(23, 23, 28) !important; }\n\n#promise-detail-embed .pd-redactie .pd-agenda2{margin:34px 0 22px}\n#promise-detail-embed .pd-redactie .pd-agenda2+.pd-ag2-labs+p,#promise-detail-embed .pd-redactie .pd-ag2-labs+p{margin-top:0!important}\n";
   document.head.appendChild(style);
   MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\"><span class=\"pd-back-text\">Alle beloftes van <span class=\"pd-back-logo\" role=\"img\" aria-label=\"BRUZZCheck\" style=\"-webkit-mask-image:url(" + PD_LOGO + ");mask-image:url(" + PD_LOGO + ")\"></span></span></a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
 
@@ -1880,6 +1881,32 @@ style.textContent += "\n#promise-detail-embed .bm-timeline-order-toggle:hover,#p
         });
       }
 
+      function renderMainAgenda() {
+        const start = new Date("2026-02-01T00:00:00").getTime(), end = new Date("2029-09-15T00:00:00").getTime(), now = Date.now();
+        const list = [];
+        for (let y = 2026; y <= 2028; y++) for (const m of [4, 10]) { const d = new Date(y, m, 15); if (d >= new Date(2026, 10, 1)) list.push(d.getTime()); }
+        list.push(new Date(2029, 4, 15).getTime());
+        list.push(end);
+        list.sort((a, b) => a - b);
+        const rounds = list.map(t => { const d = new Date(t); return { t, past: t <= now + 5 * 86400000, season: seasonName(d), year: d.getFullYear() }; });
+        const n = rounds.length, anchors = [start].concat(rounds.map(r => r.t));
+        const pct = i => (i / n) * 100;
+        const pos = t => {
+          let k = 0; while (k < n && anchors[k + 1] <= t) k++;
+          if (k >= n) return "100%";
+          const a = anchors[k], b = anchors[k + 1];
+          return (pct(k) + (Math.max(0, t - a) / (b - a)) * (pct(k + 1) - pct(k))).toFixed(2) + "%";
+        };
+        const posI = i => pct(i + 1).toFixed(2) + "%";
+        let h = '<div class="pd-ag2-track"><span class="pd-ag2-fill"></span>';
+        const labs = ['<span class="pd-ag2-lab pd-ag2-first" style="--pos:0%">feb<br><span class="pd-y2-f">2026</span><span class="pd-y2-s">\u201926</span></span>'];
+        rounds.forEach((r, i) => {
+          h += '<span class="pd-ag2-dot' + (r.past ? " is-past" : "") + '" style="--pos:' + posI(i) + '"></span>';
+          labs.push('<span class="pd-ag2-lab' + (r.past ? " is-past" : "") + '" style="--pos:' + posI(i) + '">' + (i === 0 ? "nov" : r.season) + '<br><span class="pd-y2-f">' + r.year + '</span><span class="pd-y2-s">\u2019' + String(r.year).slice(2) + "</span></span>");
+        });
+        return '<div class="pd-agenda2" aria-hidden="true" style="--ag-fill:' + pos(now) + '">' + h + '</div><div class="pd-ag2-labs">' + labs.join("") + "</div></div>";
+      }
+
       function renderAgenda() {
         const start = new Date(2026, 1, 1).getTime(), end = new Date(2029, 8, 15).getTime(), now = Date.now();
         const rounds = [];
@@ -2249,6 +2276,7 @@ style.textContent += "\n#promise-detail-embed .bm-timeline-order-toggle:hover,#p
           <section class="pd-redactie" lang="nl" aria-labelledby="pdRedactieTitle">
             <h3 class="pd-redactie-title" id="pdRedactieTitle">Redactionele aanpak</h3>
             <p>BRUZZCheck is de politieke barometer van BRUZZ en volgt 25 concrete beloften uit het Brusselse regeerakkoord van februari 2026. Halfjaarlijks maakt de redactie de balans op.</p>
+            ${renderMainAgenda()}
             <p>Op basis van vaste criteria en controleerbare bronnen krijgt elke belofte een status: gerealiseerd, op schema, gestart, niet op schema, mislukt, niet gestart of niet verifieerbaar.</p>
             <p>Meer weten over de werkwijze? Lees de <a href="/node/214357">veelgestelde vragen</a>.</p>
           </section>
@@ -3820,8 +3848,7 @@ style.textContent += "\n#promise-detail-embed .bm-timeline-order-toggle:hover,#p
       let startDate = Math.min.apply(null, dates);
       const endDate = Math.max.apply(null, dates);
 
-      startDate = Math.max(startDate, new Date(2024, 5, 9).getTime());
-      if (startDate > endDate) startDate = Math.min.apply(null, dates);
+      startDate = new Date(2024, 5, 9).getTime();
 
       return {
         startDate: startDate,
@@ -4548,7 +4575,7 @@ style.textContent += "\n#promise-detail-embed .bm-timeline-order-toggle:hover,#p
           tools.appendChild(count);
         }
 
-        const baseText = sortedItems.length + " updates", hint = " · Elke week, sinds juni 2024, met een artikel kleurt rood";
+        const baseText = sortedItems.length + " updates", hint = "\u00a0\u00a0\u00b7\u00a0\u00a0Elke week, sinds juni 2024, met een artikel kleurt rood";
         count.dataset.base = baseText;
         count.textContent = count.classList.contains("is-open") ? baseText + hint : baseText;
         count.setAttribute("role", "button");
