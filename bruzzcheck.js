@@ -1116,7 +1116,7 @@ document.head.appendChild(style);
         "OP SCHEMA": '<circle cx="12" cy="12" r="10"/><path d="M12 6.8V12l3.6 2.3"/>',
         "GESTART": '<circle cx="12" cy="12" r="10"/><path d="M10 8.2v7.6l6-3.8z" fill="currentColor"/>',
         "NIET OP SCHEMA": '<circle cx="12" cy="12" r="10" stroke-dasharray="2.2 2.6"/><path d="M12 6.8V12l3.6 2.3"/>',
-        "NIET GESTART": '<circle cx="12" cy="12" r="10"/><rect x="8.2" y="8.2" width="7.6" height="7.6" rx="1.2" fill="currentColor"/>',
+        "NIET GESTART": '<circle cx="12" cy="12" r="10"/><rect x="8.2" y="8.2" width="7.6" height="7.6" fill="currentColor"/>',
         "MISLUKT": '<circle cx="12" cy="12" r="10"/><path d="M8.6 8.6l6.8 6.8M15.4 8.6l-6.8 6.8"/>',
         "ONVERIFIEERBAAR": '<circle cx="12" cy="12" r="10"/><path d="M9.3 9.4a2.8 2.8 0 1 1 4 2.5c-.9.5-1.3 1-1.3 2"/><circle cx="12" cy="17" r=".7" fill="currentColor"/>'
       };
@@ -1130,7 +1130,7 @@ document.head.appendChild(style);
         const key = symKeyFor(conf);
         if (!SYM_SHAPES[key]) return "";
         const color = SYM_COLORS[key] || conf.color;
-        return `<span class="CLS" style="--CLS-color:${escapeHtml(conf.color)};"><svg class="CLS-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:${color}" aria-hidden="true">${SYM_SHAPES[key]}</svg></span>`.replace(/CLS/g, cls);
+        return `<span class="CLS" style="--CLS-color:${escapeHtml(conf.color)};"><svg class="CLS-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" style="color:${color}" aria-hidden="true">${SYM_SHAPES[key]}</svg></span>`.replace(/CLS/g, cls);
       }
 
       function renderSym(conf) {
