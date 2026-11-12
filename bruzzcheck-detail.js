@@ -166,6 +166,8 @@ style.textContent += "\n#promise-detail-embed .bm-timeline-order-toggle:hover,#p
   style.textContent += "\n@media (max-width:640px){\n#promise-detail-embed .bm-master-timeline .bm-stripes-nav{margin-top:-36px!important}\n#promise-detail-embed .bm-master-timeline.bm-timeline-ready .bm-timeline-count{pointer-events:none!important;cursor:default!important;text-decoration:none!important}\n#promise-detail-embed .bm-master-timeline.bm-timeline-ready .teaser-section__items{padding-top:18px!important}\n}\n";
   style.textContent += "\n@media (max-width:640px){\n#promise-detail-embed .bm-master-timeline .bm-stripes-nav{display:none!important}\n#promise-detail-embed .bm-master-timeline.bm-timeline-ready .teaser-section__items{padding-top:12px!important}\n}\n";
   style.textContent += "\n@media (max-width:640px){#promise-detail-embed .bm-master-timeline .section-title{margin-bottom:0!important;padding-bottom:0!important}\n#promise-detail-embed .bm-master-timeline.bm-timeline-ready .teaser-section__items{padding-top:14px!important}}\n";
+  style.textContent += "\n#promise-detail-embed .pd-gloss-pop,#promise-detail-embed .pd-gloss-pop::after{background:#fff9fb!important}\n";
+  style.textContent += "\n#promise-detail-embed .pd-redactie{max-width:min(640px,100%)!important}\n";
   document.head.appendChild(style);
   MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\"><span class=\"pd-back-text\">Alle beloftes van <span class=\"pd-back-logo\" role=\"img\" aria-label=\"BRUZZCheck\" style=\"-webkit-mask-image:url(" + PD_LOGO + ");mask-image:url(" + PD_LOGO + ")\"></span></span></a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
 
