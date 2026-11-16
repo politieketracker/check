@@ -205,6 +205,24 @@ style.textContent += "\n\n#promise-detail-embed .pd-pr-row[data-answer=\"Ja\" i]
   style.textContent += "\n@media (max-width:640px){\n#promise-detail-embed .bm-arr{background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%236b6b75' stroke-width='1' stroke-linecap='butt' stroke-linejoin='miter'%3E%3Cpath d='M2.8 14V1.5'/%3E%3Cpath d='M0.1 4.2L2.8 1.5 5.5 4.2'/%3E%3C/svg%3E\")!important;width:14px!important;height:14px!important;margin:0 2px -1px -2.8px!important}\n#promise-detail-embed .bm-arr--e{background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%236b6b75' stroke-width='1' stroke-linecap='butt' stroke-linejoin='miter'%3E%3Cpath d='M11.2 14V1.5'/%3E%3Cpath d='M8.5 4.2L11.2 1.5 13.9 4.2'/%3E%3C/svg%3E\")!important;margin:0 -2.8px -1px 2px!important}\n}\n";
   style.textContent += "\n@media (max-width:640px){\n#promise-detail-embed .bm-arr{margin:0 -3px -1px -2.8px!important}\n#promise-detail-embed .bm-arr--e{margin:0 -2.8px -1px -3px!important}\n}\n";
   style.textContent += "\n#promise-detail-embed .pd-tl-track{background:#efeaeb!important}\n#promise-detail-embed .pd-tl-dot{background:#bdb5b9!important}\n";
+  style.textContent += "\n\n\n#promise-detail-embed .pd-hero-left{display:flex;flex-direction:column;gap:30px;min-width:0}\n#promise-detail-embed .pd-hero-left .pd-promise-panel{flex:0 0 auto}\n#promise-detail-embed .pd-hero-left .pd-rounds{border-top:0!important;padding:0!important;margin:0!important;max-width:none!important;width:100%;box-sizing:border-box}\n#promise-detail-embed .pd-hero-left .pd-rounds-title{margin:0 0 14px!important}\n@media (min-width:641px){\n#promise-detail-embed .pd-verdict-col .pd-rounds{display:none!important}\n}\n@media (max-width:640px){\n#promise-detail-embed .pd-hero-left .pd-rounds--left{display:none!important}\n}\n#promise-detail-embed .pd-hero-left,#promise-detail-embed .pd-promise-panel{--pd-keep:1}\n\n#promise-detail-embed .pd-map-btn{appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;margin:14px 0 0;padding:0 16px;height:40px;border:0;border-radius:0;background:#ffe9ee;color:#ff0033;font-family:var(--font-heading,inherit);font-size:var(--font-size--m,18px);font-weight:800;line-height:1;cursor:pointer;box-shadow:none}\n#promise-detail-embed .pd-map-btn:hover,#promise-detail-embed .pd-map-btn:focus-visible{background:#ff0033;color:#fff;outline:0}\n#promise-detail-embed .pd-inline-map{display:block!important;position:relative;width:100%;height:340px;margin-top:14px}\n#promise-detail-embed .pd-inline-map[hidden]{display:none!important}\n#promise-detail-embed .pd-im-pin{pointer-events:none}\n@media (max-width:640px){\n#promise-detail-embed .pd-inline-map{height:300px}\n}\n\n.bm-master-timeline.bm-timeline-ready .bm-timeline-verdict .bm-verdict-evalwhen{color:var(--bm-verdict-on,#fff)!important;font-family:var(--pd-brand-font,inherit)!important;font-size:var(--font-size--m,18px)!important;font-weight:700!important;letter-spacing:0!important}\n#promise-detail-embed .bm-stripe.has-sym,#promise-detail-embed .bm-stripes-nav .bm-stripe.has-sym{background:transparent!important}\n\n#promise-detail-embed .pd-mn,#promise-detail-embed .pd-mp,#promise-detail-embed .pd-hero-people,#promise-detail-embed .pd-hero-people *,#promise-detail-embed .pd-hero-detail-value,#promise-detail-embed .pd-quote-source-name,#promise-detail-embed .pd-quote-role,#promise-detail-embed .pd-quote-person-block,#promise-detail-embed .pd-quote-person-block *{hyphens:none!important;-webkit-hyphens:none!important;overflow-wrap:normal!important;word-break:normal!important}\n\n\n#promise-detail-embed .pd-shell{gap:56px!important}\n#promise-detail-embed #pdQuotesMount:empty,#promise-detail-embed #pdTimelineMount:empty{display:none}\n#promise-detail-embed .pd-redactie{margin-top:0!important}\n@media (max-width:640px){\n#promise-detail-embed .pd-avatar-stack .pd-hero-avatar,#promise-detail-embed .pd-hero-avatar,#promise-detail-embed .pd-people-list .pd-hero-avatar{box-shadow:none!important;border:0!important;outline:0!important}\n#promise-detail-embed .bm-stripes-nav .bm-stripes{gap:1px!important}\n#promise-detail-embed .bm-stripes-nav .bm-timeline-nav__edge-label{border-bottom:0!important;padding-bottom:0!important}\n#promise-detail-embed .pd-car-card{padding:6px 6px 14px!important;gap:10px!important}\n#promise-detail-embed .pd-car-media{height:104px!important}\n#promise-detail-embed .pd-car-title{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:3!important;line-clamp:3!important;overflow:hidden!important;font-size:13px!important;line-height:1.3!important;padding:0 4px!important;text-overflow:ellipsis}\n}\n";
+  style.textContent += "\n#promise-detail-embed .pd-inline-map .pd-map-credit,#promise-detail-embed .pd-fact-copy .pd-inline-map p.pd-map-credit{font-size:10px!important;line-height:1.2!important;margin:0!important}\n";
+  style.textContent += "\n\n#promise-detail-embed .pd-app{padding-bottom:16px!important}\n#promise-detail-embed .pd-section-head{margin-bottom:18px!important}\n#promise-detail-embed .bm-master-timeline.bm-timeline-ready .section-title{margin-top:-8px!important}\n#promise-detail-embed .bm-master-timeline.bm-timeline-ready .section-title__top{margin-bottom:6px!important}\n#promise-detail-embed .pd-car-head{margin-top:-10px!important;margin-bottom:-4px!important}\n#promise-detail-embed .pd-redactie .pd-redactie-title{margin:0 0 18px!important}\n";
+  style.textContent += "\n#promise-detail-embed .bm-master-timeline.bm-timeline-ready .section-title__top{margin-bottom:12px!important}\n#promise-detail-embed .pd-car-head{margin-bottom:4px!important}\n";
+  style.textContent += "\n#promise-detail-embed .pd-car-media--atom{background-color:#ffe9ee!important;background-repeat:no-repeat!important;background-position:center!important;background-size:contain!important;background-origin:content-box!important;padding:12px!important;box-sizing:border-box!important;display:block!important}\n";
+  style.textContent += "\n@media (max-width:640px){\n#promise-detail-embed .pd-verdict-lead{margin-bottom:6px!important}\n}\n";
+  style.textContent += "\n\n#promise-detail-embed .pd-rounds .pd-agenda2{margin:0 0 0!important}\n#promise-detail-embed .pd-rounds .pd-ag2-labs{margin-top:14px!important}\n#promise-detail-embed .pd-rounds .pd-rounds-title,#promise-detail-embed .pd-hero-left .pd-rounds .pd-rounds-title,#promise-detail-embed .pd-verdict-col .pd-rounds .pd-rounds-title{font-family:var(--pd-brand-font,inherit)!important;font-size:var(--font-size--m,18px)!important;font-weight:700!important;line-height:1.2!important;letter-spacing:0!important;margin:0 0 30px!important}\n#promise-detail-embed .pd-ag2-sym{position:absolute;top:50%;left:var(--pos);width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;background:#fff9fb;display:grid;place-items:center;--sym:24px;line-height:0}\n#promise-detail-embed .pd-ag2-sym>*{display:block}\n#promise-detail-embed .pd-ag2-lab.has-c{color:var(--lc)!important;font-weight:700!important}\n\n#promise-detail-embed .pd-inline-map{width:min(100%,420px)!important;height:auto!important;aspect-ratio:1/1}\n\n#promise-detail-embed .pd-map-btn{font-family:var(--font-heading,inherit)!important;font-size:var(--font-size--s,16px)!important;font-weight:500!important}\n\n@media (min-width:641px){\n#promise-detail-embed .pd-verdict-head .pd-status-pill{padding:8px 16px 8px 8px!important;gap:8px!important}\n#promise-detail-embed .pd-verdict-head .pd-status-pill .pd-pill-text{font-size:var(--font-size--m,18px)!important;line-height:1.1!important}\n#promise-detail-embed .pd-verdict-head .pd-status-pill .pd-sym,#promise-detail-embed .pd-verdict-head .pd-status-pill svg{--sym:26px;width:26px!important;height:26px!important}\n}\n\n#promise-detail-embed .pd-car-media--atom{background-color:#ff0033!important}\n#promise-detail-embed .pd-car-title{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:3!important;line-clamp:3!important;overflow:hidden!important;text-overflow:ellipsis;font-family:var(--pd-brand-font,inherit)!important;font-size:var(--font-size--s,16px)!important;line-height:1.3!important;letter-spacing:0!important;word-spacing:0!important;min-height:calc(3 * 1.3em)!important;padding-bottom:0!important}\n@media (max-width:640px){\n#promise-detail-embed .pd-car-title{font-size:14px!important;line-height:1.3!important;padding:0 4px!important}\n#promise-detail-embed .bm-arr,#promise-detail-embed .bm-arr--e,#promise-detail-embed .bm-arr--s{display:none!important}\n}\n";
+  style.textContent += "\n@media (min-width:641px){\n#promise-detail-embed .pd-hero-left .pd-rounds{width:86%!important}\n}\n";
+  style.textContent += "\n#promise-detail-embed .pd-rounds .pd-rounds-title{margin-left:-1px!important}\n#promise-detail-embed .pd-rounds .pd-ag2-lab.pd-ag2-first{margin-left:-.5px!important}\n#promise-detail-embed .pd-rounds .pd-ag2-track::before{left:0!important}\n";
+  style.textContent += "\n\n#promise-detail-embed .pd-car-media--atom{background-image:none!important;padding:8px!important;display:grid!important;place-items:center}\n#promise-detail-embed .pd-car-atom{position:relative;display:block;height:100%;aspect-ratio:212/224;container-type:inline-size;background-repeat:no-repeat;background-size:100% 100%;--u:calc(100cqw / 212)}\n#promise-detail-embed .pd-car-atom .pd-car-ball{position:absolute;display:grid;place-items:center;width:0;height:0;line-height:0}\n#promise-detail-embed .pd-car-atom .pd-car-ball .pd-sym{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:var(--sym)!important;height:var(--sym)!important;display:grid;place-items:center;flex:none}\n#promise-detail-embed .pd-car-atom .pd-car-ball .pd-sym svg,#promise-detail-embed .pd-car-atom .pd-car-ball .pd-sym img{width:100%!important;height:100%!important;display:block}\n";
+  style.textContent += "\n\n@media (min-width:641px){\n#promise-detail-embed .pd-verdict-head{padding:12px 26px!important}\n#promise-detail-embed .pd-verdict-head .pd-status-pill{padding:5px 14px 5px 6px!important}\n#promise-detail-embed .pd-back,#promise-detail-embed a.pd-back{font-size:26px!important}\n#promise-detail-embed .pd-back .pd-back-logo{font-size:23px!important}\n}\n@media (max-width:640px){\n#promise-detail-embed .pd-back,#promise-detail-embed a.pd-back{font-size:24px!important}\n#promise-detail-embed .pd-back .pd-back-logo{font-size:20px!important}\n}\n";
+  style.textContent += "\n#promise-detail-embed .pd-im-dot{position:absolute}\n#promise-detail-embed .pd-im-dot::after{content:\"\";position:absolute;left:50%;top:50%;width:34px;height:34px;transform:translate(-50%,-50%)}\n";
+  style.textContent += "\n\n#promise-detail-embed .pd-im-dot::after{content:\"\";position:absolute;left:-15px;top:-15px;right:-15px;bottom:-15px;border-radius:50%}\n@media (max-width:640px){\n#promise-detail-embed .pd-im-dot{left:-7px!important;top:-7px!important;width:14px!important;height:14px!important}\n}\n";
+  style.textContent += "\n#promise-detail-embed .pd-im-dot::after{left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;width:46px!important;height:46px!important;transform:translate(-50%,-50%)!important;border-radius:50%}\n";
+  style.textContent += "\n@media (max-width:640px){\n#promise-detail-embed .pd-car-head{margin-top:0!important;margin-bottom:14px!important}\n}\n";
+  style.textContent += "\n@media (max-width:640px){\n#promise-detail-embed #pdTimelineMount{margin-top:2px!important}\n}\n";
+  style.textContent += "\n#promise-detail-embed .pd-car-media--atom{background-color:#f4b9cb!important}\n";
+  style.textContent += "\n#promise-detail-embed .pd-rounds .pd-rounds-title,#promise-detail-embed .pd-hero-left .pd-rounds .pd-rounds-title,#promise-detail-embed .pd-verdict-col .pd-rounds .pd-rounds-title{font-size:var(--font-size--s,16px)!important;margin-left:-1.5px!important;margin-bottom:26px!important}\n#promise-detail-embed .pd-rounds .pd-ag2-lab.pd-ag2-first{margin-left:-.5px!important}\n";
 document.head.appendChild(style);
   MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\"><span class=\"pd-back-text\">Alle beloftes van <span class=\"pd-back-logo\" role=\"img\" aria-label=\"BRUZZCheck\" style=\"-webkit-mask-image:url(" + PD_LOGO + ");mask-image:url(" + PD_LOGO + ")\"></span></span></a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
 
@@ -1972,50 +1990,39 @@ document.head.appendChild(style);
       }
 
       function renderRoundsTimeline() {
-        const start = new Date(2026, 1, 1).getTime(), end = new Date(2029, 8, 15).getTime(), now = Date.now();
-        const times = [];
-        for (let y = 2026; y <= 2028; y++) for (const m of [4, 10]) { const d = new Date(y, m, 15); if (d >= new Date(2026, 10, 1)) times.push(d.getTime()); }
-        times.push(new Date(2029, 4, 15).getTime());
-        times.push(end);
+        const start = new Date("2026-02-01T00:00:00").getTime(), end = new Date("2029-09-15T00:00:00").getTime(), now = Date.now();
+        const list = [];
+        for (let y = 2026; y <= 2028; y++) for (const m of [4, 10]) { const d = new Date(y, m, 15); if (d >= new Date(2026, 10, 1)) list.push(d.getTime()); }
+        list.push(new Date(2029, 4, 15).getTime());
+        list.push(end);
+        list.sort((x, y) => x - y);
         const known = roundList();
-        const n = times.length, anchors = [start].concat(times);
+        const n = list.length, anchors = [start].concat(list);
         const pct = i => (i / n) * 100;
-        const fillAt = t => {
+        const posOf = t => {
           let k = 0; while (k < n && anchors[k + 1] <= t) k++;
-          if (k >= n) return 100;
-          const a = anchors[k], b = anchors[k + 1];
-          return pct(k) + (Math.max(0, t - a) / (b - a)) * (pct(k + 1) - pct(k));
+          if (k >= n) return "100%";
+          const lo = anchors[k], hi = anchors[k + 1];
+          return (pct(k) + (Math.max(0, t - lo) / (hi - lo)) * (pct(k + 1) - pct(k))).toFixed(2) + "%";
         };
-        const yr = y => `<span class="pd-y-f">${y}</span><span class="pd-y-s">’${String(y).slice(2)}</span>`;
-        const nowPct = fillAt(now), segCol = ["#17171c"];
-        let dots = "", labs = `<span class="pd-tl-lab pd-tl-first" style="--pos:0%">feb<br>${yr(2026)}</span>`;
-        times.forEach((t, i) => {
+        let h = '<div class="pd-ag2-track"><span class="pd-ag2-fill"></span>';
+        const labs = ['<span class="pd-ag2-lab pd-ag2-first" style="--pos:0%">feb<br><span class="pd-y2-f">2026</span><span class="pd-y2-s">\u201926</span></span>'];
+        list.forEach((t, i) => {
           const d = new Date(t), past = t <= now + 5 * 86400000, pos = pct(i + 1).toFixed(2) + "%";
           const match = known.find(r => Math.abs(r.time - t) < 20 * 86400000);
           const verdict = match && match.verdict;
           const conf = verdict ? STATUS_CONFIG[verdict.key] : null;
-          const vIndex = verdict ? (roundsInfo.verdicts || []).indexOf(verdict) : -1;
           const season = i === 0 ? "nov" : seasonName(d);
           const title = `${season} ${d.getFullYear()}${verdict ? ": " + verdict.label : ""}`;
-          if (conf && vIndex >= 0) dots += `<span class="pd-tl-sym" style="--pos:${pos}" title="${escapeHtml(title)}">${(window.BRUZZ_SYM && window.BRUZZ_SYM.html) ? window.BRUZZ_SYM.html(conf) : renderSym(conf)}</span>`;
-          else dots += `<span class="pd-tl-dot" style="--pos:${pos}" title="${escapeHtml(title)}"></span>`;
           const lc = conf ? ((window.BRUZZ_SYM && window.BRUZZ_SYM.color) ? window.BRUZZ_SYM.color(conf) : conf.color) : "";
-          segCol.push(lc || segCol[segCol.length - 1]);
-          labs += `<span class="pd-tl-lab${past ? " is-past" : ""}${lc ? " has-c" : ""}${i === n - 1 ? " pd-tl-last" : ""}" style="--pos:${pos}${lc ? ";--lc:" + lc : ""}">${season}<br>${yr(d.getFullYear())}</span>`;
+          if (conf) h += `<span class="pd-ag2-sym" style="--pos:${pos}" title="${escapeHtml(title)}">${(window.BRUZZ_SYM && window.BRUZZ_SYM.html) ? window.BRUZZ_SYM.html(conf) : renderSym(conf)}</span>`;
+          else h += '<span class="pd-ag2-dot' + (past ? " is-past" : "") + '" style="--pos:' + pos + '" title="' + escapeHtml(title) + '"></span>';
+          labs.push('<span class="pd-ag2-lab' + (past ? " is-past" : "") + (lc ? " has-c" : "") + '" style="--pos:' + pos + (lc ? ";--lc:" + lc : "") + '">' + season + '<br><span class="pd-y2-f">' + d.getFullYear() + '</span><span class="pd-y2-s">\u2019' + String(d.getFullYear()).slice(2) + "</span></span>");
         });
-
-        let fills = "";
-        for (let k = 0; k < n; k++) {
-          const a = pct(k), b = Math.min(pct(k + 1), nowPct);
-          if (b > a) fills += `<span class="pd-tl-fill" style="left:${a.toFixed(2)}%;width:${(b - a).toFixed(2)}%;background:${segCol[k]}!important"></span>`;
-        }
         return `
           <div class="pd-rounds">
-            <h3 class="pd-rounds-title">Volgende evaluaties van BRUZZCheck</h3>
-            <div class="pd-tl">
-              <div class="pd-tl-track">${fills}${dots}</div>
-              <div class="pd-tl-labs">${labs}</div>
-            </div>
+            <h3 class="pd-rounds-title">Evaluatierondes van BRUZZCheck</h3>
+            <div class="pd-agenda2" style="--ag-fill:${posOf(now)}">${h}</div><div class="pd-ag2-labs">${labs.join("")}</div></div>
           </div>
         `;
       }
@@ -2087,6 +2094,16 @@ document.head.appendChild(style);
         return String(getPromiseKey(row) || row.id || "");
       }
 
+      function atomMedia() {
+        const SPH = { C: [152, 120, 27.5, "GELUKT"], T: [152, 40, 21, "OP SCHEMA"], UL: [80, 78, 23.5, "GESTART"], UR: [224, 78, 23.5, "NIET OP SCHEMA"], LL: [92, 156, 21, "MISLUKT"], LR: [212, 156, 21, "NIET GESTART"], B: [152, 188, 23, "ONVERIFIEERBAAR"] };
+        const balls = Object.keys(SPH).map(k => {
+          const q = SPH[k], conf = STATUS_CONFIG[q[3]];
+          if (!conf) return "";
+          return `<span class="pd-car-ball" style="left:calc(${q[0] - 46} * var(--u));top:calc(${q[1] - 14} * var(--u));--sym:calc(${(q[2] * 1.5).toFixed(1)} * var(--u))">${renderSym(conf)}</span>`;
+        }).join("");
+        return `<span class="pd-car-media pd-car-media--atom" aria-hidden="true"><span class="pd-car-atom" style='background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%2246%2014%20212%20224%22%3E%3Cg%3E%3Cline%20x1=%22152%22%20y1=%2240%22%20x2=%2280%22%20y2=%2278%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%22152%22%20y1=%2240%22%20x2=%22224%22%20y2=%2278%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%22152%22%20y1=%2240%22%20x2=%22152%22%20y2=%22120%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%2280%22%20y1=%2278%22%20x2=%2292%22%20y2=%22156%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%22224%22%20y1=%2278%22%20x2=%22212%22%20y2=%22156%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%2280%22%20y1=%2278%22%20x2=%22152%22%20y2=%22120%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%22224%22%20y1=%2278%22%20x2=%22152%22%20y2=%22120%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%22152%22%20y1=%22120%22%20x2=%2292%22%20y2=%22156%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%22152%22%20y1=%22120%22%20x2=%22212%22%20y2=%22156%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%22152%22%20y1=%22120%22%20x2=%22152%22%20y2=%22188%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%2292%22%20y1=%22156%22%20x2=%22152%22%20y2=%22188%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%22212%22%20y1=%22156%22%20x2=%22152%22%20y2=%22188%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.2%22/%3E%3Cline%20x1=%2292%22%20y1=%22156%22%20x2=%2256%22%20y2=%22234%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.600000000000001%22/%3E%3Cline%20x1=%22212%22%20y1=%22156%22%20x2=%22248%22%20y2=%22234%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.600000000000001%22/%3E%3Cline%20x1=%22152%22%20y1=%22188%22%20x2=%22152%22%20y2=%22234%22%20stroke=%22%23ff9db8%22%20stroke-width=%2215.600000000000001%22/%3E%3Ccircle%20cx=%22152%22%20cy=%2240%22%20r=%2222.4%22%20fill=%22%23ff9db8%22/%3E%3Ccircle%20cx=%2280%22%20cy=%2278%22%20r=%2224.9%22%20fill=%22%23ff9db8%22/%3E%3Ccircle%20cx=%22224%22%20cy=%2278%22%20r=%2224.9%22%20fill=%22%23ff9db8%22/%3E%3Ccircle%20cx=%22152%22%20cy=%22120%22%20r=%2228.9%22%20fill=%22%23ff9db8%22/%3E%3Ccircle%20cx=%2292%22%20cy=%22156%22%20r=%2222.4%22%20fill=%22%23ff9db8%22/%3E%3Ccircle%20cx=%22212%22%20cy=%22156%22%20r=%2222.4%22%20fill=%22%23ff9db8%22/%3E%3Ccircle%20cx=%22152%22%20cy=%22188%22%20r=%2224.4%22%20fill=%22%23ff9db8%22/%3E%3C/g%3E%3Cg%3E%3Cline%20x1=%22152%22%20y1=%2240%22%20x2=%2280%22%20y2=%2278%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%22152%22%20y1=%2240%22%20x2=%22224%22%20y2=%2278%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%22152%22%20y1=%2240%22%20x2=%22152%22%20y2=%22120%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%2280%22%20y1=%2278%22%20x2=%2292%22%20y2=%22156%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%22224%22%20y1=%2278%22%20x2=%22212%22%20y2=%22156%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%2280%22%20y1=%2278%22%20x2=%22152%22%20y2=%22120%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%22224%22%20y1=%2278%22%20x2=%22152%22%20y2=%22120%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%22152%22%20y1=%22120%22%20x2=%2292%22%20y2=%22156%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%22152%22%20y1=%22120%22%20x2=%22212%22%20y2=%22156%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%22152%22%20y1=%22120%22%20x2=%22152%22%20y2=%22188%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%2292%22%20y1=%22156%22%20x2=%22152%22%20y2=%22188%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%22212%22%20y1=%22156%22%20x2=%22152%22%20y2=%22188%22%20stroke=%22%23fff%22%20stroke-width=%2212.4%22/%3E%3Cline%20x1=%2292%22%20y1=%22156%22%20x2=%2256%22%20y2=%22234%22%20stroke=%22%23fff%22%20stroke-width=%2212.8%22/%3E%3Cline%20x1=%22212%22%20y1=%22156%22%20x2=%22248%22%20y2=%22234%22%20stroke=%22%23fff%22%20stroke-width=%2212.8%22/%3E%3Cline%20x1=%22152%22%20y1=%22188%22%20x2=%22152%22%20y2=%22234%22%20stroke=%22%23fff%22%20stroke-width=%2212.8%22/%3E%3Ccircle%20cx=%22152%22%20cy=%2240%22%20r=%2221%22%20fill=%22%23fff%22/%3E%3Ccircle%20cx=%2280%22%20cy=%2278%22%20r=%2223.5%22%20fill=%22%23fff%22/%3E%3Ccircle%20cx=%22224%22%20cy=%2278%22%20r=%2223.5%22%20fill=%22%23fff%22/%3E%3Ccircle%20cx=%22152%22%20cy=%22120%22%20r=%2227.5%22%20fill=%22%23fff%22/%3E%3Ccircle%20cx=%2292%22%20cy=%22156%22%20r=%2221%22%20fill=%22%23fff%22/%3E%3Ccircle%20cx=%22212%22%20cy=%22156%22%20r=%2221%22%20fill=%22%23fff%22/%3E%3Ccircle%20cx=%22152%22%20cy=%22188%22%20r=%2223%22%20fill=%22%23fff%22/%3E%3C/g%3E%3C/svg%3E")'>${balls}</span></span>`;
+      }
+
       function renderCarousel(current) {
         if (!CAROUSEL_COUNT) return "";
         const cards = carouselCards(current);
@@ -2119,7 +2136,7 @@ document.head.appendChild(style);
                 <button type="button" class="pd-car-arrow" data-car-dir="1" aria-label="Volgende"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
               </div>
             </div>
-            <div class="pd-car-track" tabindex="0" lang="nl">${items}<a class="pd-car-card pd-car-all" href="${escapeHtml(OVERVIEW_URL)}"><span class="pd-car-all-t">Alle beloftes</span><svg viewBox="0 0 20 20" aria-hidden="true" width="20" height="20"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+            <div class="pd-car-track" tabindex="0" lang="nl"><a class="pd-car-card pd-car-main" href="${escapeHtml(OVERVIEW_URL)}">${atomMedia()}<span class="pd-car-title">Hoofdpagina van BRUZZCheck</span></a>${items}<a class="pd-car-card pd-car-all" href="${escapeHtml(OVERVIEW_URL)}"><span class="pd-car-all-t">Alle beloftes</span><svg viewBox="0 0 20 20" aria-hidden="true" width="20" height="20"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </section>
         `;
       }
@@ -2272,6 +2289,7 @@ document.head.appendChild(style);
 
         host.innerHTML = `
           <section class="pd-hero" aria-labelledby="pd-title">
+            <div class="pd-hero-left">
             <div class="pd-promise-panel${hasPoll ? " pd-has-poll" : ""}" style="${heroStyle}${hasPoll ? ` --pd-overlay:${POLL_OVERLAY};` : ""}">
               ${(!heroImageUrl && emoji) ? `<span class="pd-hero-emoji" aria-hidden="true">${escapeHtml(emoji)}</span>` : ""}
               <div class="pd-promise-content">
@@ -2294,6 +2312,8 @@ document.head.appendChild(style);
                   ${pollMarkup}
                 </div>
               </div>
+            </div>
+            ${renderRoundsTimeline().replace('class="pd-rounds"', 'class="pd-rounds pd-rounds--left"')}
             </div>
 
             <div class="pd-verdict-col">
@@ -2394,6 +2414,7 @@ document.head.appendChild(style);
         };
       }
 
+      const foundPlaces = new Set();
       function markTextNode(node, matcher, seen) {
         const text = node.nodeValue;
         const { regex, lookup, abbr } = matcher;
@@ -2409,7 +2430,7 @@ document.head.appendChild(style);
           if (abbr.has(fold(match[2]).replace(/[\s-]+/g, " ")) && match[2] !== match[2].toUpperCase()) continue;
           if (GLOSSARY_FIRST_ONLY && seen.has(index)) continue;
           const isPlace = Boolean(glossaryEntries[index] && glossaryEntries[index].loc);
-          if (isPlace && window.matchMedia("(max-width: 640px)").matches) continue;
+          if (isPlace) { foundPlaces.add(index); seen.add(index); continue; }
           seen.add(index);
 
           const start = match.index + match[1].length;
@@ -2592,74 +2613,71 @@ document.head.appendChild(style);
       let inlineMapObj = null;
       const inlineWanted = () => INLINE_MAP_KEYS.indexOf(String(DEFAULT_PROMISE_KEY || "").trim()) > -1 && window.matchMedia("(min-width: 641px)").matches;
       const inlineActive = () => Boolean(inlineMapObj) && window.matchMedia("(min-width: 641px)").matches;
-      function setupInlineMap() {
-        if (!inlineWanted() || root.querySelector(".pd-inline-map")) return;
+      function setupMapButton() {
+        if (!foundPlaces.size || root.querySelector(".pd-map-btn")) return;
+        const host = root.querySelector(".pd-overview-waar .pd-fact-copy");
+        if (!host) return;
         const pts = [], byKey = {};
-        root.querySelectorAll(".pd-place").forEach(el => {
-          const o = placeInfo(el); if (!o) return;
-          const k = o.lng + "," + o.lat;
-          if (!byKey[k]) { byKey[k] = { name: o.name, lng: o.lng, lat: o.lat, key: k }; pts.push(byKey[k]); }
-          el.dataset.imKey = k;
+        foundPlaces.forEach(idx => {
+          const e = glossaryEntries[idx]; if (!e || !e.loc) return;
+          const k = e.loc.lng + "," + e.loc.lat;
+          if (!byKey[k]) { byKey[k] = { name: e.word, lng: e.loc.lng, lat: e.loc.lat, key: k }; pts.push(byKey[k]); }
         });
-        const panel = root.querySelector(".pd-promise-panel");
-        if (!pts.length || !panel || !panel.parentElement) return;
-        const left = document.createElement("div"); left.className = "pd-hero-left";
-        panel.parentElement.insertBefore(left, panel); left.appendChild(panel);
-        const box = document.createElement("div"); box.className = "pd-inline-map";
-        box.innerHTML = '<div class="pd-inline-map-canvas"></div>';
-        left.appendChild(box);
+        if (!pts.length) return;
+        const btn = document.createElement("button");
+        btn.type = "button"; btn.className = "pd-map-btn"; btn.setAttribute("aria-expanded", "false"); btn.textContent = "Kaart";
+        const box = document.createElement("div");
+        box.className = "pd-inline-map"; box.hidden = true;
+        box.innerHTML = '<div class="pd-inline-map-canvas"></div><p class="pd-map-credit pd-map-credit--in">Kaarten © MapTiler © OpenStreetMap contributors</p>';
+        host.append(btn, box);
         inlineMapObj = { pts, markers: {} };
-        root.classList.add("pd-inline-on");
-        loadMapLib().then(() => {
-          const lngs = pts.map(q => q.lng), lats = pts.map(q => q.lat);
-          const bounds = pts.length > 1 ? [[Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]] : PLACE_BBOX;
-          const m = new maplibregl.Map({ container: box.firstChild, style: MAP_STYLE_URL, bounds, fitBoundsOptions: { padding: 56, maxZoom: 14.5 }, attributionControl: false, interactive: false });
-          inlineMapObj.map = m;
-          const midLng = (Math.min(...lngs) + Math.max(...lngs)) / 2;
-          pts.forEach(q => {
-            const el = document.createElement("div");
-            el.className = "pd-im-pin"; el.dataset.key = q.key;
-            el.innerHTML = '<i class="pd-im-dot"></i><span class="pd-im-label"></span>';
-            el.lastChild.textContent = q.name;
-            new maplibregl.Marker({ element: el, anchor: "center" }).setLngLat([q.lng, q.lat]).addTo(m);
-            inlineMapObj.markers[q.key] = el;
-          });
-        }).catch(err => { console.warn("inline map:", err && err.message); });
-
+        let built = false;
         const setOn = (key, on) => {
-          const pin = inlineMapObj && inlineMapObj.markers[key];
-          if (!pin) return;
+          const pin = inlineMapObj.markers[key]; if (!pin) return;
+          Object.keys(inlineMapObj.markers).forEach(k => { if (k !== key) inlineMapObj.markers[k].classList.remove("is-on"); });
           pin.classList.toggle("is-on", on);
-          root.querySelectorAll(".pd-place").forEach(w => { if (w.dataset.imKey === key) w.classList.toggle("is-hl", on); });
           if (!on || !inlineMapObj.map) return;
-          const q = inlineMapObj.pts.find(o => o.key === key), lab = pin.lastChild, mapBox = root.querySelector(".pd-inline-map");
-          if (!q || !mapBox) return;
-          const pr = inlineMapObj.map.project([q.lng, q.lat]), w = lab.offsetWidth, W = mapBox.clientWidth;
+          const q = pts.find(o => o.key === key), lab = pin.lastChild;
+          const pr = inlineMapObj.map.project([q.lng, q.lat]), w = lab.offsetWidth, W = box.clientWidth;
           const x = Math.min(Math.max(-w / 2, 6 - pr.x), W - 6 - pr.x - w);
           lab.style.left = x + "px"; lab.style.right = "auto";
           lab.style.top = (pr.y < 44 ? 12 : -32) + "px";
         };
-        const light = (e, on) => {
-          const w = e.target.closest && e.target.closest(".pd-place");
-          if (w && w.dataset.imKey) setOn(w.dataset.imKey, on);
-        };
-        const boxEl = box;
-        boxEl.addEventListener("mouseover", e => { const d = e.target.closest && e.target.closest(".pd-im-pin"); if (d && d.dataset.key) setOn(d.dataset.key, true); });
-        boxEl.addEventListener("mouseout", e => { const d = e.target.closest && e.target.closest(".pd-im-pin"); if (d && d.dataset.key) setOn(d.dataset.key, false); });
-        root.addEventListener("mouseover", e => light(e, true));
-        root.addEventListener("mouseout", e => light(e, false));
-        root.addEventListener("focusin", e => light(e, true));
-        root.addEventListener("focusout", e => light(e, false));
+        function build() {
+          built = true;
+          loadMapLib().then(() => {
+            const lngs = pts.map(q => q.lng), lats = pts.map(q => q.lat);
+            const bounds = pts.length > 1 ? [[Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]] : PLACE_BBOX;
+            const m = new maplibregl.Map({ container: box.firstChild, style: MAP_STYLE_URL, bounds, fitBoundsOptions: { padding: 56, maxZoom: 14.5 }, attributionControl: false, interactive: false });
+            inlineMapObj.map = m;
+            pts.forEach(q => {
+              const el = document.createElement("div");
+              el.className = "pd-im-pin"; el.dataset.key = q.key;
+              el.innerHTML = '<i class="pd-im-dot"></i><span class="pd-im-label"></span>';
+              el.lastChild.textContent = q.name;
+              new maplibregl.Marker({ element: el, anchor: "center" }).setLngLat([q.lng, q.lat]).addTo(m);
+              inlineMapObj.markers[q.key] = el;
+            });
+          }).catch(err => { built = false; console.warn("map:", err && err.message); });
+        }
 
-        const hintOn = w => {
-          if (!inlineActive()) return;
-          const pop = glossPopover(); clearTimeout(glossTimer);
-          pop.innerHTML = '<div class="pd-gloss-pop-text">Zie kaart</div>'; pop.classList.add("pd-hint");
-          pop.style.left = "0px"; pop.style.top = "0px"; pop.hidden = false; positionGloss(w, pop);
-        };
-        const hintOff = () => { if (glossPop && glossPop.classList.contains("pd-hint")) { glossPop.hidden = true; glossPop.classList.remove("pd-hint"); } };
-        root.addEventListener("mouseover", e => { const w = e.target.closest && e.target.closest(".pd-place"); if (w) hintOn(w); });
-        root.addEventListener("mouseout", e => { const w = e.target.closest && e.target.closest(".pd-place"); if (w && !(e.relatedTarget && w.contains(e.relatedTarget))) hintOff(); });
+        const canHover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+        if (canHover) {
+          if (window.matchMedia("(hover: hover)").matches) box.addEventListener("mouseover", e => { const d = e.target.closest && e.target.closest(".pd-im-pin"); if (d && d.dataset.key) setOn(d.dataset.key, true); });
+          if (window.matchMedia("(hover: hover)").matches) box.addEventListener("mouseout", e => { const d = e.target.closest && e.target.closest(".pd-im-pin"); if (d && d.dataset.key) setOn(d.dataset.key, false); });
+        }
+        box.addEventListener("click", e => {
+          const d = e.target.closest && e.target.closest(".pd-im-pin");
+          if (d && d.dataset.key) { if (canHover) setOn(d.dataset.key, true); else setOn(d.dataset.key, !d.classList.contains("is-on")); }
+          else Object.keys(inlineMapObj.markers).forEach(k => inlineMapObj.markers[k].classList.remove("is-on"));
+        });
+        btn.addEventListener("click", () => {
+          const open = box.hidden;
+          box.hidden = !open;
+          btn.setAttribute("aria-expanded", String(open));
+          btn.textContent = open ? "Verberg kaart" : "Kaart";
+          if (open) { if (!built) build(); else if (inlineMapObj.map) { inlineMapObj.map.resize(); } }
+        });
       }
       let placesWired = false;
       function wirePlaces() {
@@ -3045,7 +3063,7 @@ document.head.appendChild(style);
 
       async function loadPollResults(card, key, delays) {
         if (!card.querySelector(".pd-poll-thanks") && !card.querySelector(".pd-pr")) return;
-        const waiting = "Poll laden...";
+        const waiting = "Resultaten laden...";
         let lastError = "";
         let lastVotes = null;
         for (let attempt = 0; attempt <= delays.length; attempt++) {
@@ -3055,7 +3073,7 @@ document.head.appendChild(style);
             let result = null;
             if (attempt === 0 && earlyPoll && earlyPoll.key === key) result = await earlyPoll.promise;
             if (!result) {
-              const res = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/poll-results?promise=${encodeURIComponent(key)}`);
+              const res = await fetch(`${API_BASE_URL.replace(/\/$/, "")}/poll-results?promise=${encodeURIComponent(key)}${attempt > 0 || delays[0] === 0 ? "&fresh=1" : ""}`);
               if (!res.ok) throw new Error("status " + res.status);
               result = await res.json();
             }
@@ -3081,7 +3099,8 @@ document.head.appendChild(style);
               }
             }
             lastError = "";
-            { const th = card.querySelector(".pd-poll-thanks"); if (th) th.textContent = waiting; }
+
+            { const th = card.querySelector(".pd-poll-thanks"); if (th) th.textContent = result && typeof result.votes === "number" && !result.enough && attempt >= 1 ? "Bedankt voor je stem! De resultaten verschijnen zodra er genoeg stemmen zijn." : waiting; }
           } catch (err) { lastError = err.message; }
         }
         if (lastError) console.warn("BRUZZCheck: poll-resultaten niet geladen:", lastError);
@@ -3098,7 +3117,7 @@ document.head.appendChild(style);
           return `
                   <div class="pd-poll pd-poll-done" aria-label="Poll" data-poll-key="${escapeHtml(key)}">
                     ${label}
-                    ${(() => { const c = readPollCache(key); const h = c ? pollBars(c.result, key, c.t) : ""; return h || '<p class="pd-poll-thanks">Poll laden...</p>'; })()}
+                    ${(() => { const c = readPollCache(key); const h = c ? pollBars(c.result, key, c.t) : ""; return h || '<p class="pd-poll-thanks">Resultaten laden...</p>'; })()}
                   </div>`;
         }
         const own = pollCfg[key];
@@ -3498,7 +3517,7 @@ document.head.appendChild(style);
           if ((POLL_TALLY_ID || Object.keys(pollCfg).length) && POLL_SHOW_RESULTS) {
             const done = root.querySelector(".pd-poll-done");
             const doneKey = done && done.getAttribute("data-poll-key");
-            if (doneKey) loadPollResults(done, doneKey, [1200, 3000, 6000]);
+            if (doneKey) loadPollResults(done, doneKey, [800, 2500, 5000]);
           }
           syncBodyTypography();
           setupCarousel();
@@ -3507,8 +3526,7 @@ document.head.appendChild(style);
 
           const marked = applyGlossary(glossary);
           watchBrand();
-          applyPlaces(); wirePlaces(); setupInlineMap();
-          if (root.querySelector(".pd-place") && !root.querySelector(".pd-map-credit")) { const cr = document.createElement("p"); cr.className = "pd-map-credit"; cr.textContent = "Kaarten © MapTiler © OpenStreetMap contributors"; const imBox = root.querySelector(".pd-inline-map"); if (imBox) { cr.classList.add("pd-map-credit--in"); imBox.appendChild(cr); } else (root.querySelector(".pd-redactie") || root).appendChild(cr); }
+          applyPlaces(); wirePlaces(); setupMapButton();
           console.info(`Plaatsen: ${glossary.filter(g => g.loc).length} met locatie in het Woordenboek, ${root.querySelectorAll(".pd-place").length} op deze pagina gemarkeerd` + (glossary.length ? "" : " (Woordenboek leeg of niet geladen)"));
           if (glossary.length) console.info(`Woordenboek: ${glossary.length} woorden geladen, ${marked} gemarkeerd${(GLOSSARY_TABLE_ID || API_BASE_URL) ? "" : " (voorbeeldwoorden)"}`);
         } catch (err) {
@@ -4167,7 +4185,7 @@ document.head.appendChild(style);
         const b = document.createElement("span");
         b.className = "bm-stripe";
         b.dataset.n = String(counts[i]);
-        b.style.setProperty("--a", (0.16 + 0.84 * Math.sqrt(counts[i] / max)).toFixed(3));
+        b.style.setProperty("--a", counts[i] ? "1" : "0.16");
         bar.appendChild(b);
       }
 
