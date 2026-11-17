@@ -2,7 +2,7 @@
 (function () {
   "use strict";
   var DEFAULT_API = "https://bruzzcheck-api.webmaster-dfe.workers.dev";
-  var DEFAULT_OVERVIEW = "/node/217403";
+  var DEFAULT_OVERVIEW = "/bruzzcheck";
 
   var MOUNT = document.querySelector(".bruzz-promise-detail");
   if (!MOUNT || MOUNT.getAttribute("data-bc-ready")) return;
@@ -2386,7 +2386,7 @@ document.head.appendChild(style);
             <p>Op basis van vaste criteria en controleerbare bronnen krijgt elke belofte een status: gerealiseerd, op schema, gestart, mislukt, niet op schema, niet gestart of niet verifieerbaar.</p>
             <p class="pd-redactie-lead"><strong>Dit zijn de (geplande) evaluatierondes van deze belofte:</strong></p>
             <div class="pd-redactie-rounds">${renderRoundsTimeline()}</div>
-            <p>Meer weten over de werkwijze? Lees de <a href="/node/214357">veelgestelde vragen</a>.</p>
+            <p>Meer weten over de werkwijze? Lees de <a href="/bruzzcheck-zo-werkt-de-politieke-barometer">veelgestelde vragen</a>.</p>
           </section>
         `;
       }
