@@ -3712,10 +3712,22 @@ document.head.appendChild(style);
       [300, 900, 2000, 4000].forEach(function (t) { setTimeout(function () { ptNoteBreak("#promise-detail-embed .pd-meta-note", ".pd-meta-link"); }, t); });
 
   function ptClipLeft(root) {
-    var d = ptClipLeft0(root), l = 0;
+
+    var now = Date.now(), ae = document.activeElement, busy = ae && /^(SELECT|INPUT)$/.test(ae.tagName);
+    var d = (window.__ptClipCache && (busy || now - window.__ptClipCache.t < 1500) && window.__ptClipCache.w === window.innerWidth) ? window.__ptClipCache.v : null;
+    if (d === null) { d = ptClipLeft0(root); window.__ptClipCache = { t: now, v: d, w: window.innerWidth }; }
+    var l = 0;
     try { l = Math.max(0, Math.round(root.getBoundingClientRect().left)); } catch (_) {}
     return Math.max(d, l);
   }
+
+  (function () {
+    try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch (_) {}
+    if (location.hash) return;
+    var user = false, t0 = Date.now();
+    ["wheel", "touchstart", "keydown", "mousedown"].forEach(function (e) { window.addEventListener(e, function () { user = true; }, { passive: true, once: true }); });
+    (function tick() { if (user || Date.now() - t0 > 3500) return; if ((window.scrollY || document.documentElement.scrollTop) > 0) window.scrollTo(0, 0); requestAnimationFrame(tick); })();
+  })();
       function ptReveal(el) {
           if (!el || el.__bmRev) return; el.__bmRev = true;
           if (!window.IntersectionObserver) { el.classList.add("bm-in"); return; }
