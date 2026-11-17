@@ -227,7 +227,7 @@ style.textContent += "\n\n#promise-detail-embed .pd-pr-row[data-answer=\"Ja\" i]
   style.textContent += "\n#promise-detail-embed .pd-redactie .pd-redactie-rounds + p{margin-top:10px!important}\n";
   style.textContent += "\n@media (max-width: 640px) {\n#promise-detail-embed .pd-halfyear{padding:8px 0 24px!important}\n}\n";
   style.textContent += "\n#promise-detail-embed .pd-poll-loading{margin:0;font-size:var(--font-size--xs,14px);line-height:1.4;color:inherit;opacity:.85}\n";
-  style.textContent += "\n\n#promise-detail-embed .pd-redactie{position:relative;isolation:isolate;--rp:26px;--grad-box:linear-gradient(90deg,#640044,#ff0033,#FA79D7);--grad-band:linear-gradient(90deg,#2e2e2e 0,#640044 var(--bl,30%),#FA79D7 var(--br,60%),#69CDF0 var(--b4,75%),#5ee0cc var(--b7,90%),#00C8BE 100%);box-shadow:none!important}\n#promise-detail-embed .pd-redactie-title{position:relative}\n#promise-detail-embed .pd-redactie-title::before{content:\"\";position:absolute;z-index:-1;left:calc(var(--rp) * -1);right:calc(var(--rp) * -1);top:calc(var(--rp) * -1);bottom:-1px;border:1px solid #f4b9cb;border-bottom:0;background:#fff;pointer-events:none}\n#promise-detail-embed .pd-redactie-title::after{content:\"\";position:absolute;z-index:-2;left:var(--band-l,-100vw);width:var(--band-w,200vw);top:100%;height:var(--band-h,300px);background:#fff;border-top:1px solid #f4b9cb;pointer-events:none}\n@media (max-width: 640px) {\n#promise-detail-embed .pd-redactie{--rp:18px}\n}\n";
+  style.textContent += "\n\n#promise-detail-embed .pd-redactie{position:relative;isolation:isolate;--rp:26px;--grad-box:linear-gradient(90deg,#82055a,#ff0033,#FA79D7);--grad-band:linear-gradient(90deg,#2e2e2e 0,#82055a var(--bl,30%),#FA79D7 var(--br,60%),#69CDF0 var(--b4,75%),#5ee0cc var(--b7,90%),#00C8BE 100%);box-shadow:none!important}\n#promise-detail-embed .pd-redactie-title{position:relative}\n#promise-detail-embed .pd-redactie-title::before{content:\"\";position:absolute;z-index:-1;left:calc(var(--rp) * -1);right:calc(var(--rp) * -1);top:calc(var(--rp) * -1);bottom:-1px;border:1px solid #f4b9cb;border-bottom:0;background:#fff;pointer-events:none}\n#promise-detail-embed .pd-redactie-title::after{content:\"\";position:absolute;z-index:-2;left:var(--band-l,-100vw);width:var(--band-w,200vw);top:100%;height:var(--band-h,300px);background:#fff;border-top:1px solid #f4b9cb;pointer-events:none}\n@media (max-width: 640px) {\n#promise-detail-embed .pd-redactie{--rp:18px}\n}\n";
   style.textContent += "\n\n#promise-detail-embed .pd-verdict-title,#promise-detail-embed .pd-verdict-title .pd-vt-full,#promise-detail-embed .pd-verdict-title .pd-vt-short{font-weight:800!important}\n#promise-detail-embed .pd-verdict-title .pd-vt-full .pd-vt-d,#promise-detail-embed .pd-verdict-title .pd-vt-short .pd-vt-d,#promise-detail-embed h2.pd-verdict-title span.pd-vt-d{font-weight:300!important}\n";
   style.textContent += "\n\n#promise-detail-embed .pd-car-main .pd-car-title{text-align:center!important;display:block}\n#promise-detail-embed .pd-halfyear{display:block!important;margin:0;padding:10px 26px 26px;font-size:var(--font-size--xs,14px);line-height:1.45;color:var(--pd-muted,#6b6b75)}\n#promise-detail-embed .pd-redactie .pd-redactie-rounds{display:block!important;margin:6px 0 22px}\n#promise-detail-embed .pd-redactie .pd-redactie-lead{margin-top:12px!important}\n#promise-detail-embed .pd-redactie .pd-redactie-lead strong{font-weight:700}\n#promise-detail-embed .pd-redactie .pd-redactie-rounds + p{margin-top:0!important}\n#promise-detail-embed .pd-redactie .pd-ag2-lab.pd-ag2-first{margin-left:0!important}\n.bm-master-timeline .teaser-section__items{padding-right:14px!important;box-sizing:border-box}\n@media (max-width: 640px) {\n#promise-detail-embed .pd-halfyear{padding:8px 0 24px!important}\n.bm-master-timeline .teaser-section__items{padding-right:0!important;padding-left:14px!important}\n#promise-detail-embed .pd-car-track{padding-left:12px!important;scroll-padding-left:12px}\n#promise-detail-embed .pd-im-dot{left:-5px!important;top:-5px!important;width:10px!important;height:10px!important}\n}\n";
   style.textContent += "\n#promise-detail-embed .pd-redactie .pd-redactie-lead{margin-bottom:16px!important}\n#promise-detail-embed .pd-halfyear{padding-left:19px!important}\n@media (max-width: 640px) {\n#promise-detail-embed .pd-halfyear{padding-left:0!important}\n}\n";
@@ -256,6 +256,8 @@ style.textContent += "\n\n#promise-detail-embed .pd-pr-row[data-answer=\"Ja\" i]
   style.textContent += "\n\n#promise-detail-embed .pd-car-card:not(.pd-car-main){padding-bottom:14px!important}\n#promise-detail-embed .pd-car-main .pd-car-title{min-height:0!important}\n@media (max-width:640px){#promise-detail-embed .pd-car-card:not(.pd-car-main){padding-bottom:10px!important}}\n";
   style.textContent += "\n\n@media (max-width:640px){#promise-detail-embed .pd-redactie .pd-agenda2{padding-left:0!important}}\n";
   style.textContent += "\n@media (max-width:640px){#promise-detail-embed .pd-redactie .pd-rounds .pd-agenda2,#promise-detail-embed .pd-redactie .pd-rounds{padding-left:0!important;margin-left:0!important;text-indent:0!important}#promise-detail-embed .pd-redactie .pd-rounds .pd-ag2-track,#promise-detail-embed .pd-redactie .pd-rounds .pd-ag2-labs{margin-left:0!important;left:0!important}}\n";
+  style.textContent += "\n\n@media (max-width:640px){#promise-tracker-embed .pt-note-2l,#promise-detail-embed .pt-note-2l{display:block}}\n";
+  style.textContent += "\n\n.pd-pill-text,.pd-status-pill,.pd-update-status-pill,.bm-master-timeline .pd-pill-text,.bm-master-timeline .pd-status-pill,.bm-master-timeline .pd-update-status-pill,#promise-detail-embed .pd-pill-text,#promise-detail-embed .pd-status-pill,#promise-detail-embed .pd-update-status-pill{font-family:var(--font-body,inherit)!important}\n";
 document.head.appendChild(style);
   MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\"><span class=\"pd-back-text\">Alle beloftes van <span class=\"pd-back-logo\" role=\"img\" aria-label=\"BRUZZCheck\" style=\"-webkit-mask-image:url(" + PD_LOGO + ");mask-image:url(" + PD_LOGO + ")\"></span></span></a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
 
@@ -326,7 +328,7 @@ document.head.appendChild(style);
             "NIET OP SCHEMA": { color: "#FA79D7", bg: "#ffe9ee", symbol: "⏸", iconUrl: "https://app.razuna.eu/file/remote?i=6ac35e4f8fc71aef8abe7f40&f=t&dl=t&c=0ae03ce2e22325e7d9c0ef235b098d8b&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNWU0ZjhmYzcxYWVmOGFiZTdmNDAmZj10JmRsPXQmYz0wYWUwM2NlMmUyMjMyNWU3ZDljMGVmMjM1YjA5OGQ4YiIsInR5cGUiOiJkaXJlY3QifQ.HBt_lf4CEZdVlfBwS1coO11Dubv2kMneVMudHFphnp4" },
             "MISLUKT": { color: "#ff0033", bg: "#ffe9ee", symbol: "✕", iconUrl: "https://app.razuna.eu/file/remote?i=6ac35e50e7c79cb82176880e&f=t&dl=t&c=f2198c5be089c0704dfbbabc06fbce82&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNWU1MGU3Yzc5Y2I4MjE3Njg4MGUmZj10JmRsPXQmYz1mMjE5OGM1YmUwODljMDcwNGRmYmJhYmMwNmZiY2U4MiIsInR5cGUiOiJkaXJlY3QifQ.-lTM_9If3bIs4Chs7KOXQbGL1eLqBzo99ma4jbAe8Sw" },
             "GELUKT": { color: "#00C8BE", bg: "#e0f8f6", symbol: "✓", iconUrl: "https://app.razuna.eu/file/remote?i=6ac36778e7c79cb821768adb&f=t&dl=t&c=4b2310c11278efb91ee90ec6f56f2f7d&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNjc3OGU3Yzc5Y2I4MjE3NjhhZGImZj10JmRsPXQmYz00YjIzMTBjMTEyNzhlZmI5MWVlOTBlYzZmNTZmMmY3ZCIsInR5cGUiOiJkaXJlY3QifQ.aEDrAoEbrRY50nFav5_gxZxcTHvg3omUDmwQFfBFXq4" },
-            "ONVERIFIEERBAAR": { color: "#640044", bg: "#ffe0e6", symbol: "?", iconUrl: "https://app.razuna.eu/file/remote?i=6ac35e4efbae2dee4fef7652&f=t&dl=t&c=95852bb3fde1d2504e6319b23968a52d&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNWU0ZWZiYWUyZGVlNGZlZjc2NTImZj10JmRsPXQmYz05NTg1MmJiM2ZkZTFkMjUwNGU2MzE5YjIzOTY4YTUyZCIsInR5cGUiOiJkaXJlY3QifQ.53REmx1y-YP1y7QSrHN3WKnTjfEPJJIjcb_dNNfR6g0" },
+            "ONVERIFIEERBAAR": { color: "#82055a", bg: "#ffe0e6", symbol: "?", iconUrl: "https://app.razuna.eu/file/remote?i=6ac35e4efbae2dee4fef7652&f=t&dl=t&c=95852bb3fde1d2504e6319b23968a52d&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNWU0ZWZiYWUyZGVlNGZlZjc2NTImZj10JmRsPXQmYz05NTg1MmJiM2ZkZTFkMjUwNGU2MzE5YjIzOTY4YTUyZCIsInR5cGUiOiJkaXJlY3QifQ.53REmx1y-YP1y7QSrHN3WKnTjfEPJJIjcb_dNNfR6g0" },
             "GEBLOKKEERD": { color: "#000000", bg: "#fff3e3", symbol: "⏸", iconUrl: "https://app.razuna.eu/file/remote?i=6ac35e50f1c29aca7da8d58d&f=t&dl=t&c=ebf2906ff7ce38997b5e3262cf653e0c&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YWMzNWU1MGYxYzI5YWNhN2RhOGQ1OGQmZj10JmRsPXQmYz1lYmYyOTA2ZmY3Y2UzODk5N2I1ZTMyNjJjZjY1M2UwYyIsInR5cGUiOiJkaXJlY3QifQ.CDaybXfH__Nvf48yC4qHD7TmWOB-JTiI5JtU7Jc2gpQ" }
           };
 
@@ -359,7 +361,7 @@ document.head.appendChild(style);
         onColor: function (key) {
           const conf = STATUS_CONFIG[key];
           if (!conf) return "#17171c";
-          if (key === "GELUKT") return "#FFFFFF";
+          if (key === "GELUKT" || key === "NIET GESTART" || key === "ONVERIFIEERBAAR") return "#FFFFFF";
           return typeof onColorFor === "function" ? onColorFor(conf.color) : "#17171c";
         }
       };
@@ -509,6 +511,7 @@ document.head.appendChild(style);
   }
   function escapeHtml(value) {
         return String(value ?? "")
+          .replace(/\bBRUZZ[\s\u00a0]+Check\b/gi, "BRUZZCheck")
           .replaceAll("&", "&amp;")
           .replaceAll("<", "&lt;")
           .replaceAll(">", "&gt;")
@@ -2170,7 +2173,7 @@ document.head.appendChild(style);
                 <button type="button" class="pd-car-arrow" data-car-dir="1" aria-label="Volgende"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
               </div>
             </div>
-            <div class="pd-car-track" tabindex="0" lang="nl"><a class="pd-car-card pd-car-main" href="${escapeHtml(OVERVIEW_URL)}">${atomMedia()}<span class="pd-car-title">BRUZZCheck<br>hoofdpagina</span></a>${items}<a class="pd-car-card pd-car-all" href="${escapeHtml(OVERVIEW_URL)}"><span class="pd-car-all-t">Alle beloftes</span><svg viewBox="0 0 20 20" aria-hidden="true" width="20" height="20"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+            <div class="pd-car-track" tabindex="0" lang="nl"><a class="pd-car-card pd-car-main" href="${escapeHtml(OVERVIEW_URL)}">${atomMedia()}<span class="pd-car-title">BRUZZCheck<br>hoofdpagina</span></a>${items}</div>
           </section>
         `;
       }
@@ -2247,7 +2250,7 @@ document.head.appendChild(style);
         root.style.setProperty("--pd-status-color", conf.color);
         root.style.setProperty("--pd-status-bg", conf.bg);
 
-        const WHITE_TEXT_ON = ["GELUKT"];
+        const WHITE_TEXT_ON = ["GELUKT", "NIET GESTART", "ONVERIFIEERBAAR"];
         const onColor = WHITE_TEXT_ON.includes(status) ? "#FFFFFF" : onColorFor(conf.color);
         root.style.setProperty("--pd-on-status", onColor);
 
@@ -2378,7 +2381,7 @@ document.head.appendChild(style);
           <section class="pd-redactie" lang="nl" aria-labelledby="pdRedactieTitle">
             <h3 class="pd-redactie-title" id="pdRedactieTitle">Redactionele aanpak</h3>
             <p>BRUZZCheck is de politieke barometer van BRUZZ en volgt 25 concrete beloften uit het Brusselse regeerakkoord van februari 2026. Halfjaarlijks maakt de redactie de balans op.</p>
-            <p>Op basis van vaste criteria en controleerbare bronnen krijgt elke belofte een status: gerealiseerd, op schema, gestart, niet op schema, mislukt, niet gestart of niet verifieerbaar.</p>
+            <p>Op basis van vaste criteria en controleerbare bronnen krijgt elke belofte een status: gerealiseerd, op schema, gestart, mislukt, niet op schema, niet gestart of niet verifieerbaar.</p>
             <p class="pd-redactie-lead"><strong>Dit zijn de (geplande) evaluatierondes van deze belofte:</strong></p>
             <div class="pd-redactie-rounds">${renderRoundsTimeline()}</div>
             <p>Meer weten over de werkwijze? Lees de <a href="/node/214357">veelgestelde vragen</a>.</p>
@@ -3690,6 +3693,22 @@ document.head.appendChild(style);
   function ptTW(t) {
     try { var rg = document.createRange(); rg.selectNodeContents(t); if (window.innerWidth > 640) return t.getBoundingClientRect().width; var w = Math.ceil(rg.getBoundingClientRect().width); t.style.setProperty("--tw", w + "px"); return w; } catch (_) { return t.getBoundingClientRect().width; }
   }
+
+  function ptNoteBreak(sel, lsel) {
+    try {
+      document.querySelectorAll(sel).forEach(function (p) {
+        var a = p.querySelector(lsel); if (!a) return;
+        a.classList.remove("pt-note-2l");
+        if (window.innerWidth > 640) return;
+        var pr = p.getBoundingClientRect(), rs = a.getClientRects();
+        var lines = Math.round(pr.height / (parseFloat(getComputedStyle(p).lineHeight) || 20));
+        if (lines > 1 && (rs.length > 1 || rs[0].left > pr.left + 6)) a.classList.add("pt-note-2l");
+      });
+    } catch (_) {}
+  }
+      window.addEventListener("resize", function () { ptNoteBreak("#promise-detail-embed .pd-meta-note", ".pd-meta-link"); });
+      window.addEventListener("load", function () { ptNoteBreak("#promise-detail-embed .pd-meta-note", ".pd-meta-link"); });
+      [300, 900, 2000, 4000].forEach(function (t) { setTimeout(function () { ptNoteBreak("#promise-detail-embed .pd-meta-note", ".pd-meta-link"); }, t); });
       function ptReveal(el) {
           if (!el || el.__bmRev) return; el.__bmRev = true;
           if (!window.IntersectionObserver) { el.classList.add("bm-in"); return; }
