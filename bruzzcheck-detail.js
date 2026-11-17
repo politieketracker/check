@@ -707,6 +707,7 @@ document.head.appendChild(style);
 
           flushList();
           para.push(line);
+          flushPara();
         });
 
         flushPara();
