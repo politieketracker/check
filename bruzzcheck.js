@@ -210,6 +210,7 @@ style.textContent += "\n\n@media (min-width:641px){\n#promise-tracker-embed .pt-
   style.textContent += "\n\n#promise-tracker-embed .pt-row-plain .pt-row-count{display:none!important}\n";
   style.textContent += "\n@media (max-width:640px){\n#promise-tracker-embed .pt-fbar{flex-wrap:wrap}\n#promise-tracker-embed .pt-viewseg-note{flex:0 0 100%;order:9;margin:0;padding:0 4px 8px 4px;font-size:var(--font-size--xs,14px);line-height:1.35;color:#4a4a52}\n#promise-tracker-embed .pt-viewseg-note[hidden]{display:none}\n}\n#promise-tracker-embed .pt-viewseg-note{display:none}\n@media (max-width:640px){#promise-tracker-embed .pt-viewseg-note:not([hidden]){display:block}}\n";
   style.textContent += "\n@media (max-width:640px){#promise-tracker-embed #pt-filters{flex-wrap:wrap!important;height:auto!important;min-height:52px}#promise-tracker-embed #pt-filters .pt-viewseg-note{flex:0 0 100%;box-sizing:border-box}}\n";
+  style.textContent += "\n\n#promise-tracker-embed .pt-redactie .pt-redactie-title::after,#promise-detail-embed .pd-redactie .pd-redactie-title::after{background:#fff!important}\n";
   document.head.appendChild(style);
 
   (function () {

@@ -259,6 +259,7 @@ style.textContent += "\n\n#promise-detail-embed .pd-pr-row[data-answer=\"Ja\" i]
   style.textContent += "\n\n@media (max-width:640px){#promise-tracker-embed .pt-note-2l,#promise-detail-embed .pt-note-2l{display:block}}\n";
   style.textContent += "\n\n.pd-pill-text,.pd-status-pill,.pd-update-status-pill,.bm-master-timeline .pd-pill-text,.bm-master-timeline .pd-status-pill,.bm-master-timeline .pd-update-status-pill,#promise-detail-embed .pd-pill-text,#promise-detail-embed .pd-status-pill,#promise-detail-embed .pd-update-status-pill{font-family:var(--font-body,inherit)!important}\n";
   style.textContent += "\n#promise-detail-embed .pd-redactie .pd-redactie-title::after{background:linear-gradient(to bottom,#fff 0,#fff calc(100% - 120px),rgba(255,255,255,0) 100%)!important}\n";
+  style.textContent += "\n\n#promise-tracker-embed .pt-redactie .pt-redactie-title::after,#promise-detail-embed .pd-redactie .pd-redactie-title::after{background:#fff!important}\n";
 document.head.appendChild(style);
   MOUNT.innerHTML = "<div class=\"pd-app\">\n    <a class=\"pd-back\" id=\"pdBackLink\" href=\"#\"><span class=\"pd-back-text\">Alle beloftes van <span class=\"pd-back-logo\" role=\"img\" aria-label=\"BRUZZCheck\" style=\"-webkit-mask-image:url(" + PD_LOGO + ");mask-image:url(" + PD_LOGO + ")\"></span></span></a>\n    <div id=\"pdRoot\" class=\"pd-shell\">\n      <div class=\"pd-loading\">Aan het laden...</div>\n    </div>\n  </div>";
 
