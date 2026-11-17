@@ -2382,7 +2382,7 @@ document.head.appendChild(style);
           ${renderCarousel(promise)}
           <section class="pd-redactie" lang="nl" aria-labelledby="pdRedactieTitle">
             <h3 class="pd-redactie-title" id="pdRedactieTitle">Redactionele aanpak</h3>
-            <p>BRUZZCheck is de politieke barometer van BRUZZ en volgt 25 concrete beloften uit het Brusselse regeerakkoord van februari 2026. Halfjaarlijks maakt de redactie de balans op.</p>
+            <p>BRUZZCheck is de politieke barometer van BRUZZ en volgt 25 concrete beloftes uit het Brusselse regeerakkoord van februari 2026. Halfjaarlijks maakt de redactie de balans op.</p>
             <p>Op basis van vaste criteria en controleerbare bronnen krijgt elke belofte een status: gerealiseerd, op schema, gestart, mislukt, niet op schema, niet gestart of niet verifieerbaar.</p>
             <p class="pd-redactie-lead"><strong>Dit zijn de (geplande) evaluatierondes van deze belofte:</strong></p>
             <div class="pd-redactie-rounds">${renderRoundsTimeline()}</div>
