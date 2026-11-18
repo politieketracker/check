@@ -436,7 +436,7 @@ style.textContent += "\n\n@media (min-width:641px){\n#promise-tracker-embed .pt-
       const CARD_TITLE_COLOR = "#1F1F1F";
 
       const STATUS_ORDER = ["GELUKT","OP SCHEMA","GESTART","MISLUKT","NIET OP SCHEMA","NIET GESTART","ONVERIFIEERBAAR","GEDWARSBOOMD","GEBLOKKEERD"];
-      const HIDE_WHEN_ZERO = ["GEDWARSBOOMD", "GEBLOKKEERD", "ONVERIFIEERBAAR"];
+      const HIDE_WHEN_ZERO = ["GEDWARSBOOMD", "GEBLOKKEERD"];
 
       const LEGACY_STATUS_MAP = {
             "NIET VERIFIEERBAAR": "ONVERIFIEERBAAR",
