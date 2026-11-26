@@ -469,7 +469,7 @@ style.textContent += "\n\n@media (min-width:641px){\n#promise-tracker-embed .pt-
               shortName: "Laurent HUBLET",
               partij: "Les Engagés",
               bg: "#05060a",
-              image: "https://app.razuna.eu/file/remote?i=69e631bd25f5635dbfdd91b3&f=t&dl=t&c=3618157e1ee9e6eb0d8231ae1d06fc40&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFiZDI1ZjU2MzVkYmZkZDkxYjMmZj10JmRsPXQmYz0zNjE4MTU3ZTFlZTllNmViMGQ4MjMxYWUxZDA2ZmM0MCIsInR5cGUiOiJkaXJlY3QifQ.ea8EC6iSs_Rsfxkmd2wd18TRtsp9EOFyNnC1JzeJB5E",
+              image: "https://app.razuna.eu/file/remote?i=6b080a6dba10b6d615d9d33e&f=t&dl=t&c=f79ff1a0ffa3ae83cc337ec71792f84c&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YjA4MGE2ZGJhMTBiNmQ2MTVkOWQzM2UmZj10JmRsPXQmYz1mNzlmZjFhMGZmYTNhZTgzY2MzMzdlYzcxNzkyZjg0YyIsInR5cGUiOiJkaXJlY3QifQ.LNUNjRbZQz-h4OFdlSaNAG_65EGurgS187zfnEejibc",
               centerKicker: "Minister",
               centerTitle: "Laurent HUBLET",
               centerSubtitle: "Economie, Digitale Economie en Werk"
@@ -479,7 +479,7 @@ style.textContent += "\n\n@media (min-width:641px){\n#promise-tracker-embed .pt-
               shortName: "Dirk DE SMEDT",
               partij: "Anders",
               bg: "#05060a",
-              image: "https://app.razuna.eu/file/remote?i=69e631c7b134cb119fc27b85&f=t&dl=t&c=635019ef630af87328c4cddfbd7fd289&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFjN2IxMzRjYjExOWZjMjdiODUmZj10JmRsPXQmYz02MzUwMTllZjYzMGFmODczMjhjNGNkZGZiZDdmZDI4OSIsInR5cGUiOiJkaXJlY3QifQ.v2MzKxHZM55Fo2nuwcLvQP3dIwpJgxkERanzIRZgdBo",
+              image: "https://app.razuna.eu/file/remote?i=6b080a719376d0d062b7372b&f=t&dl=t&c=acc4901b06f3f5d54a7432f8ed8ddbac&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YjA4MGE3MTkzNzZkMGQwNjJiNzM3MmImZj10JmRsPXQmYz1hY2M0OTAxYjA2ZjNmNWQ1NGE3NDMyZjhlZDhkZGJhYyIsInR5cGUiOiJkaXJlY3QifQ.CchQFfV2T1OdaFPKrrC9LTU1k6f6RqRp6lfAtg8cv_I",
               centerKicker: "Minister",
               centerTitle: "Dirk DE SMEDT",
               centerSubtitle: "Financiën, Begroting, Ambtenarenzaken & Digitalisering"
@@ -489,7 +489,7 @@ style.textContent += "\n\n@media (min-width:641px){\n#promise-tracker-embed .pt-
               shortName: "Ahmed LAAOUEJ",
               partij: "PS",
               bg: "#05060a",
-              image: "https://app.razuna.eu/file/remote?i=69e631b98e15ec28d9d0eea9&f=t&dl=t&c=0857aedf1d75baa86d212b52ae80ebc8&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFiOThlMTVlYzI4ZDlkMGVlYTkmZj10JmRsPXQmYz0wODU3YWVkZjFkNzViYWE4NmQyMTJiNTJhZTgwZWJjOCIsInR5cGUiOiJkaXJlY3QifQ.PKdtRvJjcvCLFElGSdtGm0YcF4yZKbvrwAiKVQ4CmeE",
+              image: "https://app.razuna.eu/file/remote?i=6b080a6d25b65500958cfd59&f=t&dl=t&c=e4822c79fab743c5f2f6efebdcad16d6&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YjA4MGE2ZDI1YjY1NTAwOTU4Y2ZkNTkmZj10JmRsPXQmYz1lNDgyMmM3OWZhYjc0M2M1ZjJmNmVmZWJkY2FkMTZkNiIsInR5cGUiOiJkaXJlY3QifQ.b7LsmS9iMT0RspiklCx37CM_xxfJ9y9db8Jmws7p6KA",
               centerKicker: "Minister",
               centerTitle: "Ahmed LAAOUEJ",
               centerSubtitle: "Plaatselijke Besturen, Gelijke Kansen & Schoolondersteuning"
@@ -499,7 +499,7 @@ style.textContent += "\n\n@media (min-width:641px){\n#promise-tracker-embed .pt-
               shortName: "Elke VAN DEN BRANDT",
               partij: "Groen",
               bg: "#05060a",
-              image: "https://app.razuna.eu/file/remote?i=69e631bb8e15ec28d9d0ef06&f=t&dl=t&c=4e748169f7544b4522044abe9464de13&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFiYjhlMTVlYzI4ZDlkMGVmMDYmZj10JmRsPXQmYz00ZTc0ODE2OWY3NTQ0YjQ1MjIwNDRhYmU5NDY0ZGUxMyIsInR5cGUiOiJkaXJlY3QifQ.vW1qeC09nQgyBbHWcsOyKhrtwhZVlJrXaK0xBYj4JTE",
+              image: "https://app.razuna.eu/file/remote?i=6b080a6ec055e79d78336613&f=t&dl=t&c=843aca48afda990033b4bc5695cfcfac&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YjA4MGE2ZWMwNTVlNzlkNzgzMzY2MTMmZj10JmRsPXQmYz04NDNhY2E0OGFmZGE5OTAwMzNiNGJjNTY5NWNmY2ZhYyIsInR5cGUiOiJkaXJlY3QifQ.DrJzuJ-iSfYP9E3ZL9I4BjUsW-IxvL9XQcTt0IphAK4",
               centerKicker: "Minister",
               centerTitle: "Elke VAN DEN BRANDT",
               centerSubtitle: "Mobiliteit, Openbare Werken, Verkeersveiligheid & Dierenwelzijn"
@@ -509,7 +509,7 @@ style.textContent += "\n\n@media (min-width:641px){\n#promise-tracker-embed .pt-
               shortName: "Boris DILLIÈS",
               bg: "#05060a",
               partij: "MR",
-              image: "https://app.razuna.eu/file/remote?i=69e631c4055d275698f393b6&f=t&dl=t&c=d46434a1c7adef8d8d92d3b79146c196&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFjNDA1NWQyNzU2OThmMzkzYjYmZj10JmRsPXQmYz1kNDY0MzRhMWM3YWRlZjhkOGQ5MmQzYjc5MTQ2YzE5NiIsInR5cGUiOiJkaXJlY3QifQ.XJHg57he5qKKB4yxRONV0wsmLZeBvgtTrd3KPRhnDv8",
+              image: "https://app.razuna.eu/file/remote?i=6b080a712f76e27393a5666c&f=t&dl=t&c=2cead02319aed5313a9fe248caeeed2c&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YjA4MGE3MTJmNzZlMjczOTNhNTY2NmMmZj10JmRsPXQmYz0yY2VhZDAyMzE5YWVkNTMxM2E5ZmUyNDhjYWVlZWQyYyIsInR5cGUiOiJkaXJlY3QifQ.99H0YNwzpvmUk_HsE6kT6Yt-Bsc5kutJcHQIVm-I4nU",
               centerKicker: "Minister-President",
               centerTitle: "Boris DILLIÈS",
               centerSubtitle: "Veiligheid & Wetenschappelijk Onderzoek"
@@ -519,7 +519,7 @@ style.textContent += "\n\n@media (min-width:641px){\n#promise-tracker-embed .pt-
               shortName: "Audrey HENRY",
               partij: "MR",
               bg: "#05060a",
-              image: "https://app.razuna.eu/file/remote?i=69e631c9bb689608f6d451ed&f=t&dl=t&c=d6febb6631e7295256a6117c48350775&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFjOWJiNjg5NjA4ZjZkNDUxZWQmZj10JmRsPXQmYz1kNmZlYmI2NjMxZTcyOTUyNTZhNjExN2M0ODM1MDc3NSIsInR5cGUiOiJkaXJlY3QifQ.puW2p7bPAxutA_5GbbBCYHVwajTkIoLT3Dldhlcx78Y",
+              image: "https://app.razuna.eu/file/remote?i=6b080a719376d0d062b7373f&f=t&dl=t&c=3fbf731b36859cf8278ced292f2de58d&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YjA4MGE3MTkzNzZkMGQwNjJiNzM3M2YmZj10JmRsPXQmYz0zZmJmNzMxYjM2ODU5Y2Y4Mjc4Y2VkMjkyZjJkZTU4ZCIsInR5cGUiOiJkaXJlY3QifQ.gSi6-9cisze85lWdxRV8t3yRFc1HoOpg68HQLTCVqCQ",
               centerKicker: "Staatssecretaris",
               centerTitle: "Audrey HENRY",
               centerSubtitle: "Ruimtelijke Ordening, Openbare Netheid & Energie"
@@ -529,7 +529,7 @@ style.textContent += "\n\n@media (min-width:641px){\n#promise-tracker-embed .pt-
               shortName: "Ans PERSOONS",
               partij: "Vooruit",
               bg: "#05060a",
-              image: "https://app.razuna.eu/file/remote?i=69e631bfb8941ccbec8fd4da&f=t&dl=t&c=490f6bee1b8ef931d73936317b4ec5d3&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFiZmI4OTQxY2NiZWM4ZmQ0ZGEmZj10JmRsPXQmYz00OTBmNmJlZTFiOGVmOTMxZDczOTM2MzE3YjRlYzVkMyIsInR5cGUiOiJkaXJlY3QifQ.iJFq5kCXZnUSH3TJscLP1I1E_TX5VDJDswHxwpzS-9g",
+              image: "https://app.razuna.eu/file/remote?i=6b080a6dba10b6d615d9d32a&f=t&dl=t&c=d3fb2fdb820b22c19612d86056e6e008&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YjA4MGE2ZGJhMTBiNmQ2MTVkOWQzMmEmZj10JmRsPXQmYz1kM2ZiMmZkYjgyMGIyMmMxOTYxMmQ4NjA1NmU2ZTAwOCIsInR5cGUiOiJkaXJlY3QifQ.5Ea5k-Tt3wab_RMeosC2RsCPhgkYZEnVvso5KNqiwfs",
               centerKicker: "Staatssecretaris",
               centerTitle: "Ans PERSOONS",
               centerSubtitle: "Leefmilieu, Klimaat, Stadsvernieuwing & Erfgoed"
@@ -539,7 +539,7 @@ style.textContent += "\n\n@media (min-width:641px){\n#promise-tracker-embed .pt-
               shortName: "Karine LALIEUX",
               partij: "PS",
               bg: "#05060a",
-              image: "https://app.razuna.eu/file/remote?i=69e631c21cd3b3713110e41d&f=t&dl=t&c=27a5958054ab4f8a48aeef3f6ef1e359&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OWU2MzFjMjFjZDNiMzcxMzExMGU0MWQmZj10JmRsPXQmYz0yN2E1OTU4MDU0YWI0ZjhhNDhhZWVmM2Y2ZWYxZTM1OSIsInR5cGUiOiJkaXJlY3QifQ.PfI85SOUTo_UT92WuObErP90fZ2lSiefhy6tHmDPrdM",
+              image: "https://app.razuna.eu/file/remote?i=6b080a70ba10b6d615d9d394&f=t&dl=t&c=ded114d9d999d4ba6339ddf9addc03e2&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02YjA4MGE3MGJhMTBiNmQ2MTVkOWQzOTQmZj10JmRsPXQmYz1kZWQxMTRkOWQ5OTlkNGJhNjMzOWRkZjlhZGRjMDNlMiIsInR5cGUiOiJkaXJlY3QifQ.Wv6PaGlfjcSKvKGxrtnlqqZyqchHva_3yULY3yNrMoE",
               centerKicker: "Staatssecretaris",
               centerTitle: "Karine LALIEUX",
               centerSubtitle: "Huisvesting, Taxisector & Sportinfrastructuur"
